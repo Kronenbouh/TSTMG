@@ -1,0 +1,205 @@
+%Chargement des paquets
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{xparse, etoolbox}
+\usepackage{enumerate}
+\usepackage{mathabx}
+\usepackage{minted}
+\usepackage[french]{babel}
+\usepackage{keytheorems}
+\usepackage[theorems]{tcolorbox}
+\usepackage{hyperref}
+\usepackage[framemethod=tikz]{mdframed}
+
+%Ensembles de nombres
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Ne}{\N^\ast}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\D} {\mathbb{D}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\Rb}{\overline{\mathbb{R}}}
+\newcommand{\Rp}{\R_+}
+\newcommand{\Rm}{\R_-}
+\newcommand{\K} {\mathbb{K}}
+\newcommand{\Cx}{\mathbb{C}}
+
+%Opérateurs
+\newcommand{\equi}{\Leftrightarrow}
+
+%Normes
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+%tikz
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary {angles}
+\usepackage{tkz-euclide}
+
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {clip=true, grid style = {opacity=.5}}
+}
+
+%Interface théorème
+\renewcommand*{\proofname}{Démonstration}
+
+\theoremstyle{definition}
+\newtheorem*{nota}{Notation}
+
+\theoremstyle{definition}
+\newtheorem*{conv}{Convention}
+
+\theoremstyle{definition}
+\newtheorem{ex}{Exemple}[section]
+
+\theoremstyle{remark}
+\newtheorem{rmq}{Remarque}
+
+\theoremstyle{definition}
+\newtheorem*{idea}{Idée}
+
+%styles pour théorèmes
+\newkeytheoremstyle{tcb-thm}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!50!black,
+      },
+  }
+  
+\newkeytheorem{thm}[
+  name=Théorème,
+  parent=section,
+  style=tcb-thm,
+  ]  
+  
+\newkeytheoremstyle{tcb-prop}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!75!black,
+      },
+  }
+ 
+\newkeytheorem{prop}[
+  name=Proposition,
+  parent=section,
+  style=tcb-prop,
+  ] 
+  
+\newkeytheorem{coro}[
+  name=Corollaire,
+  parent=section,
+  style=tcb-prop,
+  ]
+  
+\newkeytheoremstyle{tcb-lem}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!100!black,
+      },
+  }
+  
+\newkeytheorem{lem}[
+  name=Lemme,
+  parent=section,
+  style=tcb-lem,
+  ]
+ 
+  
+\newkeytheoremstyle{tcb-def}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=orange!5!white,
+      colframe=orange!75!black,
+      },
+  }
+  
+\newkeytheorem{defn}[
+  name=Définition,
+  parent=section,
+  style=tcb-def,
+  ]
+ 
+\newkeytheorem{rapl}[
+  name=Rappel,
+  style=tcb-def,
+  ]
+  
+\newkeytheoremstyle{tcb-exo}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colframe=black,
+      colback=white,
+      },
+  }
+  
+\newkeytheorem{exo}[
+  name=Exercice,
+  style=tcb-exo,
+  ]
+  
+\surroundwithmdframed[
+	hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{proof}
