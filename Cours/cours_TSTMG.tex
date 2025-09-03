@@ -1,6 +1,6 @@
 \documentclass[frenchb]{report}
 
-\input{environment_simple}
+\input{preamble}
 
 \begin{document}
 
@@ -77,6 +77,7 @@ On écrira donc $(u_n)_{n \in \N}$ ou simplement $(u_n)$ (toujours avec des pare
 
 \begin{rmq}
 On pourra rencontrer des suites dont le domaine de définition n'est pas $\N$ tout entier mais un sous ensemble de $\N$ (par exemple les entiers non nuls). Ce petit détail ne change néanmoins pas notre propos.
+Dans la suite de ce cours, on considèrera donc des suites dont le premier terme est $u_0$.
 \end{rmq}
 
 \section{Expression d'une suite}
@@ -92,9 +93,7 @@ On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie de façon explici
 La suite définie sur $\N$ par $u_n = 2n +1$ est définie de façon explicite. On remarquera que $u_0 = 1, u_1 = 3, u_2 = 5$ etc. Cette suite est en fait la suite des nombres impairs.
 \end{ex}
 
-\begin{exo}
-Donner la définition explicite de la suite des nombres pairs.
-\end{exo}
+\exe{titre, difficulty=3}{ Donner la définition explicite de la suite des nombres pairs. }{exe:exo1}{ Solution. }
 
 \begin{defn}[Définition par récurrence]
 On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie par récurrence lorsque sont donnés son premier terme $u_0$ et une relation permettant de calculer le terme de rang $n+1$ à partir du terme de rang $n$. On a alors
@@ -105,22 +104,20 @@ On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie par récurrence l
 La suite définie sur $\N$ par $u_0=1$ et $u_{n+1} = u_n + 2$ est définie par récurrence. On remarquera que $u_1 = 3, u_2 = 5$ etc. C'est à nouveau la suite des nombres impairs !
 \end{ex}
 
-\begin{exo}
-Donner la définition par récurrence de la suite des nombres pairs.
-\end{exo}
+\exe{titre, difficulty=3}{Donner la définition par récurrence de la suite des nombres pairs.}{exe:exo2}{ Solution. }
 
-\begin{exo}
-La fonction ci-dessous (en python) permet de calculer les valeurs d'une suite numérique. Utilise-t-elle une définition explicite ou par récurrence ? Combien d'opération effectue l'algorithme pour déterminer un terme de rang n donné ? Pouvez-vous proposer un algorithme plus efficace ?
 
-\begin{minted}{python}
-def suite_expl(n):
-	res = 0
-	for i in range(n)
-		res += 3
-	return(res)
-\end{minted}
-
-\end{exo}
+%\exe{titre, difficulty=3}{
+%La fonction ci-dessous (en python) permet de calculer les valeurs d'une suite numérique. Utilise-t-elle une définition explicite ou par récurrence ? Combien d'opération effectue l'algorithme pour déterminer un terme de rang n donné ? Pouvez-vous proposer un algorithme plus efficace ?
+%
+%\begin{minted}{python}
+%def suite_expl(n):
+%	res = 0
+%	for i in range(n)
+%		res += 3
+%	return(res)
+%\end{minted}
+%}{exe:exo3}{ Solution. }
 
 \section{Suite arithmétique}
 
@@ -129,9 +126,9 @@ On appelle suite arithmétique de raison $r \in \R$ et de premier terme $u_0 \in
 \[ u_{n+1} = u_n + r .\]
 \end{defn}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 On considère la suite arithmétique de premier terme $u_0 = 2$ et de raison 3. Tracer les termes $u_0, u_1, \dots, u_5$ dans un repère orthonormé. Que constatez-vous ?
-\end{exo}
+}{exe:exo4}{ Solution. }
 
 \begin{prop}
 On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raison $r$. Alors, l'expression 
@@ -139,9 +136,9 @@ On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raiso
 est une définition explicite de la suite $(u_n)$.
 \end{prop}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 Démontrez la proposition précédente.
-\end{exo}
+}{exe:exo4}{ Solution. }
 
 \begin{rmq} On peut donc calculer n'importe quel terme d'une suite arithmétique sans connaissance explicite des termes de rang inférieur (mis à part le premier). Cette proposition parait intuitive lorsqu'on observe la représentation graphique de quelques termes successifs d'une suite arithmétique, comme ils sont alignés, il suffit de connaître deux paramètres (la pente de la droite et sa position pour une abscisse donnée) pour connaître toute la droite. 
 \end{rmq}
@@ -164,7 +161,7 @@ Soit $(u_n)$ une suite arithmétique de raison $r$ et de premier terme $u_0$ et 
 Attention, on somme bien $N+1$ termes (et non pas $N$) car le premier terme est indexé par 0 !
 \end{rmq}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 L'objet de cet exercice est de démontrer la proposition précédente.
 \begin{enumerate}
 \item On souhaite étudier la somme définie par $s_n=1+2+ \dots + n$.
@@ -182,7 +179,7 @@ En déduire la valeur de $s_{10}$.
 \item En utilisant la définition explicite du terme $u_{n+1}$ simplifier l'écriture de la formule donnée à la question précédente. Conclure.
 \end{enumerate}
 \end{enumerate}
-\end{exo}
+}{exe:exo5}{ Solution. }
 
 \section{Suite géométrique}
 
@@ -191,9 +188,9 @@ On appelle suite géométrique de raison $q \in \R$ et de premier terme $u_0 \in
 \[ u_{n+1} = q \cdot u_n .\]
 \end{defn}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 On considère la suite arithmétique de premier terme $u_0 = 3$ et de raison $2$. Tracer les termes $u_0, u_1, u_2, u_3$ dans un repère orthonormé. Que constatez-vous ?
-\end{exo}
+}{exe:exo6}{ Solution. }
 
 \begin{prop}
 On considère une suite géomérique $(u_n)$ de premier terme $u_0$ et de raison $q$. Alors, l'expression 
@@ -201,24 +198,24 @@ On considère une suite géomérique $(u_n)$ de premier terme $u_0$ et de raison
 est une définition explicite de la suite $(u_n)$.
 \end{prop}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 Démontrez la proposition précédente.
-\end{exo}
+}{exe:exo7}{ Solution. }
 
 \begin{rmq}
 Cette proposition est l'équivalent géométrique de la proposition déjà formulée pour les suites arithmétiques
 \end{rmq}
 
-\begin{exo}
-On vous inspirant de l'algorithme proposé pour les suites arithmétiques, proposer un algorithme permettant de calculer le terme de rang $n$ d'une suite géométrique quelconque. Combien d'opérations effectue votre algorithme ?
-\end{exo}
+\exe{titre, difficulty=3}{
+En vous inspirant de l'algorithme proposé pour les suites arithmétiques, proposer un algorithme permettant de calculer le terme de rang $n$ d'une suite géométrique quelconque. Combien d'opérations effectue votre algorithme ?
+}{exe:exo8}{ Solution. }
 
 \begin{prop}
 Soit $(u_n)$ une suite géométrique de raison $q$ et de premier terme $u_0$ et soit $N \in \N$. La somme des $N+1$ premiers termes de la suite $(u_n)_{n \in \N}$ est donnée par la formule 
 \[ S_N = \sum_{n=0}^N u_n = u_0 \cdot \frac{1-q^{n+1}}{1-q}. \]
 \end{prop}
 
-\begin{exo}
+\exe{titre, difficulty=3}{
 L'objet de cet exercice est de démontrer la proposition précédente. On considère une suite géométrique $(u_n)$ de premier terme $u_0$ et de raison $q$.
 \begin{enumerate}
 \item On commence par étudier le cas particulier $S_5 = u_0 + u_0 \cdot q + \dots + u_0 \cdot q^5$. Démontrer que 
@@ -227,11 +224,11 @@ L'objet de cet exercice est de démontrer la proposition précédente. On consid
 \item En égalisant les relations données précédemment, montrer que $S_N(1-q) = u_0(1-q^{N+1})$.
 \item Conclure.
 \end{enumerate}
-\end{exo}
+}{exe:exo9}{ Solution. }
 
 \section{Manipulations des suites}
 
-\begin{exo}[Recherche de seuil]
+\exe{Recherche de seuil, difficulty=3}{
 \begin{enumerate}
 \item On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raison $r > 0$. On cherche le plus petit rang $N \in N$ tel que $u_N \geq x$ où $x$ est un réel positif arbitraire.
 \begin{enumerate}
@@ -246,30 +243,33 @@ L'objet de cet exercice est de démontrer la proposition précédente. On consid
 \item On est maintenant face à une difficulté technique (on ne connaît pas la fonction réciproque de la fonction ``puissance $n$''). On va donc devoir faire une recherche ``à la main'' du seuil $N$. Proposer un algorithme effectuant cette recherche.
 \end{enumerate}
 \end{enumerate}
-\end{exo}
+}{exe:exo10}{ Solution. }
 
 \section{Applications des suites}
 
-\begin{exo}[Bodybuilding]
+\exe{Bodybuilding, difficulty=3}{
 Milon de Crotone était un athléte de la Grèce antique (né aux alentours de 550 avant Jésus Christ). Un mythe à son propos explique que, pour son entraînement, il décida de soulever un jeune veau tous les jours. Le veau grandissant, la charge soulevée par Milon augmentait progressivement. Lorsque le veau devint adulte, Milon pouvait toujours le soulever, par son entraînement il avait acquis, petit à petit, une force Herculéenne.
 \begin{enumerate}
 \item On suppose que le veau de Milon pesait 40 kg à sa naissance et gagnait 1 kg chaque jour. Quel outil mathématiques permet de modéliser la croissance du veau ? Expliquer votre choix.
 \item Milon s'entraîne ainsi durant une année entière. Quel charge est-il capable de soulever à l'issue de son entraînement ?
 \item Quelle charge cumulée (i.e. la somme des charges journalières) Milon a-t-il soulevé durant cette année d'entraînement ?
 \end{enumerate}
-\end{exo}
+}{exe:exo11}{ Solution. }
 
-\begin{exo}[Transmission virale]
+\exe{Transmission virale, difficulty=3}{
 Le taux de reproduction du premier variant du SARS-COV-2 était d'environ 3, ce qui signifie qu'une personne contaminée infectait en moyenne 3 nouvelles personnes. On suppose que le cluster souche (l'ensemble des premiers infectés) contenait dix individus.
 \begin{enumerate}
 \item Quel outil mathématiques permet de modéliser la propagation du virus dans la population ? Expliquer votre choix.
 \item On supposera qu'un individu contaminé infecte 3 nouveaux individus en un jour. Proposer une estimation du nombre de contaminés après 100 jours.
 \item On estime la population française à 70 millions d'habitant. En reprenant les hypothèses de la question précédente, estimer le nombre de jours nécessaire à la transmission du virus à l'intégralité de la population.
 \end{enumerate}
-\end{exo}
+}{exe:exo12}{ Solution. }
 
-\begin{exo}[Intérêts composés]
-Supposons qu'une oportunité financière permette de rémunérer un placement de capital à hauteur de $x \%$ (avec $x$ un réel positif). Le capital ainsi placé raportera donc $x \%$ d'intérêt après un temps $t$ (par exemple, $2 \%$ tous les ans). Le principe des intérêts composés est de réinvestir systématiquement les gains du capital à chaque versement des intérêts, ainsi, les intérêts de la période suivante ne porteront pas uniquement sur le capital de départ mais sur ce dernier additionné des intérêts précédemment générés. 
+\exe{Intérêts composés, difficulty=3}{
+Supposons qu'une oportunité financière permette de rémunérer un placement de capital à hauteur de $x \%$ (avec $x$ un réel positif).
+Le capital ainsi placé raportera donc $x \%$ d'intérêt après un temps $t$ (par exemple, $2 \%$ tous les ans). Le principe des intérêts
+composés est de réinvestir systématiquement les gains du capital à chaque versement des intérêts, ainsi, les intérêts de la période
+suivante ne porteront pas uniquement sur le capital de départ mais sur ce dernier additionné des intérêts précédemment générés. 
 \begin{enumerate}
 \item Pour étudier le principe des intérêts composés, on considère un capital initial noté $u_0$ et une rémunération notée $q$ ($q$ n'est pas exprimé en pourcentage, il correspond à $1+x$, par exemple une rémunération de $2 \%$ correspond à une multiplication par $1,02$).
 \begin{enumerate} 
@@ -284,7 +284,7 @@ Supposons qu'une oportunité financière permette de rémunérer un placement de
 \item En déduire l'expression de $u_n$ en fonction de $c$, $q$ et $n$. Que remarquez-vous ? Utiliser le cours pour simplifier cette formule.
 \end{enumerate}
 \end{enumerate}
-\end{exo}
+}{exe:exo13}{ Solution. }
 
 
 

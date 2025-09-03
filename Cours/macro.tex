@@ -1,0 +1,29 @@
+%Ensembles de nombres
+\newcommand{\N} {\mathbb{N}}
+\newcommand{\Ne}{\N^\ast}
+\newcommand{\Z} {\mathbb{Z}}
+\newcommand{\D} {\mathbb{D}}
+\newcommand{\Q} {\mathbb{Q}}
+\newcommand{\R} {\mathbb{R}}
+\newcommand{\Rb}{\overline{\mathbb{R}}}
+\newcommand{\Rp}{\R_+}
+\newcommand{\Rm}{\R_-}
+\newcommand{\K} {\mathbb{K}}
+\newcommand{\Cx}{\mathbb{C}}
+
+%Opérateurs
+\newcommand{\equi}{\Leftrightarrow}
+
+%Normes
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+%Commande d'exo
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		\marginpar{\mbox{\scriptsize(solution p.\pageref{\ExerciseLabel-Answer})}}
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}

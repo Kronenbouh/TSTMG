@@ -1,0 +1,143 @@
+%Interface théorème
+\renewcommand*{\proofname}{Démonstration}
+
+\theoremstyle{definition}
+\newtheorem*{nota}{Notation}
+
+\theoremstyle{definition}
+\newtheorem{ex}{Exemple}[section]
+
+\theoremstyle{remark}
+\newtheorem{rmq}{Remarque}
+
+%styles pour théorèmes
+\newkeytheoremstyle{tcb-thm}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!50!black,
+      },
+  }
+  
+\newkeytheorem{thm}[
+  name=Théorème,
+  parent=section,
+  style=tcb-thm,
+  ]  
+  
+\newkeytheoremstyle{tcb-prop}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!75!black,
+      },
+  }
+ 
+\newkeytheorem{prop}[
+  name=Proposition,
+  parent=section,
+  style=tcb-prop,
+  ] 
+  
+\newkeytheorem{coro}[
+  name=Corollaire,
+  parent=section,
+  style=tcb-prop,
+  ]
+  
+\newkeytheoremstyle{tcb-lem}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=blue!5!white,
+      colframe=blue!100!black,
+      },
+  }
+  
+\newkeytheorem{lem}[
+  name=Lemme,
+  parent=section,
+  style=tcb-lem,
+  ]
+ 
+  
+\newkeytheoremstyle{tcb-def}
+  {
+    headpunct={},
+    notebraces={}{},
+    noteseparator={ : },
+    notefont=\bfseries,
+    bodyfont=\slshape,
+    tcolorbox={
+      arc=0mm,
+      colback=orange!5!white,
+      colframe=orange!75!black,
+      },
+  }
+  
+\newkeytheorem{defn}[
+  name=Définition,
+  parent=section,
+  style=tcb-def,
+  ]
+ 
+\newkeytheorem{rapl}[
+  name=Rappel,
+  style=tcb-def,
+  ]
+ 
+\usepackage[framemethod=tikz]{mdframed}
+
+\surroundwithmdframed[
+	hidealllines=true,
+	leftline=true,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=true,
+]{proof}
+
+
+%interface pour les exos
+
+\usepackage[answerdelayed, lastexercise]{exercise}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{
+	\theExercise.
+	}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	% if exercise title is "1" then announce new chapter
+	\if\ExerciseTitle1
+		\hrule\vspace{1cm}
+		\LARGE
+		\textbf{Exercices du chapitre \thechapter}\newline\newline
+	\fi
+	
+	\centerline{\textbf{
+	Exercice \ExerciseHeaderNB
+	}}
+}
