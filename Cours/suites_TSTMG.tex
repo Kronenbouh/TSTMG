@@ -1,0 +1,309 @@
+\documentclass[a4paper, 12pt]{report}
+
+\input{preamble}
+
+\begin{document}
+
+\chapter{Suites numériques}
+
+\section{Définition générale}
+
+Considérons un ensemble $E$ dont on ne précise pas la nature et qui contient un nombre éventuellement infini de points. Si on imagine que cet ensemble est une urne dans laquelle on tire successivement, avec remise, $N$ points, on peut alors construire une famille de points :
+\[ \{x_1, x_2, \dots, x_N \}, \]
+où le point $x_1$ est le premier point tiré, $x_2$ le deuxième, etc., j'usqu'au point $x_N$ (avec $N \geq 1$, éventuellement infini). On dit alors que les points sont \textbf{indexés} par les nombres entiers. \\
+Comme le tirage a été effectué avec remise, il est possible que, pour deux rangs différents $i \neq j$, on ait $x_i = x_j$, c'est-à-dire que le même point soit indexé par deux entiers distincts. \\
+
+\begin{center}
+
+ \begin{tikzpicture}[scale=1.2]
+ 
+ % domaine
+\coordinate (B) at (0,1);
+\coordinate (C) at (.1,.9);
+	
+\node[dot=red, label=above:$3$] at (C){};
+	    	
+\node[ellipse, draw, label=above:$\N$, minimum height=110pt, minimum width=80pt] at (B){};
+	
+% codomaine
+\coordinate (D) at (4,.7);
+\node[dot=red, label=below:$x_3$] at (D){};
+\node[ellipse, draw, label=above:$E$, minimum height=110pt, minimum width=80pt] at (4,1){};
+	
+%maps	
+\draw[thick, ->] (C) -- (3.9,.72);
+\draw[thick, ->] (.6,1.5) -- (4,1.32);
+\draw[thick, ->] (.2,-.1) -- (4,1.18);
+	    	
+% morepoints  	
+%left ones
+\node[dot=black] at (0, 2){};		    	
+\node[dot=black] at (.2,-.1){};
+\node[dot=black] at (.6,1.5){};
+\node[dot=black] at (.75,.75){};
+\node[dot=black] at (-.3,1.4){};
+\node[dot=black] at (-.5,.2){};
+	    
+%rightones
+\node[dot=black] at (4,2){};
+\node[dot=black] at (4.65,.75){};
+\node[dot=black] at (4.1,1.25){};
+\node[dot=black] at (4.6,1.35){};
+\node[dot=black]  at (3.45,.45){};
+\node[dot=black]  at (3.3,1.15){};
+\node[dot=black]  at (4,-0.2){};
+
+\end{tikzpicture}
+
+\textit{Une illustration de l'indexation des éléments de E}
+
+\end{center}
+
+Si, pour l'ensemble $E$, on choisit l'ensemble des nombres réels $\R$ et que l'on applique ce même processus d'indexation, alors on aura définit une suite numérique $(x_n)$ dont l'étude est tout l'objet de ce chapitre.
+
+\begin{defn}
+On appelle \textbf{suite numérique} toute application de $D \subset \N$ dans $\R$, c'est à dire une application de la forme :
+\[ \begin{array}{c c c c}
+u : & \N & \to & \R \\
+& n & \mapsto & u_n
+\end{array} \]
+On notera cette suite $(u_n)_{n \in \N}$ ou parfois simplement $(u_n)$.
+\end{defn}
+
+\begin{nota}
+On fera attention à ne pas confondre l'objet $(u_n)_{n \in \N}$ qui est une application de $\N$ dans $\R$, (c'est-à-dire un objet qui ``transforme'' un index en un nombre réel), avec l'objet $u_n$, qui désigne le nombre réel associé à l'index $n$. \\
+On écrira donc $(u_n)_{n \in \N}$ ou simplement $(u_n)$ (toujours avec des parenthèses) pour désigner \textbf{la suite numérique} et on écrira $u_n$ pour désigner \textbf{le terme de rang $n$}.
+\end{nota} 
+
+\begin{rmq}
+On pourra rencontrer des suites dont le domaine de définition n'est pas $\N$ tout entier mais un sous ensemble $D \subset \N$ (par exemple les entiers non nuls). Ce petit détail ne change néanmoins pas notre propos.
+Dans la suite de ce cours, on considèrera donc des suites dont le premier terme est $u_0$.
+\end{rmq}
+
+\section{Expression d'une suite}
+
+On sait maintenant ce qu'est une suite, mais cette connaissance est entièrement abstraite, \textbf{c'est une application sur $\N$, d'accord, mais que fait-elle exactement ?} Pour répondre à cette question, on doit s'intéresser aux modes de définition d'une suite.
+
+\begin{defn}[Définition explicite]
+On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie de façon explicite lorsque l'on dispose d'une expression fonctionnelle permettant de calculer, pour tout index $n$, le réel $u_n$. En notant $f$ cette expression, on a alors 
+\[ u_n = f(n) \text{ pour tout } n \in \N \]
+\end{defn}
+
+\begin{ex}
+La suite définie sur $\N$ par $u_n = 2n +1$ est définie de façon explicite. On remarquera que $u_0 = 1, u_1 = 3, u_2 = 5$ etc. Cette suite est en fait la suite des nombres impairs.
+\end{ex}
+
+\begin{defn}[Définition par récurrence]
+On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie par récurrence lorsque sont donnés son premier terme $u_0$ et une relation permettant de calculer le terme de rang $n+1$ à partir du terme de rang $n$. On a alors
+\[ u_0 = x \in \R \qquad u_{n+1} = f(u_n) \]
+\end{defn}
+
+\begin{ex}
+La suite définie sur $\N$ par $u_0=1$ et $u_{n+1} = u_n + 2$ est définie par récurrence. On remarquera que $u_1 = 3, u_2 = 5$ etc. C'est à nouveau la suite des nombres impairs !
+\end{ex}
+
+\section{Suite arithmétique}
+
+\begin{defn}
+On appelle suite arithmétique de raison $r \in \R$ et de premier terme $u_0 \in \R$, une suite définie par la relation de récurrence 
+\[ u_{n+1} = u_n + r .\]
+\end{defn}
+
+\begin{prop}
+Soit $(u_n)$ une suite arithmétique. Lorsqu'on représente les points $(n, u_n)$ pour $n \in \N$ dans un repère orthonormé, ils sont alignés.
+\end{prop}
+
+\begin{ex}
+On considère la suite arithmétique de premier terme $u_0=1$ et de raison $r=2$. La représentation graphique des points $(n, u_n)$ pour $n \in \{ 0, 1, 2, 3 \}$ est donnée ci-dessous :
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1, xmax= 3.5, ymin=-1, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->,
+	xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\addplot [only marks] table {
+	0 1
+	1 3
+	2 5
+	3 7
+	};
+	\addplot[black, thin, domain =0:3, samples=2] {2*x+1};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{ex}
+
+\begin{thm}
+On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raison $r$. Alors, l'expression 
+\[ u_n = u_0 + n \cdot r \]
+est une définition explicite de la suite $(u_n)$.
+\end{thm}
+
+\begin{proof}
+On remarque que :
+\begin{align*}
+u_1 & = u_0 + r \\
+u_2 & = u_1 + r = u_0 + 2r  \\
+u_3 & = u_2 + r = u_0 + 2r + r = u_0 + 3r 
+\end{align*}
+Donc, on procédant comme ceci, de proche en proche, on déduit que 
+\[ u_n = u_0 + n \cdot r . \]
+\end{proof}
+
+\begin{rmq} On peut donc calculer n'importe quel terme d'une suite arithmétique sans connaissance explicite des termes de rang inférieur (mis à part le premier). Cette proposition parait intuitive lorsqu'on observe la représentation graphique de quelques termes successifs d'une suite arithmétique, comme ils sont alignés, il suffit de connaître deux paramètres (la pente de la droite et sa position pour une abscisse donnée) pour connaître toute la droite. 
+\end{rmq}
+
+\begin{nota}
+On utilise le symbole $\sum$ pour désigner une somme de plusieurs éléments indexés. Par exemple, les termes d'une suite numérique $(u_n)$ sont des nombres réels indexés par $n$. On écrit alors :
+\[ u_0 + u_1 + u_2 + \dots + u_N = \sum_{n=0}^N u_n \]
+pour désigner la somme des termes de rang 0 à $N$ de la suite $(u_n)$.
+\end{nota}
+
+\begin{lem}
+La somme des $n$ premiers entiers (en partant de 1) est égale à 
+\[ 1+2+ \dots +n = \dfrac{n(n+1)}2 \]
+\end{lem}
+
+\begin{proof}
+Essayons d'abord de calculer $1+2+3+\dots+98+99+100$. On remarque que $1+100=101$, $2+99=101$, $3+98=101 \dots$ Donc en regroupant les entiers deux par deux, on pourra former 50 $(=100 \div 2)$ couples dont la somme sera 101. On va donc trouver :
+\[  1+2+3+\dots+98+99+100 = \dfrac{100(100+1)}2  \]
+Ce qui est le résultat annoncé. \\
+
+Revenons maintenant au cas général, si $n$ est pair on va former $\dfrac{n}2$ couples de deux entiers dont la somme sera $n+1$ et on trouvera bien 
+\[ 1+2+ \dots +n = \dfrac{n(n+1)}2. \]
+Si $n$ est impair, on va former cette fois $\dfrac{n-1}2$ couples de deux entiers dont la somme sera $n+1$ et on aura un entier isolé dont la valeur sera ``pile au milieu'', c'est à dire $\dfrac{n+1}2$. 
+Finalement, on aura 
+\[ 1+2+ \dots +n = \dfrac{(n-1)(n+1)}2 + \dfrac{n+1}2 = \dfrac{n(n+1)}2. \]
+\end{proof}
+
+\begin{prop}
+Soit $(u_n)$ une suite arithmétique de raison $r$ et de premier terme $u_0$ et soit $N \in \N$. La somme des $N+1$ premiers termes de la suite $(u_n)_{n \in \N}$ est donnée par la formule 
+\[ \sum_{n=0}^N u_n = u_0+ u_1 + \dots u_N =  \dfrac{N+1}{2} \cdot (u_0 + u_N). \]
+\end{prop}
+
+\begin{rmq}
+Attention, on somme bien $N+1$ termes (et non pas $N$) car le premier terme est indexé par 0 !
+\end{rmq}
+
+\begin{proof}
+%%% Preuve alternative
+%On va utiliser la formule $u_n = u_0 + nr$. En substituant dans $u_0+ u_1 + \dots u_N$, on trouve :
+%\begin{align*}
+%u_0+ u_1 + u_2 + \dots u_N & = u_0 + u_0 + r + u_0 + 2r + \dots + u_0 + Nr \\
+%& = (N+1) u_0 + r + 2r + \dots + Nr \\
+%& = (N+1) u_0 + r \times (1+2+\dots+N) \\
+%& = (N+1) u_0 + r \times \dfrac{N(N+1)}2 \\
+%& = (N+1) ( u_0 + r \times \dfrac{N}2 \\
+%& = (N+1) \cdot \dfrac{2u_0 + N r}2 \\
+%& = (N+1) \cdot \dfrac{u_0 + u_0 + Nr}2 \\
+%& = (N+1) \cdot \dfrac{u_0 + u_N}2 \qquad \text{car } u_N = u_0 + Nr \\
+%& =  \dfrac{N+1}{2} \cdot (u_0 + u_N) 
+%\end{align*}
+On va utiliser la même méthode que pour la somme $1+2+\dots+n$. Commençons par un exemple simple, la suite arithmétique de premier terme $u_0=1$ et de raison $r=2$. On veut calculer $u_0 + u_1 + \dots + u_{100}$.
+On remarque que :
+\begin{align*} 
+u_0 = 0, ~ & u_{100} = 1 + 100 \times 2 = 201 & \text{ et } & u_0 + u_{100} = 202 \\
+u_1 = 3, ~ & u_{99} = 1 + 99 \times 2 = 199 & \text{ et } & u_1 + u_{99} = 202 \\
+\text{etc} \dots & & &
+\end{align*}
+
+Comme on additionne 101 termes, on va pouvoir former 50 couples de deux termes dont la somme vaudra $202=u_0+u_100$. Seul le terme 
+\[ u_{50}=1+50 \times 2 = 101 = \dfrac{u_0+u_{100}}{2} \] 
+sera isolé. Au final
+\[ u_0 + u_1 + \dots + u_{100} = \dfrac{100}{2} (u_0+u_{100}) \dfrac{u_0+u_100}{2} = \dfrac{101}{2} (u_0+u_{100}) \]
+
+Revenons maintenant au cas général, si $N$ est pair on va former $\frac{N}2$ couples de deux termes dont la somme sera $u_0+u_N$ et il restera le terme $u_{N/2}$ isolé. Or
+\[ u_{N/2} = u_0 + \dfrac{N}{2} r = \dfrac{u_0 + u_0 + Nr}{2} = \dfrac{u_0 + u_N}{2}, \]
+car $u_N = u_0 + Nr$. Et finalement
+\[ u_0+ u_1 + \dots u_N = \dfrac{N+1}2 (u_0 + u_N) \] \\
+
+Si $N$ est impair, on va former $\frac{N+1}2$ couples de deux termes dont la somme sera $u_0+u_N$ et aucun terme ne sera isolé. On aura donc directement la formule cherchée.
+\end{proof}
+
+\section{Suite géométrique}
+
+\begin{defn}
+On appelle suite géométrique de raison $q \in \R$ et de premier terme $u_0 \in \R$, une suite définie par la relation de récurrence 
+\[ u_{n+1} = u_n \cdot  q.\]
+\end{defn}
+
+\begin{prop}
+Soit $(u_n)$ une suite géométrique. Lorsqu'on représente les points $(n, u_n)$ pour $n \in \N$ dans un repère orthonormé, \textbf{ils ne sont pas alignés.}
+\end{prop}
+
+\begin{ex}
+On considère la suite géométrique de premier terme $u_0=1$ et de raison $q=2$. La représentation graphique des points $(n, u_n)$ pour $n \in \{ 0, 1, 2, 3 \}$ est donnée ci-dessous :
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1, xmax= 3.5, ymin=-1, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->,
+	xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\addplot [only marks] table {
+	0 1
+	1 2
+	2 4
+	3 8
+	};
+	\addplot[black, thin, domain =0:3] {pow(2,x)};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\textit{Ici les termes de la suite croissent de façon exponentielle. Ceci est dû au fait que la raison de la suite est strictement supérieur à 1.}
+\end{ex}
+
+\begin{ex}
+On considère la suite géométrique de premier terme $u_0=1$ et de raison $q=\frac12$. La représentation graphique des points $(n, u_n)$ pour $n \in \{ 0, 1, 2, 3 \}$ est donnée ci-dessous :
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1, xmax= 3.5, ymin=-0.25, ymax=1.25, axis x line=middle, axis y line=middle, axis line style=<->,
+	xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\addplot [only marks] table {
+	0 1
+	1 0.5
+	2 0.25
+	3 0.125
+	};
+	\addplot[black, thin, domain =0:3] {pow(0.5,x)};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\textit{Ici les termes de la suite décroissent de façon exponentielle. Ceci est dû au fait que la raison de la suite est strictement inférieur à 1 (mais positive).}
+\end{ex}
+
+\begin{thm}
+On considère une suite géomérique $(u_n)$ de premier terme $u_0$ et de raison $q$. Alors, l'expression 
+\[ u_n = u_0 \cdot q^n \]
+est une définition explicite de la suite $(u_n)$.
+\end{thm}
+
+\begin{proof}
+On remarque que :
+\begin{align*}
+u_1 & = u_0 \cdot q \\
+u_2 & = u_1 \cdot q = u_0 \cdot q \cdot q = u_0 \cdot q^2  \\
+u_3 & = u_2 \cdot q = u_0 \cdot q \cdot q \cdot q = u_0 \cdot q^3
+\end{align*}
+Donc, on procédant comme ceci, de proche en proche, on déduit que 
+\[ u_n = u_0 \cdot q^n . \]
+\end{proof}
+
+\begin{rmq}
+Cette proposition est l'équivalent géométrique de la proposition déjà formulée pour les suites arithmétiques
+\end{rmq}
+
+\begin{prop}
+Soit $(u_n)$ une suite géométrique de raison $q$ et de premier terme $u_0$ et soit $N \in \N$. La somme des $N+1$ premiers termes de la suite $(u_n)_{n \in \N}$ est donnée par la formule 
+\[ \sum_{n=0}^N u_n = u_0 + u_1 + \dots + u_N = u_0 \cdot \frac{1-q^{N+1}}{1-q}. \]
+\end{prop}
+
+\begin{proof}
+Notons $S = u_0 + u_1 + \dots + u_N$. On remarque que 
+\[ qS = q u_0 + q u_1 + \dots + q u_N . \] 
+Or, pour tout $n \in \N$, on a $q \cdot u_n = u_{n+1}$ selon la définition d'une suite géométrique. Donc
+\begin{align*} 
+qS & = u_1 + u_2 + \dots u_{N+1} \\
+& = S - u_{N+1} + u_0 \\
+& = S - u_0 \cdot q^{N+1} + u_0 
+\end{align*}
+et donc
+\[ S - qS = u_0 (1-q^{N+1}) \equi S = u_0 \dfrac{1-q^{N+1}}{1-q} .\]
+\end{proof}
+
+\end{document}

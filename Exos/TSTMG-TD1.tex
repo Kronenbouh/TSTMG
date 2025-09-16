@@ -1,79 +1,131 @@
 \input{preamble}
+\usepackage{graphicx,wrapfig}
+\usepackage{eurosym}
+\usepackage{varwidth}
+\graphicspath{ {./images/} }
 
 \begin{document}
 
 \pagestyle{fancy}
-\fancyhead[L]{Seconde}
-\fancyhead[C]{\textbf{TD n°1 : ensemble de nombres}}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{TD n°1 : suites}}
 \fancyhead[R]{\today}
 
 La difficulté des exercices est dénotée par des étoiles (de 0 à 3).
 
 \exe{, difficulty=0}{ 
-Donner la définition explicite de la suite des nombres pairs. 
+On considère une suite définie par $u_0=0$ et $u_{n+1}=u_n+2$. 
+\begin{enumerate}
+\item Est-ce une suite arithmétique ? Géométrique ? 
+\item Calculer quelques termes de la suite $(u_n)$, que remarquez-vous ?
+\item Même question en remplaçant la valeur de $u_0$ par 1.
 \end{enumerate}
 }{exe:exo1}
 
-\exe{Fractions, difficulty=0}{
-Donner la définition par récurrence de la suite des nombres pairs
+\exe{, difficulty=0}{ 
+On désire découper une tarte en 16 parts égales. Quel est nombre minimal de découpe que l'on doit effectuer ? \\
+Même question si on souhaite découper la tarte en 7 parts égales.
 }{exe:exo2}
 
-\exe{, difficulty=0}{
-On considère la suite arithmétique de premier terme $u_0 = 2$ et de raison 3. Tracer les termes $u_0, u_1, \dots, u_5$ dans un repère orthonormé. Que constatez-vous ?
+\exe{,difficulty=0}{
+On étudie la suite géométrique de premier terme $u_0=1$ et de raison $q=-1$.
+\begin{enumerate}
+\item Calculer $u_1, u_2, u_3$ et $u_4$. Que remarquez-vous ?
+\item Donner une règle générale pour calculer $u_n$ (autre que $u_n = u_0 \cdot q^n$).
+\end{enumerate}
+\textit{Une telle suite (qui oscille entre positif et négatif) est dite \textbf{alternée}.}
 }{exe:exo3}
 
-\exe{, difficulty=0}{ 
-On considère la suite arithmétique de premier terme $u_0 = 3$ et de raison $2$. Tracer les termes $u_0, u_1, u_2, u_3$ dans un repère orthonormé. Que constatez-vous ?
+\exe{, difficulty=1}{
+On souhaite construire un château de carte selon le modèle ci-dessous.
+\begin{wrapfigure}{r}{4.5cm}
+\includegraphics[width=4.5cm]{chateau-de-cartes}
+\end{wrapfigure}
+\begin{enumerate}
+\item Combien de cartes sont utilisées si on construit ainsi un seul étage ? Et si on construit 3 étages ?
+\item On décide de compter uniquement les cartes placées à l'horizontal (celles qui séparent les étages).
+	\begin{enumerate}
+	\item Place-t-on une carte à l'horizontal si on construit un seul étage ?
+	\item On construit 3 étages. Combien de cartes faut-il pour séparer l'étage tout au-dessus du suivant ? 
+	Et combien de cartes faut-il pour séparer l'étage du milieu de celui tout en bas ?
+	\item Est-ce que le nombre de cartes placées à l'horizontal entre deux étages forme une suite ? 
+	Si oui de quel type (arithmétique, géométrique, etc.) ?
+	\end{enumerate}
+\item On décide maintenant de compter les cartes placées à la verticale.
+	\begin{enumerate}
+	\item On construit 3 étages. Combien y-a-t-il de cartes verticales par étage ?
+	\item Est-ce que le nombre de cartes placées à la verticale forme une suite ? Si oui de quel type 
+	(arithmétique, géométrique, etc.) ?
+	\end{enumerate}
+\item Calculer le nombre de cartes nécessaire pour construire un château de 10 étages.
+\item On dispose de 1000 cartes. Combien d'étages peut-on construire ?
+\end{enumerate}
 }{exe:exo4}
 
-\exe{, difficulty=1}{ 
+\exe{, difficulty=0}{ 
 Pour chaque affirmation ci-dessous, dire si elle est vraie ou fausse. Justifier.
 \begin{enumerate}
-\item La suite définie par $u_n = 3 \cdot n + 4$ pour $n \in \N$ est une suite arithmétique.
+\item La suite définie par $u_n = 3n + 4$ pour $n \in \N$ est une suite arithmétique.
 \item La suite définie par $u_1 = 4$ et $u_{n+1} = u_{n} + \dfrac14$ pour $n \in \N$ est une suite arithmétique.
 \item Si $(u_n)$ est une suite arithmétique de raison $5$ et de premier terme $u_0 \in \R$ alors $u_{n+10} - u_n = 50$. 
 \item Si $(u_n)$ est une suite arithmétique de raison $10^{-3}$ et de premier terme $u_0=0$, alors pour tout $n \in \N, u_n < 1$.
 \end{enumerate}
 }{exe:exo5}
 
-\exe{, difficulty=3}{
-\begin{enumerate}
-\item On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raison $r > 0$. On cherche le plus petit rang $N \in N$ tel que $u_N \geq x$ où $x$ est un réel positif arbitraire.
-\begin{enumerate}
-\item Que vaut $u_1 - u_0$ ? $u_{25} - u_{20}$ ?
-\item En déduire l'expression de $u_n - u_0$ puis conclure.
-\item Proposer un algorithme (python ou language naturel) permettant de calculer le rang $N$.
-\end{enumerate}
-\item On considère maintenant une suite géométrique $(u_n)$ de premier terme $u_0$ et de raison $q > 0$. On cherche à nouveau le plus petit rang $N \in \N$ tel que $u_N \geq x$ où $x$ est un réel positif arbitraire.
-\begin{enumerate}
-\item Que vaut $\frac{u_1}{u_0}$ ? $\frac{u_{25}}{u_{20}}$ ?
-\item En déduire l'expression de $\frac{u_n}{u_0}$.
-\item On est maintenant face à une difficulté technique (on ne connaît pas la fonction réciproque de la fonction ``puissance $n$''). On va donc devoir faire une recherche ``à la main'' du seuil $N$. Proposer un algorithme effectuant cette recherche.
-\end{enumerate}
-\end{enumerate}
-}{exe:exo5}
-
 \exe{, difficulty=1}{
+\begin{enumerate} 
+\item Retrouver la raison de chacune des suites \textbf{arithmétiques} ci-dessous.
+	\begin{enumerate}
+	\item La suite $(u_n)$ telle que $u_0=2$ et $u_{50}=27$.
+	\item La suite $(v_n)$ telle que $v_0=20$ et $v_{10}=4$.
+	\end{enumerate}
+\item Même question mais le suites sont maintenant \textbf{géométriques}.
+	\begin{enumerate}
+	\item La suite $(u_n)$ telle que $u_5=24$ et $u_6=\dfrac{144}5$.
+	\item La suite $(v_n)$ telle que $v_0=\dfrac73$ et $v_{100}=\dfrac73$.
+	\end{enumerate}
+\end{enumerate}
+}{exe:exo6}
+
+\exe{, difficulty=2}{
 Milon de Crotone était un athléte de la Grèce antique (né aux alentours de 550 avant Jésus Christ). Un mythe à son propos explique que, pour son entraînement, il décida de soulever un jeune veau tous les jours. Le veau grandissant, la charge soulevée par Milon augmentait progressivement. Lorsque le veau devint adulte, Milon pouvait toujours le soulever, par son entraînement il avait acquis, petit à petit, une force Herculéenne.
 \begin{enumerate}
 \item On suppose que le veau de Milon pesait 40 kg à sa naissance et gagnait 1 kg chaque jour. Quel outil mathématiques permet de modéliser la croissance du veau ? Expliquer votre choix.
 \item Milon s'entraîne ainsi durant une année entière. Quel charge est-il capable de soulever à l'issue de son entraînement ?
 \item Quelle charge cumulée (i.e. la somme des charges journalières) Milon a-t-il soulevé durant cette année d'entraînement ?
 \end{enumerate}
-}{exe:exo6}
+}{exe:exo7}
 
-\exe{, difficulty=1}{
+\exe{, difficulty=2}{
 Le taux de reproduction du premier variant du SARS-COV-2 était d'environ 3, ce qui signifie qu'une personne contaminée infectait en moyenne 3 nouvelles personnes. On suppose que le cluster souche (l'ensemble des premiers infectés) contenait dix individus.
 \begin{enumerate}
 \item Quel outil mathématiques permet de modéliser la propagation du virus dans la population ? Expliquer votre choix.
 \item On supposera qu'un individu contaminé infecte 3 nouveaux individus en un jour. Proposer une estimation du nombre de contaminés après 100 jours.
 \item On estime la population française à 70 millions d'habitant. En reprenant les hypothèses de la question précédente, estimer le nombre de jours nécessaire à la transmission du virus à l'intégralité de la population.
 \end{enumerate}
-}{exe:exo7}
+}{exe:exo8}
 
-\exe{, difficulty=2}{
-Supposons qu'une oportunité financière permette de rémunérer un placement de capital à hauteur de $x \%$ (avec $x$ un réel positif).
-Le capital ainsi placé raportera donc $x \%$ d'intérêt après un temps $t$ (par exemple, $2 \%$ tous les ans). Le principe des intérêts
+\exe{, difficulty=1}{
+Lors de votre entretien d'embauche, une entreprise vous propose un salaire de départ de 35 000 \euro~ avec deux choix d'évolutions possibles pour ce salaire
+
+\begin{center}
+\begin{varwidth}{\textwidth}
+\begin{enumerate}[start=0,label={\bfseries Choix~\arabic*:}]
+\item une augmentation annuelle de 2\% ;
+\item une augmentation annuelle de 700 \euro.
+\end{enumerate}
+\end{varwidth}
+\end{center}
+\begin{enumerate}
+\item Calculer le salaire (arrondi à l'euro près) à la 20ème année pour chacun des choix.
+\item Quel choix est, selon vous, le plus avantageux ? Expliquer.
+\item Selon les statistiques de l'OCDE, les français restent en moyenne 11 ans dans une même entreprise. En tenant compte de cette information, quel choix est probablement le plus avantageux ?
+\end{enumerate}
+}{exe:exo9}{}
+
+\exe{, difficulty=3}{
+Supposons qu'une opportunité financière permette de rémunérer un placement de capital à hauteur de $x \%$ (avec $x$ un réel positif).
+Le capital ainsi placé rapportera donc $x \%$ d'intérêt après un temps $t$ (par exemple, $2 \%$ tous les ans). Le principe des intérêts
 composés est de réinvestir systématiquement les gains du capital à chaque versement des intérêts, ainsi, les intérêts de la période
 suivante ne porteront pas uniquement sur le capital de départ mais sur ce dernier additionné des intérêts précédemment générés. 
 \begin{enumerate}
@@ -82,14 +134,38 @@ suivante ne porteront pas uniquement sur le capital de départ mais sur ce derni
 \item On note $u_1$ le capital total (i.e. le capital initial additionné des intérêts perçus) après un versement d'intérêt. Exprimer $u_1$ en fonction de $u_0$ et de $q$.
 \item On suppose que les intérêts générés sont systématiquement réinvestis, exprimer $u_2$ en fonction de $u_1$. En déduire une expression par récurrence de $u_{n+1}$ en fonction de $u_n$ pour $n \in \N$.
 \item Quel outil mathématiques permet de simuler des intérêts composés ?
-\item On dispose de $1000 \texteuro$ que l'on investit sur les marchés financiers. Ce placement est rémunéré à hauteur de $2 \%$ tous les ans. Serons nous milliardaire en moins de 10 ans ?
+\item On dispose de 1~000 \euro~ que l'on investit sur les marchés financiers. Ce placement est rémunéré à hauteur de $2 \%$ tous les ans. Serons nous milliardaire en moins de 10 ans ?
 \end{enumerate}
-\item On suppose maintenant que l'investisseur est en capacité de verser régulièrement un capital donné (par exemple $200 \texteuro$). Ainsi, au capital initial viendront non seulement s'additioner les intérêts perçus mais aussi des versements réguliers.
+\item On suppose maintenant qu'un investisseur est en capacité de verser régulièrement une somme égale au capital initial (par exemple 1~000 \euro). Ainsi, au capital initial viendront non seulement s'additioner les intérêts perçus mais aussi des versements réguliers (et les intérêts perçus sur ces versements).
 \begin{enumerate}
-\item On note $u_0$ le capital initial, $c$ la capacité d'investissement de l'investisseur (i.e. le montant de ses versements réguliers) et $q$ la rémunération du capital. Exprimer $u_1$ puis $u_2$ en fonction de $c$ et de $q$. \\
-\item En déduire l'expression de $u_n$ en fonction de $c$, $q$ et $n$. Que remarquez-vous ? Utiliser le cours pour simplifier cette formule.
+\item On note $u_0$ le capital initial, et $q$ la rémunération du capital. Exprimer $u_1$ puis $u_2$ en fonction de $u_0$ et de $q$ (attention, n'oubliez pas que l'investisseur réinvestit un montant égal à $u_0$ à chaque terme de son contrat). 
+\item En déduire l'expression de $u_n$ en fonction de $u_0, q$ et $n$. Que remarquez-vous ? Utiliser le cours pour simplifier cette formule.
+\item On dispose d'une capacité d'investissement annuelle de 1~000 \euro~ que l'on confie à un courtier expert (ancien élève de STMG du Lycée Jean Monnet). Ce placement est rémunéré à hauteur de $5 \%$ tous les ans. Serons nous milliardaire en moins de 10 ans ?
 \end{enumerate}
 \end{enumerate}
-}{exe:exo8}
+}{exe:exo10}{
+\begin{enumerate}
+\item
+\begin{enumerate} 
+\item $u_1 = u_0 \cdot q$.
+\item $u_2 = u_1 \cdot q$ (car les intérêts générés sont réinvestis) donc $u_2=u_0 \cdot q^2$.
+\item Une suite géométrique.
+\item $u_10 = u_0 \cdot q^10 = 1000 \cdot (1,02)^10 \approx 1218$ donc non...
+\end{enumerate}
+\item
+\begin{enumerate}
+\item $u_1 = u_0 \cdot q + u_0$ et 
+\[ u_2 = u_1 \cdot q + u_0 = u_0 \cdot q^2 + u_0 \cdot q + u_0 . \]
+\item En remarquant que $u_3 = u_2 \cdot q + u_0 = u_0 \cdot q^3 + u_0 \cdot q^2 + u_0 \cdot q + u_0$, 
+on en déduit, de proche en proche
+\[ u_n = u_0 \cdot q^n + u_0 \cdot q^{n-1} + \dots + u_0 \cdot q + u_0 = \sum_{k=0}^n u_0 \cdot q^k . \]
+On reconnait la somme des $n+1$ premiers termes d'une suite géométrique de premier terme $u_0$ et de raison $q$, donc
+\[ u_n = u_0 \dfrac{1-q^{n+1}}{1-q} . \]
+\item $u_10 = 1000 \dfrac{1-(1,05)^{11}}{1-1,05} = 14~206$, toujours pas mais c'est mieux.
+\end{enumerate}
+\end{enumerate}
+}
+
+
 
 \end{document}

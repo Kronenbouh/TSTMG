@@ -5,10 +5,10 @@
 \newtheorem*{nota}{Notation}
 
 \theoremstyle{definition}
-\newtheorem{ex}{Exemple}[section]
+\newtheorem{ex}{Exemple}[chapter]
 
 \theoremstyle{remark}
-\newtheorem{rmq}{Remarque}
+\newtheorem{rmq}{Remarque}[chapter]
 
 %styles pour théorèmes
 \newkeytheoremstyle{tcb-thm}
@@ -111,7 +111,7 @@
 	innerleftmargin=10pt,
 	innerrightmargin=10pt,
 	innertopmargin=-4pt,
-	nobreak=true,
+	nobreak=false,
 ]{proof}
 
 
@@ -121,7 +121,7 @@
 
 \renewcommand{\ExerciseHeader}{
 	\textbf{
-	\theExercise.
+	Exercice \theExercise.
 	}
 	\ifnum\ExerciseDifficulty=0
 	\else
