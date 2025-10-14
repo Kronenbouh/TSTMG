@@ -306,4 +306,164 @@ et donc
 \[ S - qS = u_0 (1-q^{N+1}) \equi S = u_0 \dfrac{1-q^{N+1}}{1-q} .\]
 \end{proof}
 
+\chapter{Fonctions logarithmes}
+
+\section{Définition}
+
+\begin{defn}[Logarithme décimal]
+Soit $a$ un réel strictement positif. On appelle \textbf{logarithme décimal} de $a$ l'unique solution, dans $\R$, de l'équation 
+\[ 10^x = a . \]
+On note cette solution $\log(a)$.
+\end{defn}
+
+\begin{rmq}
+Autrement dit, $10^{\log(a)} = a$. De plus, la fonction $\log$ est \textbf{définie sur $]0, \infty[$ uniquement.}
+\end{rmq}
+
+\begin{ex}
+Le nombre réel $\log(2)$ est \textbf{le seul} nombre réel vérifiant $10^x = 2$.
+\end{ex}
+
+\begin{defn}[Fonction logarithme décimal]
+On définit la fonction logarithme décimal sur l'intervalle $]0, \infty[$ par :
+\[ \begin{array}{c c c c} \log : & ]0, \infty[ & \to & \R \\ & x & \mapsto & \log(x) \end{array} \]
+La fonction lograithme décimal est donc la fonction qui, a un réel strictement positif, associe le logarithme décimal de ce réel.
+\end{defn}
+
+\begin{rmq}
+Dans la suite de ce cours, on étudiera \textbf{la fonction} logarithme décimal plutôt que \textbf{la valeur} prise ponctuellement par cette fonction en un réel $a >0$ donné.
+\end{rmq}
+
+\begin{rmq}
+On remarque que $10^x = 1 \equi x = 0$ donc $\log(1) = 0$.
+\end{rmq}
+
+\begin{prop}[Continuité]
+La fonction $\log$ est continue sur $]0, \infty[$.
+\end{prop}
+
+\begin{rmq}
+Une conséquence de ce théorème est que la courbe représentative de la fonction $\log$ dans un repère orthonormée est ``lisse'', elle ne présente aucune discontinuité. Cette représentation est donnée ci-dessous :
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\coordinate (OR) at (0.00, 0.00);
+		\coordinate (LX) at (-1.00, 0.00); % left x
+		\coordinate (RX) at (8.00, 0.00); % right x
+		\coordinate (BY) at (0.00, -5.00); % bottom y
+		\coordinate (TY) at (0.00, 3.00); % top y
+		%
+		% axa 0x
+		%
+		\draw[->][line width=1.00pt] (LX) -- (RX);
+		\node[blue] at (7.8,-0.4) {\textbf{\textit{x}}};
+		%
+		% axa 0y
+		%
+		\draw[->][line width=1.00pt] (BY) -- (TY);
+		\filldraw [red] (OR) circle(2pt);
+		\node[red] at (0.2,-0.3) {\textbf{\textit{0}}};
+		\node[right,blue] at (0.2, 2.8) {\textbf{\textit{ln x}}};
+		\draw[blue, line width=1.75pt, domain=0.005:7.00,samples=500] plot[smooth](\x, {ln(\x)});
+	\end{tikzpicture}
+	\end{center}
+\end{rmq}
+
+\section{Propriétés}
+
+\begin{prop}[Sens de variation]
+La fonction $\log$ est strictement croissante sur $]0, \infty[$.
+\end{prop}
+
+\begin{proof}
+Soient $a, b \in ]0, \infty[$ tels que $a< b$. Comme la fonction $x \mapsto 10^x$ est strictement croissante sur $\R$, 
+on a bien $\log(a) < \log(b)$.
+\end{proof}
+
+\begin{coro}
+Pour tous réels $a, b$ strictement positifs
+\begin{enumerate}[(i)]
+\item $\log(a) = \log(b)$ équivaut à $a=b$.
+\item $a < b$ équivaut à $\log(a) < \log(b)$. 
+\item En particulier $0 < a <1 \equi \log(a) < 0$ et $a>1\equi \log(a)>0$.
+\end{enumerate}
+\end{coro}
+
+\begin{prop}[Seuil]
+Soit $K$ un réel strictement positif, on a :
+\[ \log(a) < K \equi a < 10^K. \]
+\end{prop}
+
+\begin{prop}[Propriétés algébriques]
+Soient $a, b$ deux réels strictement positifs et soit $x \in \R$.
+\begin{enumerate}[(i)]
+\item $\log(a \times b) = \log(a) + \log(b)$.
+\item $\log(a^x)=x \log(a)$
+\item $\log(\frac1{b})= - \log(b)$ et, plus généralement, $\log \left ( \frac{a}{b} \right ) = \log(a) - \log(b)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}[(i)]
+\item On sait que $10^{a+b} = 10^{a} \times 10^b$, on en déduit le résultat.
+\item On démontre le résultat pour $n \in \N$ : 
+\begin{align*}
+\log(a^2) & = \log(a \times a) & = \log(a) + \log(a) = 2 \log(a) \\
+\log(a^3) & = \log(a^2 \times a) & = 2 \log(a) + \log(a) \\
+\dots
+\end{align*}
+En utilisant le point (iii), on étend le résultat à $x \in \Q$. On admet le résultat pour le cas général, $x \in \R$.
+\item On sait que $10^{-b} = \dfrac1{10^b}$, on en déduit le résultat. On utilise ensuite le résultat (ii) pour démontrer le cas général.
+\end{enumerate}
+\end{proof}
+
+\section{Changement de base}
+
+\begin{defn}
+Soit $b$ un réel strictement positif et différent de 1 et $a$ un réel strictement positif. On appelle \textbf{logarithme en base $b$} de $a$ l'unique solution, dans $\R$, de l'équation 
+\[ b^x = a . \]
+On note cette solution $\log_b(a)$.
+\end{defn}
+
+\begin{rmq}
+Avec cette définition, on peut définir la \textbf{fonction} logarithme de base $b$.
+\end{rmq}
+
+\begin{defn}[Fonction logarithme décimal]
+Pour $b>0, b \neq 1$, on définit la fonction logarithme de base $b$ sur l'intervalle $]0, \infty[$ par :
+\[ \begin{array}{c c c c} \log_b : & ]0, \infty[ & \to & \R \\ & a & \mapsto & \log_b(a) \end{array} \]
+\end{defn}
+
+\begin{rmq}
+La fonction logarithme de base $b$ est toujours égale à 1 en sa base :
+\[ \forall b>0, b \neq 1, \log_b(b) = 1. \]
+\end{rmq}
+
+\begin{prop}
+Pour tout $b>0, b \neq 1$, les fonctions $\log$ et $\log_b$ sont proportionnelles. Précisément, on a :
+\[ \log_b(a) = \dfrac{\log(a)}{\log(b)}. \]
+\end{prop}
+
+\begin{proof}
+Il suffit de remarquer que :
+\[ b^x = a \equi x = \dfrac{\log(a)}{\log(b)} . \]
+Comme, par ailleurs, $\log_b(a)$ est l'unique solution de cette équation, on a bien :
+\[ \log_b(a) = \dfrac{\log(a)}{\log(7)} . \]
+\end{proof}
+
+\begin{coro}
+Pour tout $b>0, b \neq 1$, la fonction logarithme de base $b$ est continue. Elle est de plus :
+\begin{enumerate}[(i)]
+\item croissante si $b > 1$ ;
+\item décroissante si $0<b<1$.
+\end{enumerate}
+\end{coro}
+
+\begin{proof}
+Il suffit de remarquer que $\log(b) > 0 \equi b > 1$.
+\end{proof}
+
+\begin{coro}
+La fonction logarithme de base $b$ vérifie les mêmes propriétés algébriques que la fonction logarithme décimale.
+\end{coro}
+
 \end{document}
