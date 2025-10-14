@@ -1,0 +1,109 @@
+\input{preamble}
+\usepackage{graphicx,wrapfig}
+\usepackage{eurosym}
+\usepackage{varwidth}
+\graphicspath{ {./images/} }
+\usetikzlibrary {datavisualization.formats.functions}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{TD n°2 : logarithme}}
+\fancyhead[R]{\today}
+
+La difficulté des exercices est dénotée par des étoiles (de 0 à 3).
+
+\exe{}{
+Expliquer, à l'aide du cours, pourquoi les égalités ci-dessous sont vraies :
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item $\log(24)= 3\log(2) + \log(3)$
+\item $\log(5) = \log(35) - \log(7)$
+\item $\log(1024) = 10 \log(2)$
+\item $\log(25) = \log(5) - \log(20) + 2\log(10)$
+\end{enumerate}
+\end{multicols}
+}{exe:1}{
+
+}
+
+\exe{, difficulty=0}{
+Résoudre les équations et inéquations suivantes :
+\begin{multicols}{3}
+\begin{enumerate}[label=(\alph*)]
+\item $8^x = 123$
+\item $x^{63} = 4~812$
+\item $5^x \times 7^x = 28$
+\item $12^x < 854$
+\item $x^{25} > 28~412$
+\item $25 < 9^x \leq 89$
+\end{enumerate}
+\end{multicols}
+}{exe:2}{
+
+}
+
+\exe{, difficulty=1}{ 
+On considère une suite géométrique $(u_n)$ de premier terme $u_0=1$ et de raison $q=10$.
+On voudrait représenter les points $(n, u_n)$ dans un repère orthonormé.
+\begin{enumerate}
+\item Calculer quelques valeurs de $u_n$. Remarquez-vous un problème ?
+\item On propose de remplacer l'axe des ordonnées par un axe à \textbf{l'échelle logarithmique}. Pour cela, on remplace chaque graduation de l'axe par son logarithme.
+\begin{enumerate}
+\item rappeler les valeurs de $\log(1), \log(10)$ puis $(\log(10^n)$ pour $n \in \N$.
+\item Tracer le nouveau repère avec l'axe à l'échelle logarithmique.
+\item Placer les points $(n, u_n)$ pour $n$ allant de 1 à 5 dans ce repère. Que constatez-vous ?
+\end{enumerate}
+\end{enumerate}
+\textit{Le logarithme ``transforme les multiplications en additions'', il transforme donc les évolutions exponentielles en évolutions linéaires.}
+}{exe:3}{
+
+}
+
+\exe{, difficulty=2}{ 
+On étudie une épidémie virale dont le taux de transmission est estimé à $2,7$ par semaine, 
+ce qui signifie qu'un infecté transmet le virus à $2,7$ nouvelles personnes \textbf{en moyenne} après une semaine. 
+Le cluster de départ est de 9 individus.
+\begin{enumerate}
+\item Proposer un outil mathématiques permettant de modéliser la transmission du virus.
+\item Donner le nombre de semaines nécessaires à la contamination de la planète entière (i.e. 7 milliards d'individus).
+\end{enumerate}
+}{exe:4}{
+
+}
+
+\exe{, difficulty=2}{ 
+On appelle ordre de grandeur d'un nombre $x$ la borne inférieure d'un encadrement de la forme :
+\[ 10^n < x < 10^{n+1} \qquad \text{ avec } n \in \N. \]
+En d'autres termes, l'ordre de grandeur d'un nombre donne sa valeur approchée en termes de puissance de 10 
+(dans les milliers, dans les millions, dans les milliards, etc.).
+\begin{enumerate}
+\item Donner l'ordre de grandeur du nombre $3,6^{87}$.
+\item Combien devrait-on utiliser de chiffres pour écrire (en entier) le nombre $3,6^{87}$ ?
+\item Mêmes questions avec le nombre $11^75$.
+\end{enumerate}
+}{exe:5}{
+
+
+}
+
+\exe{, difficulty=2}{ 
+On appelle ordre de grandeur d'un nombre $x$ la borne inférieure d'un encadrement de la forme :
+\[ 10^n < x < 10^{n+1} \qquad \text{ avec } n \in \N. \]
+En d'autres termes, l'ordre de grandeur d'un nombre donne sa valeur approchée en termes de puissance de 10 
+(dans les milliers, dans les millions, dans les milliards, etc.).
+\begin{enumerate}
+\item Donner l'ordre de grandeur du nombre $3,6^{87}$.
+\item Combien devrait-on utiliser de chiffres pour écrire (en entier) le nombre $3,6^{87}$ ?
+\item Mêmes questions avec le nombre $11^75$.
+\end{enumerate}
+}{exe:6}{
+
+}
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}

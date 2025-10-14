@@ -1,0 +1,58 @@
+\usepackage[answerdelayed, lastexercise]{exercise}
+\usepackage{ifthen}
+
+\renewcommand{\ExerciseHeader}{
+	\textbf{
+		Exercice \theExercise.
+	}
+	\ifnum\ExerciseDifficulty=0
+	\else
+		(\theExerciseDifficulty)
+	\fi
+}
+
+\newcommand{\exe}[4]{
+	\begin{Exercise}[title=#1, label=#3]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginpar{[Bonus]}
+		\else
+		\marginpar{\mbox{[\quad/\ExerciseTitle]}}
+		\fi
+		#2
+	\end{Exercise}
+	\begin{Answer}[ref=#3]
+		#4
+	\end{Answer}
+}
+
+\renewcommand{\DifficultyMarker}{$\star$}
+\renewcommand{\AnswerHeader}{
+	% if exercise title is "1" then announce new chapter
+	\if\ExerciseTitle1
+		\hrule\vspace{1cm}
+		\LARGE
+		\textbf{Exercices du chapitre \thechapter}\newline\newline
+	\fi
+	
+	\centerline{\textbf{
+	Exercice \ExerciseHeaderNB
+	}}
+}
+
+\newcommand{\exemulticols}[5]{
+	\begin{multicols}{2}
+	\begin{Exercise}[title=#1, label=#4]
+		\if\relax\detokenize\expandafter{\ExerciseTitle}\relax
+		%\marginnote{[Bonus]}
+		\else
+		\marginnote{\mbox{[\quad/\ExerciseTitle]}}
+		\fi
+		#2
+	\end{Exercise}
+	\columnbreak
+		#3
+	\end{multicols}
+	\begin{Answer}[ref=#4]
+		#5
+	\end{Answer}
+}

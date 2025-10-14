@@ -1,0 +1,71 @@
+% Format doc
+\documentclass[a4paper, 12pt]{extarticle}
+\usepackage[
+a4paper,
+margin=2cm,
+]{geometry}
+
+% Chargement des paquets
+
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{xparse, etoolbox}
+\usepackage{enumerate}
+\usepackage{mathabx}
+\usepackage{minted}
+\usepackage[french]{babel}
+\usepackage{keytheorems}
+\usepackage[theorems]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{icomma}
+
+% Multicol
+\usepackage{array}
+\usepackage{multicol, enumitem}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+% Environnement
+
+\input{environment_evals}
+
+% Commandes perso
+
+\input{macro}
+
+%tikz
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary {angles}
+\usepackage{tkz-euclide}
+
+\tikzset{
+dot/.style = {circle, fill=#1, minimum size=5pt,
+              inner sep=0pt, outer sep=0pt},
+dot/.default = black % size of the circle diameter
+}
+
+ % for braces
+\usetikzlibrary{decorations.pathreplacing}
+% for hashing area
+\usetikzlibrary{patterns}
+% tableaux var, signe
+% source https://www.sqlpac.com/fr/documents/latex-package-tkz-tab-tikz-tableaux-de-signes-et-de-variations-de-fonctions.html
+\usepackage{tkz-tab}
+
+\tikzset{
+	every node/.style = {font=\Large}
+}
+
+\tikzset{
+	every axis/.style = {clip=true, grid style = {opacity=.5}}
+}

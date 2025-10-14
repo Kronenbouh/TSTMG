@@ -1,0 +1,123 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°1 — suites — sujet B}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		La suite définie par $u_n = (5+3)^n$ est une suite géométrique & $\square$ & $\square$ \\
+		La suite définie par $u_{n+1} = 3 \times u_n + 2$ est définie par récurrence & $\square$ & $\square$  \\
+		La suite définie par $u_{n+1} = u_n \times 4 + 1$ est une suite arithmétique & $\square$ & $\square$  \\
+		\thead{La suite arithmétique de premier terme $u_0 = 1~000$ \\
+		et de raison $r= 10^{-3}$ est toujours positive } & $\square$ & $\square$  \\
+		Une suite géométrique est soit croissante soit décroissante & $\square$ & $\square$ \\
+		\thead{Dans un repère orthonormé, les points $(n, u_n), n \in \N$ \\
+		d'une suite artithmétique sont alignés} & $\square$ & $\square$ \\
+	\end{tabular}
+	\end{center}
+	\textit{Rappel : une suite est croissante si ses termes sont ``de plus en plus grands'' (ou égaux)}.
+}{exe:1}{
+Les réponses sont, dans l'ordre : vrai, vrai, faux, faux, faux, vrai.
+}
+	
+\exe{4}{
+\begin{enumerate}
+\item
+On considère une suite arithmétique $(u_n)$ de premier terme $u_0=2$ et de raison $r=\left(\dfrac14 \right )^2$.
+Calculer $u_1$, $u_2$ et $u_{200}$ puis :
+\[ \sum_{n=0}^{200} u_n . \]
+\item
+On considère une suite géométrique $(v_n)$ de premier terme $v_0=3$ et de raison $q=5 \times 10^{-1}$.
+Calculer $v_1$, $v_2$ et $v_{50}$ puis :
+\[ \sum_{n=0}^{50} u_{n} . \]
+\end{enumerate}
+}{exe:2}
+%%{\begin{enumerate}
+%%\item
+%%$u_1 = 2 + \dfrac1{16} = \dfrac{33}{16}, u_2 =  \dfrac{34}{16} = dfrac{17}8, u_200 = 2 + 200 \times \dfrac{1}{16} = \dfrac{132}{16} = \dfrac{29}{2}$
+%%\[ \sum_{n=0}^{200} u_n = \dfrac{201}2 \left ( 2+\dfrac{29}2 \right ) = \dfrac{6633}4. \]
+%%\item
+%%$v_1 = \dfrac32, v_2 = \dfrac34, v_50 \approx 2,66 \times 10^{-15}$
+%%\[ \sum_{n=0}^{50} u_{n} \approx 3 .\]
+%%\end{enumerate}
+%}
+
+
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ de raison $r=\dfrac27$ et de troisième terme $u_2 = \dfrac13$. Calculer $u_0$.
+\item On considère une suite \textbf{géométrique} $(v_n)$ de raison $q=5^{-2}$ et de deuxième terme $v_1 = 7$. Calculer $v_0$.
+\end{enumerate}
+}{exe:3}{
+\begin{enumerate}
+\item $u_0 = u_2 - 2 \times r = \dfrac13 - 2 \times \dfrac27 = - \dfrac5{21}$.
+\item $v_0 = v_1 \div q = 175$.
+\end{enumerate}
+}
+
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ telle que $u_{20} = 7$ et $u_{7} = \dfrac53$. Calculer sa raison.
+\item On considère une suite \textbf{géométrique} $(v_n)$ telle que $v_7 = 8$ et $v_9=5$. Calculer sa raison.
+\end{enumerate}
+}{exe:4}{
+\begin{enumerate}
+\item $u_20 = u_7 + 13 r \Rightarrow 13r = 7 - \dfrac53 \Rightarrow r = dfrac{16}{39}$.
+\item $v_9 = v_8 \times q^2 \Rightarrow q = \sqrt{\dfrac58}$.
+\end{enumerate}
+}
+
+\exe{4}{
+	On estime que tous les mille an après la mort d'un organisme, le nombre d'atomes de carbone 14 diminue de $11\%$.
+	Ajourd'hui, au temps $0$, on mesure $2$ millions d'atomes de carbone 14 dans un organisme donné.
+
+	Répondre aux questions suivantes en arrondissant à \textbf{l'atome près}.
+	\begin{enumerate}
+		\item Écrire $A_n$, le nombre de millions d'atomes de carbone 14 après $n$ milliers d'années, où $n\in\N$ est un entier naturel.
+		De quelle nature est la suite (arithmétique, géométrique, autre) ?
+		\item Combien d'atomes de carbone 14 restera-t-il après 3 000 ans ?
+		\item Combien d'atomes de carbone 14 restera-t-il après 4 000 ans ? 
+		Proposer une estimation du nombre d'atomes de carbone 14 restant après 4 500 ans.
+		\item À partir de combien de milliers d'années restera-t-il moins de 100 000 atomes de carbone 14 ?
+	\end{enumerate}
+\textit{La mesure de carbone 14 est utilisée pour dater des organismes morts comme les fossiles.}
+}{exe:5}{
+	\begin{enumerate}
+		\item $A_n = 2 \cdot 10^6 \cdot (0,89)^n$
+		\item $A_3 = 1~409~938$
+		\item $A_4 = 1~254~845$. En notant $x$ le nombre d'atomes restant après 4 500 ans, on a forcément :
+		\[ 1~409~938 < x < 1~254~845 . \]
+		\item $A_26 = 96~642$ soit environ 26 000 ans.
+	\end{enumerate}
+}
+
+\end{document}

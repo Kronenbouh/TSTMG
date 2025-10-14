@@ -1,0 +1,97 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°1 — suites}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		La suite définie par $u_{n+1} = 4 \times u_n$ est définie par récurrence & $\square$ & $\square$  \\
+		La suite définie par $u_{n} = 3 + 4n^2$ est une suite arithmétique & $\square$ & $\square$  \\
+		\thead{La suite arithmétique de premier terme $u_0 = -1~000$ \\
+		et de raison $r= 10^{-3}$ est toujours négative } & $\square$ & $\square$  \\
+		La suite définie par $u_n = 10^n$ est une suite géométrique & $\square$ & $\square$ \\
+		Une suite géométrique est soit croissante soit décroissante & $\square$ & $\square$ \\
+		\thead{Dans un repère orthonormé, les points $(n, u_n), n \in \N$ \\
+		d'une suite artithmétique sont alignés} & $\square$ & $\square$ \\
+	\end{tabular}
+	\end{center}
+	\textit{Rappel : une suite est croissante si ses termes sont ``de plus en plus grands'' (ou égaux)}.
+}{exe:1}{
+Les réponses sont, dans l'ordre : vrai, faux, faux, vrai, faux, vrai.
+}
+	
+\exe{4}{
+\begin{enumerate}
+\item
+On considère une suite arithmétique $(u_n)$ de premier terme $u_0=2$ et de raison $r=7$.
+Calculer $u_1$, $u_2$ et $u_{200}$ puis :
+\[ \sum_{n=0}^{200} u_n. \]
+\item
+On considère une suite géométrique $(v_n)$ de premier terme $v_0=3$ et de raison $q=\dfrac14$.
+Calculer $v_1$, $v_2$ et $v_{50}$ puis :
+\[ \sum_{n=0}^{50} u_{n}. \]
+\end{enumerate}
+}{exe:2}
+
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ de raison $r=\dfrac25$ et de troisième terme $u_2 = 5$. Calculer $u_0$.
+\item On considère une suite \textbf{géométrique} $(v_n)$ de raison $q=10^{-2}$ et de deuxième terme $v_1 = 2$. Calculer $v_0$.
+\end{enumerate}
+}{exe:3}
+
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ telle que $u_{20} = 100$ et $u_{10} = 50$. Calculer sa raison.
+\item On considère une suite \textbf{géométrique} $(v_n)$ telle que $v_7 = 8$ et $v_8=5$. Calculer sa raison.
+\end{enumerate}
+}{exe:4}
+
+\exe{4}{
+Un ami vous propose de créer une entreprise dont le principe est le suivant :
+\begin{itemize}
+\item Vous recrutez des ``investisseurs'' en leurs proposant de verser 1~000 \euro~
+et en leur promettant qu'ils doubleront leur mise après une semaine. 
+\item Pour payer le premier investisseur après une semaine, vous recrutez deux nouveaux investisseurs.
+\item Vous poursuivez ainsi, en recrutant toujours deux nouveaux investisseurs pour en payer un.
+\end{itemize}
+On note $(u_n)$ le nombre de nouveaux investisseurs recrutés en semaine numéro $n$. On suppose que l'entreprise démarre en semaine 0 avec un seul investisseur.
+\begin{enumerate}
+\item Calculer $u_0$, $u_1$ et $u_2$.
+\item Quelle est la nature de la suite $(u_n)$ ? (Arithmétique, géométrique, autre).
+\item Estimer le nombre d'investisseurs nécessaires pour que l'entreprise fonctionne sur une année entière (1 an = 52 semaines). 
+Le plan de votre ami semble-t-il possible ? Expliquer.
+\end{enumerate}
+\textit{Ce type de montage se nomme ``système de Ponzi''.}
+}{exe:5}
+
+\end{document}
