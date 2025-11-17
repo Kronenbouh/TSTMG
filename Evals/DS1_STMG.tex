@@ -60,21 +60,40 @@ On considère une suite géométrique $(v_n)$ de premier terme $v_0=3$ et de rai
 Calculer $v_1$, $v_2$ et $v_{50}$ puis :
 \[ \sum_{n=0}^{50} u_{n}. \]
 \end{enumerate}
-}{exe:2}
+}{exe:2}{
+\begin{enumerate}
+\item
+$u_1=9$, $u_2=16$ et $u_{200}=1~402$
+\[ \sum_{n=0}^{200} = 141~102 \]
+\item
+$v_1=\dfrac34$, $v_2=\dfrac3{16}$ et $v_{50}\approx 2,37 \times 10^{-30}$
+\[ \sum_{n=0}^{50} u_{n} \approx 4 \]
+\end{enumerate}
+}
 
 \exe{3}{
 \begin{enumerate}
 \item On considère une suite \textbf{arithmétique} $(u_n)$ de raison $r=\dfrac25$ et de troisième terme $u_2 = 5$. Calculer $u_0$.
 \item On considère une suite \textbf{géométrique} $(v_n)$ de raison $q=10^{-2}$ et de deuxième terme $v_1 = 2$. Calculer $v_0$.
 \end{enumerate}
-}{exe:3}
+}{exe:3}{
+\begin{enumerate}
+\item $u_0=u_2 - 2r = \dfrac{21}5$.
+\item $v_0 = \dfrac{v_1}{q} = 200$ .
+\end{enumerate}
+}
 
 \exe{3}{
 \begin{enumerate}
 \item On considère une suite \textbf{arithmétique} $(u_n)$ telle que $u_{20} = 100$ et $u_{10} = 50$. Calculer sa raison.
 \item On considère une suite \textbf{géométrique} $(v_n)$ telle que $v_7 = 8$ et $v_8=5$. Calculer sa raison.
 \end{enumerate}
-}{exe:4}
+}{exe:4}{
+\begin{enumerate}
+\item $u_{20} = u_{10} + 10r$ donc $r=5$.
+\item $v_8 = v_7 \times q$ donc $q=\dfrac58$.
+\end{enumerate}
+}
 
 \exe{4}{
 Un ami vous propose de créer une entreprise dont le principe est le suivant :
@@ -92,6 +111,21 @@ On note $(u_n)$ le nombre de nouveaux investisseurs recrutés en semaine numéro
 Le plan de votre ami semble-t-il possible ? Expliquer.
 \end{enumerate}
 \textit{Ce type de montage se nomme ``système de Ponzi''.}
-}{exe:5}
+}{exe:5}{
+\begin{enumerate}
+\item On ne compte que les \textbf{nouveaux} investisseurs, $u_0=1$, $u_1=2$ et $u_2=8$.
+\item C'est une suite géométrique.
+\item Le nombre total d'investisseurs est donné par :
+\[ \sum_{n=0}^{52} u_n = \dfrac{1-2^{53}}{1-2} \approx 9 \times 10^{15} \]
+soit beaucoup plus que l'intégralité de la population terrestre. 
+\end{enumerate}
+}
+
+%%%%%%%%%%%%
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
 
 \end{document}

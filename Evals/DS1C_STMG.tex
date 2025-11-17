@@ -1,0 +1,120 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°1 — suites — sujet C}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Deux termes consécutifs d'une suite géométrique ont forcément le même signe & $\square$ & $\square$ \\
+		La suite des nombres pairs est une suite arithmétique & $\square$ & $\square$  \\
+		\thead{Si une suite géomtrique $(u_n)$ admet un terme égal à zéro alors \\ 
+		tous les termes suivants seront aussi égaux à zéro} & $\square$ & $\square$  \\
+		La suite définie par $u_{n+1} = (u_n +1) \times 4$ est une suite géométrique & $\square$ & $\square$ \\
+		\thead{Soit $v_n$ une suite géométrique de raison $q>1$. La suite $(v_n)$ est croissante} & $\square$ & $\square$  \\
+		\thead{$(u_n)$ est une suite arithmétique de raison $r=\frac12$ et de premier terme négatif. \\
+		Il existe un rang $n$ pour lequel $u_n > 1~000~000$} & $\square$ & $\square$ \\
+	\end{tabular}
+	\end{center}
+	\textit{Les termes consécutifs d'une suite sont des termes dont les rangs se suivent, par exemple $u_7$ et $u_8$.}
+}{exe:1}{
+Les réponses sont, dans l'ordre : vrai, vrai, faux, faux, faux, vrai.
+}
+	
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ de raison $r=\dfrac27$ et de troisième terme $u_2 = \dfrac13$. Calculer $u_0$.
+\item On considère une suite \textbf{géométrique} $(v_n)$ de raison $q=5^{-2}$ et de deuxième terme $v_1 = 7$. Calculer $v_0$.
+\end{enumerate}
+}{exe:2}{
+\begin{enumerate}
+\item $u_0 = u_2 - 2 \times r = \dfrac13 - 2 \times \dfrac27 = - \dfrac5{21}$.
+\item $v_0 = v_1 \div q = 175$.
+\end{enumerate}
+}
+
+\exe{3}{
+\begin{enumerate}
+\item On considère une suite \textbf{arithmétique} $(u_n)$ telle que $u_{20} = 7$ et $u_{7} = \dfrac53$. Calculer sa raison.
+\item On considère une suite \textbf{géométrique} $(v_n)$ telle que $v_7 = 8$ et $v_9=5$. Calculer sa raison.
+\end{enumerate}
+}{exe:3}{
+\begin{enumerate}
+\item $u_20 = u_7 + 13 r \Rightarrow 13r = 7 - \dfrac53 \Rightarrow r = dfrac{16}{39}$.
+\item $v_9 = v_8 \times q^2 \Rightarrow q = \sqrt{\dfrac58}$.
+\end{enumerate}
+}
+
+\exe{4}{
+Une banque offre deux options de placement à ses clients :
+~\\
+\begin{enumerate}[start=1,label={Choix~\arabic* :}]
+\item Un gain net de 30 \euro ~par semaine.
+\item Une augmentation du capital de $2\%$ par semaine.
+\end{enumerate}
+Vous décidez de placer 1000 \euro ~sur un compte. Il vous reste à choisir l'option.
+\begin{enumerate}
+\item Est-ce que l'évolution du capital suivant chaque option peut être modélisée par une suite ? Si oui, de quels types ?
+\item Donner le montant du capital après 4 semaines pour les \textbf{deux options}.
+\item Quel est le meilleur choix si vous placez votre argent durant \textbf{au moins un an} dans cette banque ? Justifier.
+\end{enumerate}
+\textit{Il y a 52 semaines dans une année}.
+}{exe:4}{
+
+}
+
+\exe{4}{
+	On estime que tous les mille ans après la mort d'un organisme, le nombre d'atomes de carbone 14 diminue de $11\%$.
+	Ajourd'hui, au temps $0$, on mesure $2$ millions d'atomes de carbone 14 dans un organisme donné. \\
+	
+	\textit{Rappel : une diminution de $x\%$ correspond à une multiplication par $\left ( 1-\frac{x}{100} \right )$. Par exemple, une diminution de $10 \%$ correspond à une multiplication par $0,90$.} \\
+	
+	Répondre aux questions suivantes en arrondissant à \textbf{l'atome près}.
+	\begin{enumerate}
+		\item Écrire $A_n$, le nombre de millions d'atomes de carbone 14 après $n$ milliers d'années, où $n\in\N$ est un entier naturel.
+		De quelle nature est la suite (arithmétique, géométrique, autre) ?
+		\item Combien d'atomes de carbone 14 restera-t-il après 3 000 ans ?
+		\item Combien d'atomes de carbone 14 restera-t-il après 4 000 ans ? 
+		Proposer une estimation du nombre d'atomes de carbone 14 restant après 4 500 ans.
+		\item À partir de combien de milliers d'années restera-t-il moins de 100 000 atomes de carbone 14 ?
+	\end{enumerate}
+\textit{La mesure de carbone 14 est utilisée pour dater des organismes morts comme les fossiles.}
+}{exe:5}{
+	\begin{enumerate}
+		\item $A_n = 2 \cdot 10^6 \cdot (0,89)^n$
+		\item $A_3 = 1~409~938$
+		\item $A_4 = 1~254~845$. En notant $x$ le nombre d'atomes restant après 4 500 ans, on a forcément :
+		\[ 1~409~938 < x < 1~254~845 . \]
+		\item $A_26 = 96~642$ soit environ 26 000 ans.
+	\end{enumerate}
+}
+
+\end{document}

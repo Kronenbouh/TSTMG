@@ -1,0 +1,126 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°2c — logarithme}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1a} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		$\log(-10) = -1$ & $\square$ & $\square$  \\
+		Si $9^x < 1000$ alors $x < \frac{3}{\log(9)}$ & $\square$ & $\square$ \\
+		La fonction logarithme décimale est croissante & $\square$ & $\square$  \\
+		Pour $a >0$ et $b>0, \log(a+b) = \log(a) \times \log(b)$ & $\square$ & $\square$ \\
+		Si $0<a<1$ alors $\log(a)<0$ & $\square$ & $\square$ \\
+		\thead{Sur un axe logarithmique de graduation 1 cm \\
+		la valeur $2~000~000$ est à environ 6 cm} & $\square$ & $\square$ \\
+	\end{tabular}
+	\end{center}
+}{exe:1a}{
+Les réponses sont, dans l'ordre : faux, vrai, vrai, faux, vrai, vrai.
+}
+
+\exe{4}{
+En utilisant les propriétés du cours, justifier les égalités ci-dessous :
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item $\log(107) = \log(428) - 2\log(2)$
+\item $\log(45) = 2\log(3) + \log(5)$
+\item $\log(50) = \log(34) - \log(17) + 2\log(5)$
+\item $\log(30) = \log(2)+\log(3)+\log(5)$
+\end{enumerate}
+\end{multicols}
+}{exe:2a}{
+\begin{enumerate}
+\item $\log(428) - 2\log(2) = \log \left ( \frac{428}{2^2} \right ) = \log(107)$ selon les propriétés (i) et (ii).
+\item $2\log(3) + \log(5) = \log(3^2 \times 5) = \log(45)$ selon les propriétés (i) et (ii).
+\item $\log(34) - \log(17) + 2\log(5) = \log \left (\frac{34}{17} \times 5^2 \right ) = \log(50)$ selon les propriétés (i), (ii) et (iii).
+\item $\log(2)+\log(3)+\log(5) = \log(2 \times 3 \times 5) = \log(30)$ selon la propriété (i).
+\end{enumerate}
+}
+
+\exe{5}{
+Résoudre dans $\R$ les équations suivantes :
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item $9^x = 810$
+\item $x^{15} = 3000$
+\item $17^x < 2040$
+\item $9 \leq 5^x < 212$
+\item $25 \cdot 6^x = 232$
+\end{enumerate}
+\end{multicols}
+}{exe:3a}{
+\begin{multicols}{2}
+\begin{enumerate}
+\item $x = \frac{\log(810)}{\log(9)}$
+\item $x = 3000^{1/15}$
+\item $x < \frac{\log(2040)}{\log(17)}$ car $\log(17)>0$
+\item $\frac{\log(9)}{\log(5)} \leq x < \frac{\log(212)}{\log(5)}$ car $\log(5)>0$
+\item $x = \frac{\log(232)-\log(25)}{\log(6)}$
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{5}{
+Une entreprise valorisée en bourse émet des actions d'une valeur nominale de 100 \euro.
+On suppose que la valeur de l'action augmente de façon constante à hauteur de $5 \%$ par mois.
+\begin{enumerate}
+\item Peut-on utiliser une suite pour modéliser l'évolution de la valeur de l'action ?
+Si oui, préciser son type (arithmétique, géométrique, autre ?), son premier terme et sa raison.
+\item 
+Donner la valeur de l'action après 10 mois.
+\item
+Si vous deviez représenter la croissance de la valeur de l'action (sur plusieurs années) dans un repère, 
+quel type d'échelle serait adaptée pour l'axe des ordonnées ?
+\item 
+Donner une estimation de la durée nécessaire, en mois, pour que la valeur de l'action dépasse le million d'euros.
+\end{enumerate}
+\textit{On rappelle que $1~000~000 = 10^6$.}
+}{exe:4a}{
+\begin{enumerate}
+\item Oui, une suité géométrique de premier terme $1~000$ et de raison $1,03$.
+\item Après 10 minutes, il y a $1000 \times (1,03)^10 \approx 1344$ bactéries sur la table.
+\item Une échelle lograithmique (pour l'axe des ordonnées).
+\item On cherche $n$ tel que :
+\[ 1000 \times (1,03)^n > 10^6 \iff n > \dfrac{3}{\log(1,03)} \approx 233,7 . \]
+Il faut donc 234 minutes pour que la population bactérienne dépasse le million d'individus.
+\end{enumerate}
+}
+
+
+%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+
+\end{document}
