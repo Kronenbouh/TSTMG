@@ -99,7 +99,8 @@ On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie par récurrence l
 \end{defn}
 
 \begin{ex}
-La suite définie sur $\N$ par $u_0=1$ et $u_{n+1} = u_n + 2$ est définie par récurrence. On remarquera que $u_1 = 3, u_2 = 5$ etc. C'est à nouveau la suite des nombres impairs !
+La suite définie sur $\N$ par $u_0=1$ et $u_{n+1} = u_n + 2$ est définie par récurrence. 
+On remarquera que $u_1 = 3, u_2 = 5$ etc. C'est à nouveau la suite des nombres impairs !
 \end{ex}
 
 \section{Suite arithmétique}
@@ -419,7 +420,7 @@ En utilisant le point (iii), on étend le résultat à $x \in \Q$. On admet le r
 \section{Changement de base}
 
 \begin{defn}
-Soit $b$ un réel strictement positif et différent de 1 et $a$ un réel strictement positif. On appelle \textbf{logarithme en base $b$} de $a$ l'unique solution, dans $\R$, de l'équation 
+Soit $b$ un réel strictement positif et différent de 1 et $a$ un réel strictement positif. On appelle \textbf{logarithme de base $b$} de $a$ l'unique solution, dans $\R$, de l'équation 
 \[ b^x = a . \]
 On note cette solution $\log_b(a)$.
 \end{defn}
@@ -465,5 +466,320 @@ Il suffit de remarquer que $\log(b) > 0 \equi b > 1$.
 \begin{coro}
 La fonction logarithme de base $b$ vérifie les mêmes propriétés algébriques que la fonction logarithme décimale.
 \end{coro}
+
+\chapter{Fonctions exponentielles}
+
+\section{Introduction}
+
+Considérons un investissement financier de 1~000 \euro~ placé sur un compte rémunéré mensuellement à hauteur de $20 \%$.
+On peut modéliser ce placement financier à l'aide d'une suite géométrique $(u_n)$ de terme général 
+\[ u_n=1000 \cdot (1,2)^n . \]
+Le terme de rang $n$ de la suite nous donner l'argent sur le compte après $n$ mois.
+Néanmoins, on peut légitimement supposer que l'évolution du montant placé sur le compte n'évolue pas uniquement mensuellement,
+après tout, les valeurs boursières sont actualisées à des temporalités très fines.
+On aimerait donc connaître l'évolution du capital investi après une durée quelconque, éventuellement très précise (quelque secondes ?)
+ce qui certes, d'un point de vue pratique, n'a pas vraiment de sens, mais ce qui titille néanmoins notre curiosité mathématiques. \newline
+
+Une première idée serait de placer dans un repère orthonormée les points $(n, u_n)$ pour un grand nombre de valeurs de $n \in \N$,
+puis trouver la courbe continue reliant ses points. 
+
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1, xmax= 9, ymin=900, ymax=4500, axis x line=middle, axis y line=middle, axis line style=<->,
+	xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\addplot [only marks] table {
+		0 1000
+		1 1200
+		2 1440
+		3 1728
+		4 2074
+		5 2488
+		6 2986
+		7 3583
+		8 4300
+	};
+	\addplot[black, thin, domain =0:8] {1000*pow(1.2,x)};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+
+Par lecture graphique, on peut alors approximer la valeur du capital pour des temps arbitraires. 
+Mais cette solution reste insatisfaisante (elle ne donne qu'une approximation). 
+Cependant, le graphique nous donne une autre idée : la suite $(u_n)$ est une fonction définie pour des valeurs entières (au mois près),
+on pourrait donc prolonger cette fonction pour toutes les valeurs réelles. 
+Cette nouvelle fonction prolongée répondrait alors à notre interrogation initiale.
+
+\begin{defn}[Fonctions exponentielles]
+Soit $a$ un réel strictement positif. La fonction qui, à tout réel $x$ associe $a^x$, est définie de la manière suivante :
+\begin{itemize}
+\item
+Sur $[0, \infty[$, $f$ est le prolongement à des valeurs non entières positives de la suite géométrique $(a^n)$, où $n$ appartient à $\N$ ;
+\item
+Sur $]- \infty, 0], a^x = \frac{1}{a^{-x}}$.
+\end{itemize}
+Cette fonction est appelée \textbf{fonction exponentielle de base $a$}.
+\end{defn}
+
+\begin{rmq}
+Pour tout réel $a>0$, on a $a^0=1$.
+\end{rmq}
+
+\section{Propriétés}
+
+\begin{prop}[Sens de variation]
+Soit $a$ un réel strictement positif. La fonction exponentielle de base a est :
+\begin{enumerate}[(1)]
+\item
+Strictement décroissante si $a < 1$.
+\item
+Constante si $a = 1$.
+\item
+Strictement croissante si $a > 1$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Comme la fonction exponentielle de base $a$ est un prolongement de la suite $(a^n)$ sur $]0,\infty[$, 
+on va étudier le sens de variation de cette suite.
+On remarque que $a^{n+1}-a^n = a^n(a-1)$. Comme $a>0, a^n > 0$ pour tout $n \in \N$.
+Donc, le sens de variation de la suite est donné par le signe de $a-1$. 
+On a bien le résultat attendu sur $]0,\infty[$. \newline
+
+Sur $]-\infty, 0]$, on notera que la fonction exponentielle de base $a$ 
+a un sens de variation inverse à celui de la suite $(a^n) = \frac{1}{a^{-n}}$ (plus $n$ est grand plus on $x$ sse ``rapproche'' de $-\infty$).
+On remarque que :
+\[ a^{n+1}-a^n = \dfrac1{a^{-(n+1)}} - \dfrac1{a^{-n}} = \dfrac{1-a}{a^{-n+1}} . \]
+Donc, le sens de variation de la suite est donné par le signe de $1-a$, on a bien le résultat attendu sur $]0,\infty[$.
+\end{proof}
+
+\begin{coro}
+Soit $a$ un réel strictement, et $x,y$ deux réels quelconques. On a l'équivalence :
+\[ x = y \iff a^x = a^y . \]
+\end{coro}
+
+\begin{coro}
+Soit $a$ un réel strictement positif et $k$ un réel non nul.
+\begin{enumerate}[(1)]
+\item
+Si $k>0$, la fonction $x \mapsto k a^x$ a le même sens de variation que la fonction exponentielle de base $a$.
+\item
+Si $k<0$, la fonction $x \mapsto k a^x$ a le sens de variation contraire de la fonction exponentielle de base $a$.
+\end{enumerate}
+\end{coro}
+
+\begin{prop}[Propriétés algébriques]
+Soit $a$ un réel strictement positif, $x$ et $y$ deux réels quelconques et $n$ un entier. On a :
+\begin{enumerate}[(i)]
+\item
+$a^{x+y} = a^x a^y$ ;
+\item
+$a^{-x} = \frac1{a^x}$ ;
+\item
+$a^{x-y} = \frac{a^x}{a^y}$ ;
+\item
+$a^{nx} = (a^x)^n$.
+\end{enumerate}
+\end{prop}
+
+\section{Application aux évolutions successives}
+
+\begin{prop}
+On considère une quantité subissant $n$ évolutions successives. 
+On note $p_i$ la valeur initiale de cette quantité et $p_f$ la valeur finale de cette quantité. \newline
+Le taux d'évolution totale de cette quantité est donné par $(1+T) = \frac{p_f}{p_i}$.
+Le taux d'évolution moyen de cette quantité est solution de l'équation :
+\[ (1+t)^n = \frac{p_f}{p_i} \equi t = \left ( \frac{p_f}{p_i} \right ) ^{1/n} - 1 . \]
+Pour calculer ce taux moyen, on doit donc évaluer la fonction $x \mapsto \left ( \frac{p_f}{p_i} \right ) ^{x}$ en $\frac1{n}$.
+\end{prop}
+
+\chapter{Fonction inverse}
+
+\section{Définition}
+
+\begin{rapl}
+Soit $x$ un nombre réel \textbf{non nul}. L'inverse multiplicatif de $x$ est le nombre $y$ tel que :
+\[ x \cdot y = y \cdot x = 1 . \]
+Ce nombre est égal à $\frac1{x}$.
+\end{rapl}
+
+\begin{nota}
+Dans la suite de ce cours, on notera $\Ret$ l'ensemble des nombres réels privé de 0.
+\end{nota}
+
+\begin{defn}[Fonction inverse]
+La fonction inverse est la fonction définie sur $\R$ privé de 0 par :
+\[ \begin{array}{c c c}
+\Re & \to & \R \\
+x & \mapsto & \dfrac1{x}
+\end{array} \] 
+C'est donc la fonction qui, à un réel non nul, associe son inverse multiplicatif.
+\end{defn}
+
+\begin{rmq}
+la courbe représentative de la fonction inverse est donnée ci-dessous :
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+\begin{axis}%
+    [
+        grid=major,  
+        x=5mm,
+        y=5mm,
+        xtick={-10,-9,...,10},   
+        xmin=-10,
+        xmax=10,
+        xlabel={\tiny $x$},
+        axis x line=middle,
+        ytick={-10,-9,...,10},
+        tick label style={font=\tiny},
+        ymin=-10,
+        ymax=10,
+        ylabel={\scriptsize $f(x)$},
+        axis y line=middle,
+        no markers,
+        samples=100,
+        domain=-10:10,
+        restrict y to domain=-20:20
+    ]
+    \addplot[thick,samples=400] (x,{1/x});
+\end{axis} 
+\end{tikzpicture}
+\end{center}
+\end{rmq}
+
+\section{Limite et dérivation}
+
+\begin{defn}[Limite]
+On considère une fonction $f$ définie sur un intervalle de la forme $]a,b[$ avec $a$ et $b$ des nombres éventuellements infinis.
+On appelle limite de $f$ en $a$ ou en $b$, la valeur de la fonction $f$ au voisinage de $a$ ou de $b$ 
+(c'est-à-dire au voisinage des bornes de son domaine de définition).
+Cette limite peut éventuellement être infinie.
+\end{defn}
+
+\begin{ex}
+On considère la fonction définie sur $\R$ par  $id : x \mapsto x$. La limite de cette fonction en $\infty$ est égale à $\infty$.
+\end{ex}
+
+\begin{prop}
+La fonction inverse est définie sur $\R$ privé de 0, autrement dit sur l'union des intervalles $]-\infty ; 0 [$ et $]0, \infty[$.
+La fonction inverse admet les limites suivantes :
+
+\begin{enumerate}[(i)]
+\item 0 en $-\infty$ ;
+\item $-\infty$ \textbf{à gauche} de 0 ;
+\item $\infty$ \textbf{à droite} de 0 ;
+\item 0 en $\infty$.
+\end{enumerate}
+
+\end{prop}
+
+\begin{nomen}
+On dit que la fonction inverse admet la droite $y=0$ comme \textbf{asymptote} en $\pm \infty$. 
+De façon intuitive, cela signifie que la fonction inverse se rapproche de plus en plus de la fonction nulle 
+à mesure que l'on se rapproche de l'infini (peu importe le signe).
+\end{nomen}
+
+\begin{rmq}
+La fonction inverse admet des limites infinies en 0. Ces limites dépendent du signe considéré 
+($\infty$ à droite de 0 et l'opposé à gauche). 
+Intuitivement, cela signifie que la fonction inverse devient très grande à mesure que l'on s'approche de 0 par la droite.
+A l'opposé, la fonction inverse devient très petite à mesure que l'on s'approche de 0 par la gauche.
+\end{rmq}
+
+\begin{rapl}[Dérivée en un point]
+La dérivée d'une fonction en un point $x$ de son domaine de définition correspond à la limite de son taux de variation en ce point.
+Autrement dit, la dérivée de $f$ en $x$ correspond à :
+\[ \lim_{h \to 0} \dfrac{f(x+h)-f(x)}{h} . \]
+Cette limite peut éventuellment être infinie et, dans ce cas, on dit que la fonction n'est pas dérivable en $x$.
+\end{rapl}
+
+\begin{rmq}
+La dérivée d'une fonction $f$ en $x$ correspond à une ``variation instantannée'', 
+c'est-à-dire à la variation de la valeur de $f(x)$ pour une très petite variation autour de $x$.
+En conséquence, une dérivée positive au voisinage de $x$ indique une fonction localement croissante. 
+A l'inverse, une dérivée négative au voisinage de $x$ indique une fonction localement décroissante. 
+\end{rmq}
+
+\begin{rapl}[Fonction dérivée]
+Soit $f$ une fonction dérivable sur un intervalle $I$. On appelle fonction dérivée de $f$, et l'on note $f'$, la fonction qui,
+à un point $x$ de $I$ associe la dérivée de $f$ au point $x$.
+\end{rapl}
+
+\begin{nota}
+Pour une fonction $f$ on note $f'$ sa fonction dérivée.
+\end{nota}
+
+\begin{prop}[Dérivée et sens de variation]
+Soit $f$ une fonction numérique et $I$ un intervalle inclus dans le domaine de définition de $f$, 
+tel que la fonction dérivée f' est de signe constant sur $I$. Alors :
+\begin{enumerate}[(i)]
+\item si $f' < 0$ sur $I$ alors $f$ est strictement décroissante sur $I$ ;
+\item si $f'=0$ sur $I$ alors $f$ est constante sur $I$ ;
+\item si $f' > 0$ sur $I$ alors $f$ est strictement croissante sur $I$.
+\end{enumerate}
+\end{prop}
+
+\begin{prop}[Derivée de la fonction inverse]
+La fonction inverse admet pour dérivée la fonction suivante :
+\[ \begin{array}{c c c}
+\Re & \to & \R \\
+x & \mapsto & - \dfrac1{x^2}
+\end{array} \] 
+\end{prop}
+
+\begin{proof}
+On a :
+\[ \dfrac{f(x+h)-f(x)}{h} = \dfrac{\frac{1}{x+h}-\frac1{x}}{h} = - \dfrac1{x(x+h)} . \]
+On obtient le résultat par passage à la limite.
+\end{proof}
+
+\begin{coro}
+La fonction inverse est strictement décroissante sur tout son ensemble de définition.
+\end{coro}
+
+\section{Fonction inverse et polynômes}
+
+\begin{defn}[Fonction polynôme de degré 3]
+Soit $n \in \N$ et $a, b, c, d$ des réels. On appelle fonction polynôme de degré au plus 3, une fonction de la forme :
+\[ \begin{array}{c c c}
+\R & \to & \R \\
+x & \mapsto & ax^3 + bx^2 +cx + d
+\end{array} \]
+Le degré de la fonction polynôme est défini de la façon suivante :
+\begin{enumerate}[(i)]
+\item si $a \neq 0$, alors le degré est égal à 3 ;
+\item si $a = 0$ et $b \neq 0$ alos le degré est égal à 2 ;
+\item si $a=b=0$ et $c \neq 0$ alors le degré est égal à 1 :
+\item si $a=b=c=0$ alors le degré est égal à 0.
+\end{enumerate}
+\end{defn}
+
+\begin{ex}
+La fonction $x \mapsto x^2 -3x$ est une fonction polynôme de degré 2.
+\end{ex}
+
+\begin{prop}[Dérivation et polynôme]
+On considère la fonction polynôme $P$ définie par :
+\[ \begin{array}{c c c c}
+P : &\R & \to & \R \\
+& x & \mapsto & ax^3 + bx^2 +cx + d
+\end{array} \]
+La fonction dérivée de $P$ est donnée par :
+\[ \begin{array}{c c c c}
+P' :  &\R & \to & \R \\
+& x & \mapsto & 3ax^2 + 2bx +c
+\end{array} \]
+\end{prop}
+
+\begin{proof}
+On a :
+\begin{align*}
+P(x+h)-P(x) & = a(x+h)^3 + b(x+h)^2 + c(x+h) + d -ax^3 - bx^2 -cx -d \\
+& = ax^3 + 3ax^2h + 3axh^2 + ah^3 + bx^2 + 2bxh + bh^2 +cx + ch  -ax^3 - bx^2 -cx \\
+& = 3ax^2h + 3axh^2 + ah^3 + 2bxh + bh^2 + ch 
+\end{align*}
+Donc :
+\[ \dfrac{P(x+h)-P(x)}{h} = 3ax^2 + 3axh + ah^2 + 2bx + bh + c \]
+En faisant tendre $h \to 0$, on retrouve bien la formule attendue.
+\end{proof}
 
 \end{document}
