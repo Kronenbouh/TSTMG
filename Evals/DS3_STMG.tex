@@ -1,0 +1,231 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°3a — fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1a} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		La fonction exponentielle de base $a$ est croissante & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		Si $x=y$ alors $a^x=a^y$ (pour $x, y \in \R$ et $a>0$) & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		Pour tout $a \in \R, a^0=1$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		$a^x + a^y = a^{x + y}$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		Si $a<0$, la fonction exponentielle de base $a$ est négative & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		$\left (\dfrac{a^x}{a^x} \right )^{70} = 1^3$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+	\end{tabular}
+	\end{center}
+}{exe:1a}{
+Les réponses sont, dans l'ordre : faux, vrai, vrai, faux, faux, vrai.
+}
+
+\exe{4}{
+Mettre les expressions ci-dessous sous la forme $a^x$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $a^{3,5} \times a^{3,8}$
+\item $\dfrac{a^{5,3}}{a^{6,1}} \times a^{4,9}$
+\item $((a^{1,2})^2)^3 \times \dfrac{a^{1,7}}{a^{8,3}}$
+\item $\dfrac{1}{a^{4,2} \times a^{2,8}}$
+\end{enumerate}
+\end{multicols}
+}{exe:2a}{
+\begin{enumerate}
+\item
+\item
+\item
+\item
+\end{enumerate}
+}
+
+\exe{4}{
+Déterminer le sens de variation des fonctions ci-dessous. Justifier brièvement.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $x \mapsto -\dfrac1{10} \times \left ( \dfrac78 \right )^x$
+\item $x \mapsto -0,001 \times (232 )^x$
+\item $x \mapsto 42 \times \left ( \dfrac{10}{11} \right )^x$
+\item $x \mapsto \dfrac34 \times \left ( 1,05 \right )^x$
+\end{enumerate}
+\end{multicols}
+}{exe:3a}{
+\begin{multicols}{2}
+\begin{enumerate}
+\item croissante	
+\item décroissante
+\item décroissante
+\item croissante
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{3}{
+En 1996, en France, le salaire annuel net moyen était de 18~461 \euro~ courants (sans correction de l'inflation).
+En 2020, le salaire annuel net moyen était de 29~652  \euro~ courants.
+\begin{enumerate}
+\item Calculer le taux d'évolution global puis \textbf{annuel moyen} du salaire annuel moyen en France sur la période considérée.
+\item Proposer une estimation du salaire annuel moyen en 2025.
+\item Proposer une estimation du salaire annuel moyen en 1993.
+\end{enumerate}
+}{exe:4a}{
+
+}
+
+\exe{3}{
+Une usine augmente annuellement (de de façon constante) sa production de $9 \%$. En 2015, elle produisait 200 unités.
+\begin{enumerate}
+\item Quel est le taux d'évolution annuel moyen de la production de l'usine ?
+\item Estimer la production de l'usine en 2026.
+\item Chaque unité produite est vendue 3~000 \euro. En tenant compte de frais fixes de 90~000 \euro~annuels, 
+estimer le résultat net de l'entreprise opérant l'usine en 2026.
+\end{enumerate}
+}{exe:5a}{
+
+}
+
+%%%%%%%%%%%%
+
+\setcounter{Exercise}{0}
+
+\newpage
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°3b — fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1b} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Si $x=y$ alors $a^x=a^y$ (pour $x, y \in \R$ et $a>0$) & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		$a^x + a^y = a^{x + y}$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		La fonction exponentielle de base $a$ est croissante & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		$\left (\dfrac{a^x}{a^x} \right )^{70} = 1^3$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		Pour tout $a \in \R, a^0=1$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		Si $a<0$, la fonction exponentielle de base $a$ est positive & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+	\end{tabular}
+	\end{center}
+}{exe:1b}{
+Les réponses sont, dans l'ordre : vrai, faux, faux, vrai, vrai, faux.
+}
+
+\exe{4}{
+Mettre les expressions ci-dessous sous la forme $a^x$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $a^{5,3} \times a^{3,8}$
+\item $\dfrac{a^{3,5}}{a^{6,1}} \times a^{4,9}$
+\item $((a^{2,1})^2)^3 \times \dfrac{a^{1,7}}{a^{6,3}}$
+\item $\dfrac{1}{a^{4,3} \times a^{2,5}}$
+\end{enumerate}
+\end{multicols}
+}{exe:2b}{
+\begin{enumerate}
+\item
+\item
+\item
+\item
+\end{enumerate}
+}
+
+\exe{4}{
+Déterminer le sens de variation des fonctions ci-dessous. Justifier brièvement.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $x \mapsto 23 \times \left ( \dfrac{10}{11} \right )^x$
+\item $x \mapsto -\dfrac1{10} \times \left ( \dfrac87 \right )^x$
+\item $x \mapsto \dfrac34 \times \left ( 1,05 \right )^x$
+\item $x \mapsto 0,001 \times (232 )^x$
+\end{enumerate}
+\end{multicols}
+}{exe:3b}{
+\begin{multicols}{2}
+\begin{enumerate}
+\item décroissante
+\item décroissante
+\item croissante
+\item croissante
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{3}{
+En 1999, en France, le salaire annuel net moyen était de 19~486 \euro~ courants (sans correction de l'inflation).
+En 2022, le salaire annuel net moyen était de 30~721  \euro~ courants.
+\begin{enumerate}
+\item Calculer le taux d'évolution global puis \textbf{annuel moyen} du salaire annuel moyen en France sur la période considérée.
+\item Proposer une estimation du salaire annuel moyen en 2025.
+\item Proposer une estimation du salaire annuel moyen en 1993.
+\end{enumerate}
+}{exe:4b}{
+
+}
+
+\exe{3}{
+Une usine augmente annuellement (de de façon constante) sa production de $6 \%$. En 2015, elle produisait 400 unités.
+\begin{enumerate}
+\item Quel est le taux d'évolution annuel moyen de la production de l'usine ?
+\item Estimer la production de l'usine en 2026.
+\item Chaque unité produite est vendue 2~000 \euro. En tenant compte de frais fixes de 70~000 \euro~annuels, 
+calculer le résultat net de l'entreprise opérant l'usine en 2026.
+\end{enumerate}
+}{exe:5b}{
+
+}
+
+%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%Les solutions sont données dans l'ordre sujet a puis b. \newline
+%\shipoutAnswer
+
+
+\end{document}

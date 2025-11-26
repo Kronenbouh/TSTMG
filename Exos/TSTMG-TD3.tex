@@ -1,0 +1,109 @@
+\input{preamble}
+\usepackage{graphicx,wrapfig}
+\usepackage{eurosym}
+\usepackage{varwidth}
+\graphicspath{ {./images/} }
+\usetikzlibrary {datavisualization.formats.functions}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{TD n°3 : fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+La difficulté des exercices est dénotée par des étoiles (de 0 à 3).
+
+\exe{}{
+Mettre chacune des expressions ci-dessous sous la forme $a^x$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $a^5 \times \frac{a^{3,9}}{a^{4,5}}$
+\item $\dfrac{a^4}{\dfrac1{a^{1,3}}}$
+\item $(a^{2,5} \times \frac{1}{a^-3,8})^{10}$
+\item $((a^{0,5})^{2})^3 \times a^{-9,7} \times (a^{5,2})$
+\end{enumerate}
+\end{multicols}
+}{exe:1}{
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $a^5 \times \frac{a^{3,9}}{a^{4,5}} = a^{4,4}$
+\item $\dfrac{a^4}{\dfrac1{a^{1,3}}} = a^{5,3}$
+\item $(a^{2,5} \times \frac{1}{a^-3,8})^{10} = a^{63}$
+\item $((a^{0,5})^{2})^3 \times a^{-9,7} \times (a^{5,2}) = a^{-1,5}$
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{}{
+Donner le sens de variation des fonctions suivantes 
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item $x \mapsto \frac87 \times \left ( 2,02 \right )^x$
+\item $x \mapsto \frac14 \times -1 \times \left ( \frac98 \right )^x$
+\item $x \mapsto (\frac14 - \frac13) \times 4^x$
+\item $x \mapsto -0,1 \times ((2,5)^2 - 6)^x$
+\end{enumerate}
+\end{multicols}
+}{exe:2}{
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+\item $x \mapsto \frac87 \times \left ( 2,02 \right )^x$ est croissante
+\item $x \mapsto \frac14 \times -1 \times \left ( \frac98 \right )^x$ est décroissante
+\item $x \mapsto (\frac14 - \frac13) \times 4^x$ est décroissante
+\item $x \mapsto -0,1 \times ((2,5)^2 - 6)^x$ est croissante
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{, difficulty=1}{
+Le PIB de la Corée du Nord est connue depuis 2009 seulement.
+En 2009, il était estimé à 28~483,5 Won nord-coréens (abrgégé WNK) et en 2024 à 43~678,9 WNK.
+\begin{enumerate}
+\item Donner le taux d'évolution globale du PIB nord-coréen sur cette période. 
+\item Donner le taux d'évolution \textbf{annuel moyen} du PIB nord-coréen sur cette même période.
+\item En utilisant le taux moyen calculé précédemment, donner une estimation :
+	\begin{enumerate}
+		\item du PIB en 2000 ;
+		\item du PIB en 2030.
+	\end{enumerate}
+\end{enumerate}
+}{exe:3}{
+\begin{enumerate}
+\item $T = \frac{43678,9}{28435,5} - 1 \approx 0,536$.
+\item $t = \left ( \frac{43678,9}{28435,5} \right )^{1/16} - 1 \approx 0,027$.
+\item 
+	\begin{enumerate}
+		\item $28435,5 \times (1+t)^{-9} \approx 22~334,0$ WNK.
+		\item $43678,9 \times (1+t)^{6} \approx 51~310,0$ WNK.
+	\end{enumerate}
+\end{enumerate}
+}
+
+\exe{, difficulty=1}{ 
+Une ancienne élève de STMG décide de créer une entreprise de vente de parfum. Elle estime ses frais d'opération à 300 \euro~ mensuels.
+Pour lancer son entreprise, elle contracte un crédit différé à mensualité fixe de 300 \euro. 
+Au lancement de son entreprise, elle compte vendre seulement 10 bouteilles à 30 \euro~ le premier mois 
+puis faire croître progressivement son affaire pour se stabiliser, après un an, à 80 bouteilles vendues par mois (le prix reste le même).
+\begin{enumerate}
+\item Calculer le taux de croissance mensuel moyen nécessaire pour tenir les objectifs.
+\item Le crédit étant différé, à partir de quel mois l'élève pourra commencer à rembourser son crédit sans risquer de bilan négatif ?
+\item Calculer le résultat net de l'entreprise après un an.
+\end{enumerate}
+\textit{Ne pas oublier de tenir compte des frais d'opération !}
+}{exe:4}{
+\begin{enumerate}
+\item  $t = \left ( \frac{80}{10} \right ) ^ {1/12} - 1 \approx 0,19$.
+\item En utilisant le taux moyen, on a : $10 \times (1+t)^4 = 20$, 
+donc au 5ème mois l'élève aura un chiffre d'affaire de 600 \euro~ 
+ce qui lui permettra de payer ses frais d'opération et son crédit. 
+\item Après un an, l'élève vend 80 bouteilles, soit un chiffre d'affaire de 2~400 \euro~, 
+ce qui correspond à un résultat net de 1~800 \euro.
+\end{enumerate}
+}
+
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
+
+\end{document}
