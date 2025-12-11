@@ -2,6 +2,10 @@
 \renewcommand*{\proofname}{Démonstration}
 
 \theoremstyle{definition}
+\newtheorem*{nomen}{Nomenclature}
+
+
+\theoremstyle{definition}
 \newtheorem*{nota}{Notation}
 
 \theoremstyle{definition}
@@ -100,6 +104,7 @@
  
 \newkeytheorem{rapl}[
   name=Rappel,
+  parent=section,
   style=tcb-def,
   ]
  
@@ -113,6 +118,23 @@
 	innertopmargin=-4pt,
 	nobreak=false,
 ]{proof}
+
+\surroundwithmdframed[
+	hidealllines=false,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=false,
+]{nota}
+
+\surroundwithmdframed[
+	hidealllines=false,
+	innerleftmargin=10pt,
+	innerrightmargin=10pt,
+	innertopmargin=-4pt,
+	nobreak=false,
+]{nomen}
+
 
 
 %interface pour les exos

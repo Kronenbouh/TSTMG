@@ -57,12 +57,14 @@ Mettre les expressions ci-dessous sous la forme $a^x$.
 \end{enumerate}
 \end{multicols}
 }{exe:2a}{
+\begin{multicols}{2}
 \begin{enumerate}
-\item
-\item
-\item
-\item
+\item $a^{3,5} \times a^{3,8} = a^{7,3}$
+\item $\dfrac{a^{5,3}}{a^{6,1}} \times a^{4,9}= a^{4,1}$
+\item $((a^{1,2})^2)^3 \times \dfrac{a^{1,7}}{a^{8,3}} = a^{0,6}$
+\item $\dfrac{1}{a^{4,2} \times a^{2,8}} = a^{-7}$
 \end{enumerate}
+\end{multicols}
 }
 
 \exe{4}{
@@ -91,11 +93,20 @@ En 1996, en France, le salaire annuel net moyen était de 18~461 \euro~ courants
 En 2020, le salaire annuel net moyen était de 29~652  \euro~ courants.
 \begin{enumerate}
 \item Calculer le taux d'évolution global puis \textbf{annuel moyen} du salaire annuel moyen en France sur la période considérée.
-\item Proposer une estimation du salaire annuel moyen en 2025.
+\item Proposer une estimation du salaire annuel moyen en 2026.
 \item Proposer une estimation du salaire annuel moyen en 1993.
 \end{enumerate}
+Question bonus : à partir de quelle année le salaire annuel moyen va-t-il dépasser les 50~000 \euro ?
 }{exe:4a}{
-
+\begin{enumerate}
+\item Taux d'évolution globale : $T = \left ( \frac{29~652}{18~461} \right ) - 1 \approx 61 \%$ \newline
+Taux d'évolution moyen : $t = \left ( \frac{29~652}{18~461} \right )^{1/24} - 1 \approx 2,0 \%$.
+\item On calcule $29~652 \times (1+t)^6 \approx 33~381$ \euro.
+\item On calcule $18~461 \times (1+t)^{-3} \approx 17~399$ \euro.
+\end{enumerate}
+Bonus : on doit résoudre $29~652 \times (1+t)^n \geq 50~000$, en passant au $\log$ on trouve :
+\[ n \geq \dfrac{\log \left ( \dfrac{50~000}{29~652} \right)}{\log(1+t)} \approx 26,4 \]
+En considérant ce rythme de croissance, le salaire annuel moyen dépassera les 50~000 \euro~ en 2047.
 }
 
 \exe{3}{
@@ -107,7 +118,11 @@ Une usine augmente annuellement (de de façon constante) sa production de $9 \%$
 estimer le résultat net de l'entreprise opérant l'usine en 2026.
 \end{enumerate}
 }{exe:5a}{
-
+\begin{enumerate}
+\item Le taux d'évolution annuel moyen de la production de l'usine est de $9 \%$.
+\item On calcule $200 \times (1,09)^{11} \approx 516$.
+\item Le chiffre d'affaire est de $3000 \times 516 \approx 1~548~000$ \euro~ en 2026, soit un résultat net de $1~458~000$ \euro.
+\end{enumerate}
 }
 
 %%%%%%%%%%%%
@@ -168,10 +183,10 @@ Mettre les expressions ci-dessous sous la forme $a^x$.
 \end{multicols}
 }{exe:2b}{
 \begin{enumerate}
-\item
-\item
-\item
-\item
+\item $a^{5,3} \times a^{3,8} = a^{9,1}$
+\item $\dfrac{a^{3,5}}{a^{6,1}} \times a^{4,9} = a^{2,3}$
+\item $((a^{2,1})^2)^3 \times \dfrac{a^{1,7}}{a^{6,3}} = a^8$
+\item $\dfrac{1}{a^{4,3} \times a^{2,5}} = a^{-6,8}$
 \end{enumerate}
 }
 
@@ -201,11 +216,20 @@ En 1999, en France, le salaire annuel net moyen était de 19~486 \euro~ courants
 En 2022, le salaire annuel net moyen était de 30~721  \euro~ courants.
 \begin{enumerate}
 \item Calculer le taux d'évolution global puis \textbf{annuel moyen} du salaire annuel moyen en France sur la période considérée.
-\item Proposer une estimation du salaire annuel moyen en 2025.
-\item Proposer une estimation du salaire annuel moyen en 1993.
+\item Proposer une estimation du salaire annuel moyen en 2029.
+\item Proposer une estimation du salaire annuel moyen en 1996.
 \end{enumerate}
+Question bonus : à partir de quelle année le salaire annuel moyen va-t-il dépasser les 55~000 \euro ?
 }{exe:4b}{
-
+\begin{enumerate}
+\item Taux d'évolution globale : $T = \left ( \frac{30~721}{19~486} \right ) - 1 \approx 58 \%$ \newline
+Taux d'évolution moyen : $t = \left ( \frac{30~721}{19~486} \right )^{1/23} - 1 \approx 2,0 \%$.
+\item On calcule $30~721 \times (1+t)^7 \approx 35~287$ \euro.
+\item On calcule $19~486 \times (1+t)^{-3} \approx 18~363$ \euro.
+\end{enumerate}
+Bonus : on doit résoudre $30~721 \times (1+t)^n \geq 55~000$, en passant au $\log$ on trouve :
+\[ n \geq \dfrac{\log \left ( \dfrac{55~000}{30~721} \right)}{\log(1+t)} \approx 29,4 \]
+En considérant ce rythme de croissance, le salaire annuel moyen dépassera les 55~000 \euro~ en 2052.
 }
 
 \exe{3}{
@@ -217,15 +241,19 @@ Une usine augmente annuellement (de de façon constante) sa production de $6 \%$
 calculer le résultat net de l'entreprise opérant l'usine en 2026.
 \end{enumerate}
 }{exe:5b}{
-
+\begin{enumerate}
+\item Le taux d'évolution annuel moyen de la production de l'usine est de $6 \%$.
+\item On calcule $400 \times (1,06)^{11} \approx 759$.
+\item Le chiffre d'affaire est de $2000 \times 759 \approx 1~518~000$ \euro~ en 2026, soit un résultat net de $1~448~000$ \euro.
+\end{enumerate}
 }
 
 %%%%%%%%%%%%
 
-%\newpage
-%\fancyhead[C]{\textbf{Solutions}}
-%Les solutions sont données dans l'ordre sujet a puis b. \newline
-%\shipoutAnswer
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+Les solutions sont données dans l'ordre sujet a puis b. \newline
+\shipoutAnswer
 
 
 \end{document}

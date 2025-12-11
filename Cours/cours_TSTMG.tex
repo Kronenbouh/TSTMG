@@ -592,7 +592,7 @@ Le taux d'évolution moyen de cette quantité est solution de l'équation :
 Pour calculer ce taux moyen, on doit donc évaluer la fonction $x \mapsto \left ( \frac{p_f}{p_i} \right ) ^{x}$ en $\frac1{n}$.
 \end{prop}
 
-\chapter{Fonction inverse}
+\chapter{Fonction inverse et polynômes}
 
 \section{Définition}
 
@@ -607,9 +607,9 @@ Dans la suite de ce cours, on notera $\Ret$ l'ensemble des nombres réels privé
 \end{nota}
 
 \begin{defn}[Fonction inverse]
-La fonction inverse est la fonction définie sur $\R$ privé de 0 par :
+La fonction inverse est la fonction définie sur $\Ret$ par :
 \[ \begin{array}{c c c}
-\Re & \to & \R \\
+\Ret & \to & \R \\
 x & \mapsto & \dfrac1{x}
 \end{array} \] 
 C'est donc la fonction qui, à un réel non nul, associe son inverse multiplicatif.
@@ -617,6 +617,7 @@ C'est donc la fonction qui, à un réel non nul, associe son inverse multiplicat
 
 \begin{rmq}
 la courbe représentative de la fonction inverse est donnée ci-dessous :
+
 \begin{center}
 \begin{tikzpicture}[>=stealth, scale=1]
 \begin{axis}%
@@ -633,25 +634,27 @@ la courbe représentative de la fonction inverse est donnée ci-dessous :
         tick label style={font=\tiny},
         ymin=-10,
         ymax=10,
-        ylabel={\scriptsize $f(x)$},
+        ylabel={\tiny $1/x$},
         axis y line=middle,
         no markers,
         samples=100,
         domain=-10:10,
         restrict y to domain=-20:20
     ]
-    \addplot[thick,samples=400] (x,{1/x});
+    \addplot[blue, thick,samples=400] (x,{1/x}) ;
 \end{axis} 
 \end{tikzpicture}
 \end{center}
+
 \end{rmq}
 
 \section{Limite et dérivation}
 
 \begin{defn}[Limite]
-On considère une fonction $f$ définie sur un intervalle de la forme $]a,b[$ avec $a$ et $b$ des nombres éventuellements infinis.
-On appelle limite de $f$ en $a$ ou en $b$, la valeur de la fonction $f$ au voisinage de $a$ ou de $b$ 
-(c'est-à-dire au voisinage des bornes de son domaine de définition).
+On considère une fonction $f$ définie sur un intervalle de la forme $]a,b[$ avec $a$ et $b$ éventuellements infinis. \newline
+
+On appelle limite de $f$ en $a$ (ou en $b$), la valeur de la fonction $f$ au voisinage de $a$ (ou de $b$, 
+c'est-à-dire au voisinage des bornes de son domaine de définition).
 Cette limite peut éventuellement être infinie.
 \end{defn}
 
@@ -694,23 +697,23 @@ Cette limite peut éventuellment être infinie et, dans ce cas, on dit que la fo
 
 \begin{rmq}
 La dérivée d'une fonction $f$ en $x$ correspond à une ``variation instantannée'', 
-c'est-à-dire à la variation de la valeur de $f(x)$ pour une très petite variation autour de $x$.
+c'est-à-dire à la variation de la valeur de $f(x)$ pour une variation arbitrairement petite autour de $x$.
 En conséquence, une dérivée positive au voisinage de $x$ indique une fonction localement croissante. 
 A l'inverse, une dérivée négative au voisinage de $x$ indique une fonction localement décroissante. 
 \end{rmq}
 
 \begin{rapl}[Fonction dérivée]
-Soit $f$ une fonction dérivable sur un intervalle $I$. On appelle fonction dérivée de $f$, et l'on note $f'$, la fonction qui,
+Soit $f$ une fonction dérivable sur un intervalle $I$. On appelle fonction dérivée de $f$, que l'on note $f'$, la fonction qui,
 à un point $x$ de $I$ associe la dérivée de $f$ au point $x$.
+\[ \begin{array}{c c c c}
+f' : & I & \to & \R \\
+& x & \mapsto & \lim_{h \to 0} \dfrac{f(x+h)-f(x)}{h} 
+\end{array} \]
 \end{rapl}
 
-\begin{nota}
-Pour une fonction $f$ on note $f'$ sa fonction dérivée.
-\end{nota}
-
 \begin{prop}[Dérivée et sens de variation]
-Soit $f$ une fonction numérique et $I$ un intervalle inclus dans le domaine de définition de $f$, 
-tel que la fonction dérivée f' est de signe constant sur $I$. Alors :
+Soit $f$ une fonction numérique et soit $I$ un intervalle inclus dans le domaine de définition de $f$, 
+tel que la fonction dérivée $f'$ est de signe constant sur $I$. Alors :
 \begin{enumerate}[(i)]
 \item si $f' < 0$ sur $I$ alors $f$ est strictement décroissante sur $I$ ;
 \item si $f'=0$ sur $I$ alors $f$ est constante sur $I$ ;
@@ -718,10 +721,14 @@ tel que la fonction dérivée f' est de signe constant sur $I$. Alors :
 \end{enumerate}
 \end{prop}
 
+\begin{rmq}
+Si $f' \geq 0$ (respectivement $f' \leq 0$) alors $f$ est simplement croissante (respectivement décroissante) sur $I$.
+\end{rmq}
+
 \begin{prop}[Derivée de la fonction inverse]
 La fonction inverse admet pour dérivée la fonction suivante :
 \[ \begin{array}{c c c}
-\Re & \to & \R \\
+\Ret & \to & \R \\
 x & \mapsto & - \dfrac1{x^2}
 \end{array} \] 
 \end{prop}
@@ -732,11 +739,11 @@ On a :
 On obtient le résultat par passage à la limite.
 \end{proof}
 
-\begin{coro}
+\begin{coro}[Sens de variation de la fonction inverse]
 La fonction inverse est strictement décroissante sur tout son ensemble de définition.
 \end{coro}
 
-\section{Fonction inverse et polynômes}
+\section{Fonctions polynômes}
 
 \begin{defn}[Fonction polynôme de degré 3]
 Soit $n \in \N$ et $a, b, c, d$ des réels. On appelle fonction polynôme de degré au plus 3, une fonction de la forme :
@@ -750,12 +757,47 @@ Le degré de la fonction polynôme est défini de la façon suivante :
 \item si $a = 0$ et $b \neq 0$ alos le degré est égal à 2 ;
 \item si $a=b=0$ et $c \neq 0$ alors le degré est égal à 1 :
 \item si $a=b=c=0$ alors le degré est égal à 0.
+\item si $a=b=c=d=0$ alors le degré est égal à $-\infty$.
 \end{enumerate}
 \end{defn}
 
-\begin{ex}
-La fonction $x \mapsto x^2 -3x$ est une fonction polynôme de degré 2.
-\end{ex}
+\begin{rmq}
+On donne ci-dessous les représentations graphiques des fonctions : 
+$p_1 : x \mapsto x$, $p_2 : x \mapsto x^2$ et $p_3 : x \mapsto x^3$.
+Ce sont les polyômes de degrés respectifs 1, 2 et 3 les plus simples.
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+\begin{axis}%
+    [
+        grid=major,  
+        x=5mm,
+        y=5mm,
+        xtick={-10,-9,...,10},   
+        xmin=-10,
+        xmax=10,
+        xlabel={\tiny $x$},
+        axis x line=middle,
+        ytick={-10,-9,...,10},
+        tick label style={font=\tiny},
+        ymin=-10,
+        ymax=10,
+        ylabel={\tiny $p$},
+        axis y line=middle,
+        no markers,
+        samples=100,
+        domain=-10:10,
+        restrict y to domain=-20:20
+    ]
+    \addplot[blue, thick,samples=400] (x,{x}) ;
+    \node at (axis cs:8,7){\color{blue} \small $p_1$};
+    \addplot[green, thick,samples=400] (x,{x^2}) ;
+    \node at (axis cs:3,6){\color{green} \small $p_2$};
+    \addplot[red, thick,samples=400] (x,{x^3}) ;
+    \node at (axis cs:-3,-7){\color{red} \small $p_3$};
+\end{axis} 
+\end{tikzpicture}
+\end{center}
+\end{rmq}
 
 \begin{prop}[Dérivation et polynôme]
 On considère la fonction polynôme $P$ définie par :
@@ -774,12 +816,42 @@ P' :  &\R & \to & \R \\
 On a :
 \begin{align*}
 P(x+h)-P(x) & = a(x+h)^3 + b(x+h)^2 + c(x+h) + d -ax^3 - bx^2 -cx -d \\
-& = ax^3 + 3ax^2h + 3axh^2 + ah^3 + bx^2 + 2bxh + bh^2 +cx + ch  -ax^3 - bx^2 -cx \\
+& = ax^3 + 3ax^2h + 3axh^2 + ah^3 + bx^2 + 2bxh + bh^2 +cx + ch \\
+&  -ax^3 - bx^2 -cx \\
 & = 3ax^2h + 3axh^2 + ah^3 + 2bxh + bh^2 + ch 
 \end{align*}
 Donc :
 \[ \dfrac{P(x+h)-P(x)}{h} = 3ax^2 + 3axh + ah^2 + 2bx + bh + c \]
 En faisant tendre $h \to 0$, on retrouve bien la formule attendue.
 \end{proof}
+
+\begin{ex}
+On considère la fonction polynôme $P$ définie sur $\R$ par :
+\[ P(x) = 3x^3 + 6x^2 + 2 . \]
+Son degré est égal à 2 et sa fonction dérivée est définie par :
+\[ P'(x) = 9x^2 + 12x  . \]
+On remarque que le degré de la fonction dérivée est égal à 2.
+\end{ex}
+
+\begin{thm}[Linéarité de la dérivation]
+Soient $f, g$ deux fonctions dérivables sur un intervalle $I$ et $\lambda, \mu$ deux réels, on a :
+\[ (\lambda f + \mu g)' = \lambda f' + \mu g' , \]
+sur $I$.
+\end{thm}
+
+\begin{proof}
+Il suffit de remarquer que :
+\[ (\lambda f+\mu g)(x+h) = \lambda f(x+h) - \mu g(x+h) , \]
+et de même pour $(\lambda f+\mu g)(x)$. On écrit donc :
+\[ \dfrac{ (\lambda f+\mu g)(x+h) - (\lambda f+\mu g)(x)}{h} = \lambda \dfrac{ f(x+h) - f(x) }{h} - \mu \dfrac{ g(x+h) - g(x) }{h} \]
+puis on obtient le résultat en faisant tendre $h$ vers 0.
+\end{proof}
+
+\begin{ex}
+On considère la fonction $f$ définie sur $\Ret$ par $f(x) = 3x^2 + 7x + \frac{8}{x}$. En définissant $f_1$ et $f_2$ sur $\Ret$ par :
+\[ f_1(x) = 3x^2 + 7x  \quad \text{et} \quad f_2(x) = \frac{8}{x} \]
+on a, en utilisant le théorème précédent :
+\[ f'(x) = 6x + 7 - \frac{8}{x^2} . \]
+\end{ex}
 
 \end{document}

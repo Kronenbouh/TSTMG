@@ -1,0 +1,109 @@
+\input{preamble.tex}
+\usepackage{makecell} % commande \thead, dans l'exo 1
+\usepackage{eurosym} % pour le symbole euro propre
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°3c — fonctions exponentielles}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est {autorisée}.
+	\item 
+	L'exercice \ref{exe:1c} peut être fait entièrement sur la feuille d'évaluation. Écrire son nom avant de rendre le sujet pour qu'il soit corrigé.
+	\item 
+	Toute trace de recherche est prise en compte.
+%	\item 
+%	L'abbréviation $\tq$ signifie ``tel que''.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	Vrai ou faux ? Cocher la case correspondante (aucune justification n'est attendue). \\
+	\vspace{-20pt}
+	\begin{center}
+	\begin{tabular}{c c c}
+		\hspace{10cm} & Vrai & Faux \\
+		Si $a>1$ alors il existe $x>0$ tel que $a^x > 1~000~000$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		Si $x=y$ alors $a^x = a^y$ (pour $x, y \in \R$ et $a>0$) & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		Pour tout $a \in \R, a^1=1$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}   \\
+		$\dfrac1{a^x} = 1-a^{x}$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		La fonction exponentielle de base $a<0$ est négative & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+		$a^x \times a^{-x} = 1^{15}$ & \resizebox{10pt}{!}{$\square$}  & \resizebox{10pt}{!}{$\square$}  \\
+	\end{tabular}
+	\end{center}
+}{exe:1c}{
+Les réponses sont, dans l'ordre : .
+}
+
+\exe{4}{
+Mettre les expressions ci-dessous sous la forme $a^x$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $a^{4,8} \times a^{2,7}$
+\item $\dfrac{a^{7,3}}{a^{8,1}} \times a^{2,9}$
+\item $((a^{1,4})^3)^2 \times \dfrac{a^{1,5}}{a^{6,3}}$
+\item $\dfrac{1}{a^{3,9} \times a^{2,8}}$
+\end{enumerate}
+\end{multicols}
+}{exe:2c}{
+
+}
+
+\exe{4}{
+Déterminer le sens de variation des fonctions ci-dessous. Justifier brièvement.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*), itemsep=1ex]
+\item $x \mapsto -\dfrac9{10} \times \left ( \dfrac98 \right )^x$
+\item $x \mapsto 98 \times \left ( \dfrac{11}{12} \right )^x$
+\item $x \mapsto 0,001 \times (42 )^x$
+\item $x \mapsto \dfrac34 \times \left ( 0,99 \right )^x$
+\end{enumerate}
+\end{multicols}
+}{exe:3c}{
+\begin{multicols}{2}
+\begin{enumerate}
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{multicols}
+}
+
+\exe{6}{
+En 2006, le cours de l'or s'établissait à 447,83 \euro~ l'once. En 2021, le cours était à 1~511,48 \euro~ l'once.
+\begin{enumerate}
+\item Calculer le taux d'évolution global puis \textbf{annuel moyen} du cours de l'or sur la période considérée.
+\item Proposer une estimation du cours de l'or en 2026.
+\item Proposer une estimation du cours de l'or en 1999.
+\item Un bijoutier utilise chaque année 50 onces d'or pour sa production de bijoux. 
+\begin{enumerate}
+\item Quel chiffre d'affaire a dû réaliser le bijoutier en 2006 pour réaliser un bénéfice net de 50~000 \euro~?
+\item Même question pour l'année 2026.
+\item Le bijoutier estime pouvoir vendre 80 bijoux en 2026. Quel devra être le prix moyen par bijou ?
+\end{enumerate}
+\end{enumerate}
+}{exe:4c}{
+
+}
+
+%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%Les solutions sont données dans l'ordre sujet a puis b. \newline
+%\shipoutAnswer
+
+
+\end{document}
