@@ -1,0 +1,146 @@
+\input{preamble}
+\usepackage{eurosym}
+\usetikzlibrary {datavisualization}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{TD n°5 : statistiques à deux variables}}
+\fancyhead[R]{\today}
+
+\exe{}{
+Une entreprise décide de mettre un nouveau produit sur le marché. Pour déterminer son prix de vente, elle réalise plusieurs tours
+de vente limités en faisant varier le prix unitaire. Les chiffres de vente sont donnés dans le tableau ci-dessous :
+ \begin{center}
+  \begin{tabular}{|l|*5{c|}}
+	 \hline
+	 \textbf{Prix : $x_i$} & 50 & 55 & 60 & 80 & 100 \\
+	 \hline
+	 \textbf{Nombre ventes : $y_i$} & 150 & 138 & 130 & 92 & 48 \\
+	 \hline
+	\end{tabular}
+ \end{center}
+ 
+On a représenté dans le repère ci-dessous le nuage de points associé à cette série statistique à deux variables :
+  
+\begin{tikzpicture}
+\begin{axis}%
+    [
+        grid=major,  
+        x=2mm,
+        y=1mm,
+        xtick={50,55,...,110},   
+        xmin=50,
+        xmax=110,
+        xlabel={\small $x$},
+        axis x line=middle,
+        ytick={40,50,...,160},
+        tick label style={font=\small},
+        ymin=40,
+        ymax=160,
+        ylabel={\small $y$},
+        axis y line=middle,
+        no markers,
+        samples=100,
+    ]
+\addplot[teal, only marks] 
+table[x=x,y=y, col sep=comma] {data_TD5.csv};
+\end{axis}
+\end{tikzpicture}
+
+\begin{enumerate}
+  \item Calculer les coordonnées du point moyen G de ce nuage de points. Placer G sur le graphique.
+  \item \begin{enumerate}
+	 \item Justifier qu'il est pertinent de réaliser un ajustement affine pour ce nuage de points.
+	 \item Déterminer une équation de la droite $\Delta$ d'ajustement affine de $y$ en $x$ obtenue par la méthode des moindres carrés, sous la forme $y=ax+b$.
+	 On arrondira les paramètres à $10^{-1}$ près.
+	\end{enumerate}
+	\item Vérifier que la droite $\Delta$ passe par G.
+	\item À l'aide de cet ajustement affine, estimer le nombre d'offres vendues, si le prix unitaire est fixé à 70 euros.
+	\item Selon vous, quel est le prix permettant à l'entreprise de réaliser le plus grand chiffre d'affaire ?
+ \end{enumerate}
+ 
+}{exe:1}{
+
+}
+
+\newpage
+
+\exe{}{
+La coopérative de Mai (à Clermont) décide de mesurer le volume sonore lors des concerts qu'elle organise sur un trimestre.
+Pour cela, deux variables sont mesurées :
+\begin{enumerate}[label=(\roman*)]
+\item la pression accoustique (exprimée en pascals : Pa) ;
+\item le niveau d'intensité sonore du bruit (exprimée en décibels : dB).
+\end{enumerate}
+Les résultats obtenus sont présentés dans le tableau ci-dessous :
+ \begin{center}
+  \begin{tabular}{|l|*8{c|}}
+	 \hline
+	 \textbf{Pression : $p_i$} & 0.5 & 1 & 3 & 5 & 7 & 10 & 13 & 15 \\
+	 \hline
+	 \textbf{Intensité : $y_i$} & 88 & 94 & 103 & 108 & 111 & 114 & 116 & 117 \\
+	 \hline
+	\end{tabular}
+ \end{center}
+ 
+Le nuage de points correspondant est donné ci-dessous :
+\begin{center}
+ \begin{tikzpicture}
+\begin{axis}%
+    [
+        grid=major,  
+        x=5mm,
+        y=2mm,
+        xtick={0,1,...,16},   
+        xmin=0,
+        xmax=20,
+        xlabel={\small $p$},
+        axis x line=middle,
+        ytick={80,85,...,120},
+        tick label style={font=\small},
+        ymin=80,
+        ymax=120,
+        ylabel={\small $y$},
+        axis y line=middle,
+        no markers,
+        samples=100,
+    ]
+\addplot[teal, only marks] 
+table[x=x,y=y, col sep=comma] {data_TD5_2.csv};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+\item Un ajustement affine du nuage de points vous semble-t-il pertinent ? Justifier.
+\item On propose de réaliser une transformation logarithmique de la variable $p$ de pression en posant $x_i = \log(p_i)$.
+Compléter le tableau ci-dessous en arrondissant $x_i$ à $10^{-2}$ près.
+ \begin{center}
+  \begin{tabular}{|l|*8{c|}}
+	 \hline
+	 \textbf{$x_i = \log(p_i)$} & \dots & \dots & \dots & \dots & \dots & 1 & \dots & \dots \\
+	 \hline
+	 \textbf{Intensité : $y_i$} & 88 & 94 & 103 & 108 & 111 & 114 & 116 & 117 \\
+	 \hline
+	\end{tabular}
+ \end{center}
+\item Représenter le nouveau nuage de points $M_i(x_i,y_i)$ dans un repère orthogonal.
+\item Calculer les coordonnées du point moyen G de ce nuage de points et placer le sur le graphique.
+\item Déterminer une équation de la droite $\Delta$ d'ajustement affine de $y$ en $x$ obtenue par la méthode des moindres carrés,
+sous la forme $y=ax+b$. On arrondira les paramètres à $10^{-2}$ près. Tracer cette droite dans le repère.
+\item Lors d'un concert de LuLu. (artiste Clermontois) l'oreille d'un spectateur est soumise à la pression de 130 Pa. Déterminer l'intensité
+sonore atteinte lors de ce concert (au décibel près).
+\end{enumerate}
+}{exe:2}{
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+\end{document}

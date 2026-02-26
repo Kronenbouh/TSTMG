@@ -854,4 +854,213 @@ on a, en utilisant le théorème précédent :
 \[ f'(x) = 6x + 7 - \frac{8}{x^2} . \]
 \end{ex}
 
+\chapter{Séries statistiques à deux variables quantitatives}
+
+L'objet des statistiques est l'étude de populations d'individus (que ce soit des humains, des bactéries ou des pièces sorties d'une chaîne
+de production) aux travers d'une ou plusieurs variables (quantitatives ou qualitatives). \\
+Compter le nombre d'élèves dans un lycée et mesurer la proportion de filles c'est faire des statistiques. 
+De même, calculer la moyenne des notes obtenues par des élèves à un devoir surveillé, c'est aussi faire des statistiques. \\
+L'intérêt des statistiques est d'observer des tendances : si la moyenne d'une classe au dernier devoir surveillé est de 15, on peut 
+légitimement conclure que le devoir a été bien réussi. A noter que les tendances peuvent concerner plusieurs variables : on peut ainsi
+mesurer les notes moyennes obtenues par des élèves à un devoir surveillé et comparer cette variable au temps passé par ces mêmes
+élèves sur leurs téléphones durant le cours. Peut-être pourrons-nous mettre en évidence un lien entre ces deux variables ? 
+
+
+\section{Formalisation}
+
+\begin{nomen}
+Une population est l'objet d'une étude statistique. C'est un ensemble d'individus pour lesquels on mesure des variables.
+\end{nomen}
+
+\begin{defn}[Série statistique à deux variables]
+Une série statistique à deux variables est le résultat de l'étude d'une population selon deux caractères statistiques.
+Si l'on note $x$ et $y$ ces deux caractères, la série statistiques à deux variables est alors un ensemble de couples :
+\[ (x_i, y_i) \text{ avec $x_i$ et $y_i$ les valeurs prises par les variables $x$ et $y$} . \]
+En particulier, si les variables $x$ et $y$ sont quantitatives, la série est alors un ensemble de couples de nombres.
+\end{defn}
+
+\begin{ex}
+On étudie le poids et la taille des français. C'est une série statistique à deux variables quantitatives.
+Pour un français donné, on a un couple (poids, taille), par exemple $(1,80~ ; 70)$ (taille en mètre et poids en kilogramme).
+\end{ex}
+
+\begin{rmq}
+Une série statistique à deux variables peut être représentée sous la forme d'un tableau :
+\begin{center}
+\begin{tabular}{ |c||c|c|c|c| } 
+ \hline
+ $x$ & $x_1$ & $x_2$ & \dots & $x_n$ \\ 
+ \hline
+$y$ & $y_1$ & $y_2$ & \dots & $y_n$ \\ 
+ \hline
+\end{tabular}
+\end{center}
+Ici, la série est celle des variables $(x,y$) prenant les valeurs :
+\[ (x_1, y_1), (x_2, y_2), \dots, (x_n, y_n). \]
+\end{rmq}
+
+\begin{defn}[Série chronologique]
+Une série chronologique est une série statistique dont l'une des variables est le temps.
+C'est un cas particulier de série statistique à deux variables.
+\end{defn}
+
+\begin{ex}
+On étudie la croissance d'un enfant de sa naissance à ses 10 ans. Il s'agit d'une série chronologique.
+\end{ex}
+
+\begin{defn}[Nuage de points]
+On considère une série statistique à deux variables représentée par le tableau ci-dessous :
+\begin{center}
+\begin{tabular}{ |c||c|c|c|c| } 
+ \hline
+ $x$ & $x_1$ & $x_2$ & \dots & $x_n$ \\ 
+ \hline
+$y$ & $y_1$ & $y_2$ & \dots & $y_n$ \\ 
+ \hline
+\end{tabular}
+\end{center}
+On appelle \textbf{nuage de points} associé à la série statistique l'ensemble des points :
+\[ (x_i, y_i), \text{ pour } i \in \{1, \dots , n\} , \]
+placés dans un repère du plan.
+\end{defn}
+
+\begin{ex}
+On a mesuré la taille et le poids des habitants d'un village. Le nuage de points de la série statistique (taille, poids) respectivement en mètres et en kilogrammes, est donné ci-dessous.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[%
+scatter/classes={%
+    a={mark=o,draw=black}}]
+\addplot[scatter,only marks,%
+    scatter src=explicit symbolic]%
+table[meta=label] {
+x y label
+1.80 80 a
+1.70 59 a
+1.85 90
+1.57 65 a
+1.50 52 a
+1.63 58 a
+1.74 55 a
+1.73 65 a
+1.78 69 a
+1.90 100 a
+1.59 54 a
+1.71 75 a
+1.82 74 a
+1.84 82 a
+    };
+\end{axis}
+\end{tikzpicture}
+\end{center}
+On remarque que, globalement, la taille et le poids sont proportionnels.
+\end{ex}
+
+\section{Indicateurs de position et de dispertion}
+
+\begin{defn}[Moyenne]
+La valeur moyenne d'une série statistique à une variable $x$ prenant les valeurs $(x_1, x_2, \dots, x_n)$ est la valeur :
+\[ \bar{x} = \dfrac{x_1 + x_2 + \dots + x_n}{n} . \]
+La moyenne est un indicateur de \textbf{position}.
+\end{defn}
+
+\begin{rmq}
+La moyenne d'une série statistique correspond à la valeur que devrait prendre la série si elle ne prenait qu'une seule valeur.
+Par exemple, la taille moyenne en France est d'environ 1,76 mètres. Donc, si tous les français avaient la même taille,
+ils mesureraient 1,76 mètres.
+\end{rmq}
+
+\begin{defn}[Point moyen]
+Le point moyen $G$ d'une série statistique à deux variables $(x,y)$ prenant les valeurs $\bigpar{(x_1; y_1), (x_2; y_2), \dots, (x_n;y_n)}$ 
+est le point de coordonnées :
+\[ G( \bar{x}, \bar{y}) \]
+C'est un indicateur de \textbf{position}.
+\end{defn}
+
+\begin{rmq}
+Le poids moyen en France est de 74 kg. Ainsi, le point moyen pour les variables taille et poids en france est le point $G(1,76~; 74)$.
+En d'autres termes, si tous les français avaient la même carrure, ils mesureraient 1,76 mètres et pèseraient 74 kg.
+\end{rmq}
+
+\begin{defn}[Variance]
+La variance d'une série statistique à une variable $x$ prenant les valeurs $(x_1, x_2, \dots, x_n)$ est la valeur :
+\[ \var{x} = \dfrac{(x_1-\bar{x})^2 + (x_2-\bar{x})^2 + \dots + (x_n-\bar{x})^2}{n} . \]
+Il s'agit de la moyenne des carrés des écarts à la moyenne. La variance est un indicateur de \textbf{dispersion}.
+\end{defn}
+
+\begin{rmq}
+La variance représente \og l'étalemment \fg{} des données. 
+Une série statistique avec une grande variance aura des données plus éloignées de sa moyenne.
+\end{rmq}
+
+\begin{defn}[Covariance]
+La covariance d'une série statistique à deux variables $(x,y)$ prenant les valeurs $\bigpar{(x_1; y_1), (x_2; y_2), \dots, (x_n;y_n)}$ 
+est la valeur :
+\[ \cov{x} = \dfrac{(x_1-\bar{x})(y_1-\bar{y}) + (x_2-\bar{x})(y_2-\bar{y}) + \dots + (x_n-\bar{x})(y_n-\bar{y})}{n} . \]
+La covariance caractérise les variations simultanées des deux variables. C'est un indicateur de \textbf{dispersion}.
+\end{defn}
+
+\section{Ajustement affine}
+
+\begin{defn}[Ajustement affine]
+On considère une série statistique à deux variables $(x,y)$ prenant les valeurs $\bigpar{(x_1; y_1), (x_2; y_2), \dots, (x_n;y_n)}$.
+Réaliser un ajustement affine consiste à déterminer une droite approchant au mieux le nuage de points de la série statistiques.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[xlabel={Taille}, ylabel={Poids}]
+\addplot [color=red, domain=1.50:1.95, mark=none] {-92.76+94.23*\x};
+
+\addplot[teal, only marks]
+table[x=x,y=y] {
+x y label
+1.80 80 a
+1.70 59 a
+1.85 90
+1.57 65 a
+1.50 52 a
+1.63 58 a
+1.74 55 a
+1.73 65 a
+1.78 69 a
+1.90 100 a
+1.59 54 a
+1.71 75 a
+1.82 74 a
+1.84 82 a
+    };
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+\begin{rmq}
+Toute droite du plan peut être paramétrisée par une équation de la forme $y = a \cdot x + b$. Réaliser un ajustement affine consiste
+donc à estimer les paramètres $a$ et $b$.
+\end{rmq}
+
+\begin{thm}[Paramètres d'un ajustement affine]
+On considère une série statistique à deux variables $(x,y)$ prenant les valeurs $\bigpar{(x_1; y_1), (x_2; y_2), \dots, (x_n;y_n)}$. \\
+La droite $(\Delta) : y=ax + b$ réalisant le meilleur ajustement affine est paramétrisée par :
+\[ a = \dfrac{\cov(x,y)}{\var(x)} \et b = \bar{y} - a \bar{x} . \]
+\end{thm}
+
+\begin{rmq}
+La méthode permettant d'obtenir cette droite s'appelle \og \textbf{la méthode des moindres carrés} \fg. 
+Dans les faits, le calcul de ces paramètres est entièrement informatisé. 
+\end{rmq}
+
+\begin{prop}[Ajustement affine et prévision]
+On considère une série statistique à deux variables $(x,y)$ et la droite $(\Delta) : y=ax + b$ réalisant le meilleur ajustement affine
+pour cette série. Grâce à cette droite, on peut estimer la valeur la plus probable prise par la variable $y$ pour une valeur de la variable
+$x$ non observée.
+\end{prop}
+
+\begin{ex}
+Dans l'ajustement affine précédent, on a trouvé que la droite $(\Delta) : 94.23 x - 92.76$ réalise le meilleur ajustement affine (pour les
+données observées) entre la taille $x$ et le poids $y$ des habitants du village. On peut ainsi estimer le poids d'un habitant mesurant 
+2 mètres :
+\[ y \approx 94,23 \times 2 - 92,76 \approx 95,7 \text{ kg} . \]
+\end{ex}
+
 \end{document}
