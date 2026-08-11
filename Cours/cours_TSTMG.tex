@@ -1063,4 +1063,358 @@ données observées) entre la taille $x$ et le poids $y$ des habitants du villag
 \[ y \approx 94,23 \times 2 - 92,76 \approx 95,7 \text{ kg} . \]
 \end{ex}
 
+\chapter{Probabilités conditionnelles}
+
+Dans ce chapitre, on étudie des expériences aléatoires, c'est-à-dire des expériences dont on ne peut prédire certainement le résultat.
+On appellera \og univers des possibles \fg{} ou plus simplement \og univers \fg{} l'ensemble des résultats possibles d'une expérience 
+aléatoire. On note $\Omega$ l'univers. \\
+
+Un évènement est un sous-ensemble de $\Omega$, c'est-à-dire un \og regroupement \fg{} de résultats possibles de l'expérience aléatoire.
+Par exemple, si on considère l'expérience alétoire \og tirer une carte d'un jeu de 52 cartes \fg{} un évènement possible est \og tirer un as 
+\fg{} qui est l'ensemble consistué des quatre résultats \og tirer un as de pique, de coeur, de trèfle, de carreau \fg.
+
+\section{Conditionnement d'un évènement}
+
+\begin{defn}[Evènement contraire]
+Soit $A$ un évènement quelconque. On appelle \textbf{évènement contraire} de $A$, que l'on note $\widebar{A}$, 
+le complémentaire de $A$ dans l'univers des possibles. Ainsi, $\widebar{A}$ est réalisé par tous les résultats ne réalisant pas $A$. 
+\end{defn}
+
+\begin{ex}
+On considère l'expérience aléatoire \og lancer d'un dé à 6 faces \fg. L'évènement contraire de l'évènement \og obtenir un résultat par \fg{} est l'évènement \og obtenir un un résultat impair \fg{} c'est-à-dire 1, 3 ou 5.
+\end{ex}
+
+\begin{prop}[Probabilité de l'évènement contraire]
+La probabilité de l'évènement contraire de $A$ est donnée par :
+\[ P(\widebar{A}) = 1 - P(A) . \]
+\end{prop}
+
+\begin{defn}[Evènemment conditionnel]
+Soient $A, B$ deux événements. L'\textbf{événement conditionnel} « $A$ sachant $B$ », aussi noté $A|B$
+	correspond à l'événement associé à $A$ dans le nouvel univers où on sait que $B$ se réalise.
+\end{defn}
+
+\begin{defn}[Probabilité conditionnelle]
+	Soit $A$ et $B$ deux évènements de l'univers, $B$ étant de probabilité non nulle. La probabilité que l'évènement $A$ soit réalisé
+	sachant que l'évènement $B$ est réalisé est appelée \textbf{probabilité conditionnelle de $A$ sachant $B$} et est donnée par :
+		\[ P_B(A) = P(A \sct B) = \dfrac{P(A \cap B)}{P(B)}. \]
+\end{defn}
+
+\begin{prop}[élémentaires]
+Soient deux évènement $A$ et $B$ tels que $P(B) \neq 0$, alors :
+\begin{enumerate}[(i)]
+\item $0 \leq P_B(A) \leq 1$ ;
+\item $P_B(A) + P_B(\widebar{A}) = 1$ ;
+\item $P(A \cap B) = P(B) \cdot P_B(A)$ .
+\end{enumerate}
+\end{prop}
+
+\begin{thm}[de Bayes]
+Soient $A, B$ deux événements de probabilités non nulles. Alors
+\[ P_B(A) = \dfrac{P(A)}{P(B)} \times P_A(B). \]
+\end{thm}
+
+\section{Evènements indépendants}
+
+\begin{defn}[indépencance]
+Soient $A$ et $B$ deux évènements de l'univers. On dit que $A$ est indépendant de $B$ si :
+\[ P_B(A) = P(A) . \]
+Autrement dit, la réalisation de $A$ n'est pas dépendante de la réalisation de $B$.
+\end{defn}
+
+\begin{rmq}
+Dans le cas particulier où $P(A) = 0$ ou $P(B)=0$, alors les évènements $A$ et $B$ sont dits indépendants.
+\end{rmq}
+
+\begin{prop}[Symétrie de l'indépendance]
+L'évènement $A$ est indépendant de l'évènement $B$ si, et seulement si, $B$ est indépendant de $A$.
+\end{prop}
+
+\begin{proof}
+Comme $P(A \cap B) = P(B) \cdot P_B(A)$ on déduit que $P(A \cap B) = P(B) \cdot P(A)$, autrement dit $\dfrac{P(A \cap B)}{P(A)} = P(B)$,
+c'est-à-dire $P_A(B) = P(B)$, ce qui signifie que l'évèvement $B$ est indépendant de $A$.
+\end{proof}
+
+\begin{prop}[Caractérisation de l'indépendance]
+Soient $A$ et $B$ deux évènements de probabilités non nulles. Les propositions suivantes sont équivalentes :
+\begin{enumerate}[(i)]
+\item Les évènements $A$ et $B$ sont indépendants ;
+\item $P_A(B) = P(B)$ ;
+\item $P_B(A) = P(A)$ ;
+\item $P(A \cap B) = P(A) \cdot P(B)$.
+\end{enumerate}
+\end{prop}
+
+\section{Formule des probabilités totales}
+
+\begin{defn}[Partition]
+Des événements $E_1, E_2, E_3, \dots$ forment une \textbf{partition} de l'univers $\Omega$ dès que
+	\begin{enumerate}
+		\item ils recouvrent $\Omega$ : $E_1 \cup E_2 \cup E_3 \cup \cdots = \Omega$ ; et
+		\item ils sont deux à deux disjoints : $E_i \cap E_j = \emptyset$.
+	\end{enumerate}
+\end{defn}
+
+\begin{thm}[formule des probabilités totales]
+Si $E_1, E_2, \dots E_n$ partitionnent l'univers $\Omega$, alors
+	\[ P(A) = P(A\cap E_1) + P(A\cap E_2 ) + P(A\cap E_3) + \cdots P(A \cap E_n). \]
+En particulier, pour deux évènements $A$ et $B$ :
+\[ P(A) = P(A \cap B) + P(A \cap \widebar{B}) . \]
+\end{thm}
+
+\section{Arbres pondérés}
+
+\begin{defn}[arbre pondéré]
+Pour représenter une situation de conditionnement, on peut utiliser un arbre pondéré comme ici dans le cas de l'évènement $A$
+conditionné par l'évènement $B$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\node {}[grow=right, level distance=4cm, sibling distance=2cm]
+	child {node {\small $\widebar{B}$}[level distance=4cm, sibling distance=1cm]
+		child {node{\small $\widebar{A}$}
+			edge from parent node[below] {\small $P_B(\widebar{A})$}
+		}
+		child {node{\small $A$}
+			edge from parent node[above] {\small $P_B(A)$}
+		}
+		edge from parent node[below] {\small $P(\widebar{B})$}
+	}
+	child {node {\small $B$}[level distance=4cm, sibling distance=1cm]
+		child {node{\small $\widebar{A}$}
+			edge from parent node[below] {\small $P_B(\widebar{A})$}
+		}
+		child {node{\small $A$}
+			edge from parent node[above] {\small $P_B(A)$}
+		}
+		edge from parent node[above] {\small $P(B)$}
+	}
+;
+\end{tikzpicture}
+\end{center}
+\end{defn}
+
+\begin{prop}
+Dans un arbre pondéré  :
+\begin{enumerate}[(i)]
+\item la somme des probabilités inscrites sur les \textbf{branches issues d'un même noeud} est égale à 1 ;
+\item la probabilité d'un chemin est le \textbf{produit} des probabilités rencontrées le long de ce chemin.
+\end{enumerate}
+\end{prop}
+
+\chapter{Variables aléatoires}
+
+Dans toute la suite, $\Omega$ est un univers fini, et $P$ est une loi de probabilité. $\omega$ correspond à un élément de $\Omega$.
+
+\section{Introduction}
+
+\begin{defn}[variable aléatoire]
+	Considérons une fonction réelle $f$ sur $\Omega$.
+	On appelle $f$ une \emph{variable aléatoire} et on pose
+		\begin{align*}
+			P\bigl( f = k \bigr) & = P\bigl( \bigset{ \omega \in \Omega \tq f(\omega)=k}\bigr), \\
+								& = \sum_{\omega \in \Omega \tq f(\omega)=k} P(\omega).
+		\end{align*}
+\end{defn}
+
+\begin{nota}
+	On note habituellement une variable aléatoire par la lettre $X$, et on décrit la fonction par des mots.
+\end{nota}
+
+\begin{thm}[Probabilité d'une union]
+	Soit $X$ une variable aléatoire et $x \neq y$ deux réels distincts.
+	Alors 
+		\[ P\bigl( X = x \cup X = y \bigr) = P\bigl( X = x) + P\bigl(X = y \bigr). \]
+\end{thm}
+
+\begin{defn}[Somme de variables aléatoires]
+	Soient $X, Y$ deux variables aléatoires, et $c\in\R$ un réel quelconque.
+	On définit la somme $X+Y$ comme étant la fonction $(X+Y)(\omega) = X(\omega) + Y(\omega)$.
+	On définit le produit $cX$ comme étant la fonction $(cX)(\omega) = c X(\omega)$.
+\end{defn}
+
+\begin{rmq}
+	Les manipulations algébriques usuelles restents valides.
+	Par exemple, $P(X = 1) \iff P(2X = 2) \iff P(2X + Y = 2 + Y)$.
+\end{rmq}
+
+\section{Espérance}
+
+\begin{defn}[espérance]
+	Soit $X$ une variable aléatoire prenant ses valeurs dans un ensemble $S \subseteq\R$.
+	Alors on pose
+		\[ E(X) := \sum_{x\in S} x P(X=x). \]
+\end{defn}
+
+\begin{rmq}
+	On a également
+		\[ E(X) = \sum_{\omega\in\Omega} X(\omega) P(\omega). \]
+\end{rmq}
+
+\begin{thm}[linéarité de l'espérance]
+	Soient $X, Y$ deux variables aléatoires et $c\in\R$ un réel quelconque.
+	Alors
+		\begin{align*}
+			E(cX) = c E(X) && \et && E(X+Y) = E(X) + E(Y).
+		\end{align*}
+\end{thm}
+
+\section{Loi de Bernoulli, loi binomiale}
+
+Considérons une expérience aléatoire quelconque ayant deux issue : succès ou échec.
+Notons $p\in[0,1]$ la probabilité de succès.
+
+\begin{nomen}
+	On appelle \emph{indicatrice} d'un ensemble une variable qui vaut 1 sur cet ensemble, et 0 en dehors.
+\end{nomen}
+
+On pose $X$ la variable aléatoire indicatrice de succès :
+	\[ X = \begin{cases*} 1 & si succès, \\ 0 & sinon. \end{cases*}. \]
+Ainsi $P(X=1) = p$ et $P(X=0) = 1-p$.
+
+\begin{defn}[loi de Bernouilli]
+	On dit d'une variable aléatoire $X$ qu'elle suit la loi de Bernoulli\footnotemark de paramètre $p\in[0,1]$ dès que
+		\begin{align*}
+			P(X = 1) = p, && \et && P(X=0) = 1-p.
+		\end{align*}
+\end{defn}
+
+\begin{nota}
+	On note alors $X \sim \Bern(p)$.
+\end{nota}
+
+\begin{defn}[Indépendance]
+	On dit que deux variables aléatoires $X_1, X_2$ sont indépendantes dès que :
+		\[ P(X_1 = x_1 \cap X_2 = x_2) = P(X_1 = x_1) \cdot P(X_2 = x_2). \]
+	La probabilité de l'intersection est le produit des probabilités.
+\end{defn}
+
+\begin{defn}[Variables i.i.d.]
+	Soient $X_1, \dots, X_n$ des variables aléatoires.
+	Dès que
+	\begin{enumerate}[(i)]
+		\item les $X_i$ sont indépendantes, et
+		\item les $X_i$ suivent la même loi $L$, alors
+	\end{enumerate}
+	on dit que les $X_i$ sont \emph{indépendantes} et \emph{identitiquement distribuées} (abrégé en \og i.i.d. \fg).
+\end{defn}
+
+\begin{nota}
+	On note alors $X_i \overset{\mathrm{iid}}{\sim} L$.
+\end{nota}
+
+\begin{defn}[loi Binomiale]
+	On dit que la variable aléatoire $S$ suit la loi binomiale de paramètres $n$ et $p$ dès que
+		\[ S = X_1 + \cdots + X_n, \]
+	où $X_1, \dots, X_n \overset{\mathrm{iid}}{\sim} \Bern(p)$.
+\end{defn}
+
+\begin{nota}
+	On note alors $S \sim \Binom(n,p)$.
+\end{nota}
+
+\section{Coefficient binomial et loi Binomiale}
+
+\begin{defn}[Factoriel]
+Soit $n \in \N$ un entier, on appelle \og $n$ factoriel \fg{} et on note $n!$ le produit :
+\[ n! = n(n-1) \cdot 2 \cdot 1 . \]
+\end{defn}
+
+\begin{defn}[Coefficient binomial]
+Soient $n, k \in \N$ deux entiers avec $k \leq n$. 
+Le coefficient binomial $\binom{n}{k}$ représente le nombre de combinaisons uniques de $k$ éléments choisis parmi $n$ éléments.
+On a :
+\[ \binom{n}{k} = \dfrac{n!}{k!(n-k)!} . \]
+\end{defn}
+
+\begin{ex}
+On considère 3 répétions d'une expérience à deux issues : succès $S$ (probabilité $p$) ou échec $\overline{S}$. 
+L'arbre de probabilité correspond est donné ci-dessous :
+\begin{center}
+\begin{tikzpicture}[
+  grow=right,
+  level 1/.style={level distance=3cm, sibling distance=4cm},
+  level 2/.style={level distance=3cm, sibling distance=2cm},
+  level 3/.style={level distance=3cm, sibling distance=1cm}
+]
+
+\node {}
+	child {
+		node {\small $\widebar{S}$}
+		child {
+			node {\small $\widebar{S}$}
+				child { 
+					node {\small $\widebar{S}$} 
+					edge from parent node[below] {\small $1-p$} 
+				}
+				child { 
+					node {\small $S$} 
+					edge from parent node[above] {\small $p$} 
+				}
+			edge from parent node[below] {\small $1-p$}
+		}
+		child {
+			node {\small $S$}
+				child { 
+					node {\small $\widebar{S}$} 
+					edge from parent node[below] {\small $1-p$} 
+				}
+				child { 
+					node {\small $S$} 
+					edge from parent node[above] {\small $p$} 
+				}
+			edge from parent node[above] {\small $p$}
+		}
+		edge from parent node[left] {\small $1-p$}
+	}
+	child {
+		node {\small $S$}
+		child {
+			node {\small $\widebar{S}$}
+				child { 
+					node {\small $\widebar{S}$} 
+					edge from parent node[below] {\small $1-p$} 
+				}
+				child { 
+					node {\small $S$} 
+					edge from parent node[above] {\small $p$} 
+				}
+			edge from parent node[below] {\small $1-p$}
+		}
+		child {
+			node {\small $S$}
+				child { 
+					node {\small $\widebar{S}$} 
+					edge from parent node[below] {\small $1-p$} 
+				}
+				child { 
+					node {\small $S$} 
+					edge from parent node[above] {\small $p$} 
+				}
+			edge from parent node[above] {\small $p$}
+		}
+		edge from parent node[left] {\small $p$}
+	};
+\end{tikzpicture}
+\end{center}
+
+On peut se représenter un chemin sur l'arbre comme un choix, à chaque répétion, entre succès et échec.
+Ainsi, après les trois répétitions de l'expérience il y a $\binom{3}{0}$ chemins comportant 0 succès, 
+$\binom{3}{1}$ chemins comportant 1 succès, etc.
+\end{ex}
+
+\begin{prop}
+Soient $n, k \in \N$ deux entiers avec $k \leq n$, on a :
+\begin{enumerate}[(i)]
+\item $\binom{n}{0} = \binom{n}{n} = 1$ ;
+\item $\binom{n}{1} = \binom{n}{n-1} = n$ ;
+\item (Formule de Pascal) : $\binom{n}{k} = \binom{n-1}{k-1}+\binom{n-1}{k}$.
+\end{enumerate}
+\end{prop}
+
+\begin{thm}[calcul direct pour une loi binomiale]
+Soit $X$ une variable aléatoire suivant une loi binomiale de paramètres $n$ et $p$. On a alors, pour $k \in \set{1, \dots, n}$ :
+\[ P(X=k) = \binom{n}{k}p^k(1-p)^{n-k} . \]
+\end{thm}
+
 \end{document}

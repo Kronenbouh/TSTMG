@@ -20,7 +20,7 @@ Donner les fonctions dérivées des fonctions suivantes sur $\Ret$ :
 \begin{enumerate}
 \item $x \mapsto \frac7{x} + 3x$
 \item $x \mapsto 4x^2 - 2x - \frac3{x}$
-\item $x \mapsto \frac32 \times \frac1{x} + x$
+\item $x \mapsto \frac3{2x} + x$
 \item$x \mapsto 8x^3 - 7x^2 + 6x -2 - \frac{12}{x}$
 \end{enumerate}
 \end{multicols}
@@ -58,7 +58,7 @@ Etudier les variations des fonctions suivantes sur $\Ret$ :
 }
 
 \exe{}{
-On considère la fonction $f$ définie sur $\R$ par $f(x) = x^3 - \frac92 x^2 +2x +15$.
+On considère la fonction $f$ définie sur $\R$ par $f(x) = x^3 - \frac92 x^2 +6x +15$.
 \begin{enumerate}
 \item Déterminer la fonction dérivée de $f$ sur $\R$.
 \item Montrer que l'on peut écrire :
@@ -66,10 +66,37 @@ On considère la fonction $f$ définie sur $\R$ par $f(x) = x^3 - \frac92 x^2 +2
 \item En déduire les valeurs $x$ pour lesquels $f'(x)=0$.
 \item Dresser le tableau de variation de $f$ sur $\R$.
 \end{enumerate}
-\textit{On rappelle que $a^2-b^2=(a-b)(a+b)$}.
 }{exe:4}{
 
 }
+
+\exe{}{
+On considère la fonction $f$ définie sur $\R$ par $f(x) = \frac13 x^3 +\frac12 x^2 -2x +7$.
+\begin{enumerate}
+\item Déterminer la fonction dérivée de $f$ sur $\R$.
+\item Montrer que l'on peut écrire :
+\[ f'(x) = (x+2)(x-1) \]
+\item En déduire les valeurs $x$ pour lesquels $f'(x)=0$.
+\item Dresser le tableau de variation de $f$ sur $\R$.
+\end{enumerate}
+}{exe:5}{
+
+}
+
+\exe{}{
+On considère la fonction $f$ définie sur $\R$ par $f(x) = \frac23 x^3 + 3 x^2 +4x +3$.
+\begin{enumerate}
+\item Déterminer la fonction dérivée de $f$ sur $\R$.
+\item Montrer que l'on peut écrire :
+\[ f'(x) = 2(x+1)(x+2) \]
+\item En déduire les valeurs $x$ pour lesquels $f'(x)=0$.
+\item Dresser le tableau de variation de $f$ sur $\R$.
+\end{enumerate}
+}{exe:6}{
+
+}
+
+\newpage
 
 \exe{, difficulty=1}{
 On considère la fonction $g$ définie sur $\Ret$ par $g(x) = 5x - 3 + \frac{20}{x}$.
@@ -81,7 +108,7 @@ On considère la fonction $g$ définie sur $\Ret$ par $g(x) = 5x - 3 + \frac{20}
 \item Etudier les limites éventuelles de $g$ sur son ensemble de définition.
 \item Dresser le tableau de variation de $g$ sur $\Ret$.
 \end{enumerate}
-}{exe:5}{
+}{exe:7}{
 
 }
 
@@ -94,7 +121,7 @@ On considère la fonction $g$ définie sur $\Ret$ par $g(x) = 3x - 62 + \frac{48
 \item Etudier les limites éventuelles de $g$ sur son ensemble de définition.
 \item Dresser le tableau de variation de $g$ sur $\Ret$.
 \end{enumerate}
-}{exe:6}{
+}{exe:8}{
 
 }
 
@@ -105,10 +132,10 @@ Une entreprise produit des automates industriels. Elle décide d'estimer leur va
 \item La valeur du robot est ensuite fixée en calculant le quotient $\frac{100~000}{x}$.
 \end{enumerate}
 \begin{enumerate}
-\item La valeur du robot décroît-elle en fonction de nombres d'erreurs commises ? Justifier.
+\item La valeur des automates décroît-elle en fonction de nombres d'erreurs commises ? Justifier.
 \item Existe-t-il un cas pour lequel cette méthode est problématique ? Justifier.
 \end{enumerate}
-}{exe:7}{
+}{exe:9}{
 
 }
 
@@ -116,17 +143,39 @@ Une entreprise produit des automates industriels. Elle décide d'estimer leur va
 Une enreprise désire commercialiser un produit.
 Elle se fixe un objectif de résultat net de 200 000 \euro.~
 Le coût de production d'un produit est de 5 \euro~ par unité.
-Les coûts de production fixes sont de 48 000 \euro.
+Les coûts de production fixes sont de 78 000 \euro.
 \begin{enumerate}
 \item Démontrer que le coût de production de $x$ objets est donné par la formule $c(x) = 78~000 + 5x$.
 \item Démontrer que le prix de vente unitaire $p(x)$ minimal pour atteindre l'objectif de résultat est donné par :
-\[ p(x) = \frac{122~000}{x} + 5 . \]
+\[ p(x) = \frac{278~000}{x} + 5 . \]
 Ce prix dépend-il du nombre de produits que l'entreprise pense pouvoir vendre ?
 \item On suppose que l'enteprise vend 20 000 produits. Quel est le prix de vente unitaire minimal pour atteindre l'objectif de résultat ?
 \item On suppose que l'entreprise dispose d'un marché illimité (elle peut vendre autant de produits qu'elle le souhaite).
 Quel est le prix de vente unitaire minimal pour atteindre l'objectif de résultat ?
 \end{enumerate}
-}{exe:8}{
+}{exe:10}{
+
+}
+
+\newpage
+
+\exe{, difficulty=2}{
+Une entreprise produit des croquettes pour un coût à la tonne exprimé par :
+\[ c_T(x) = \frac12 x^3 - 4x^2 + 20x + 72 \quad \text{avec $x$ le nombre de tonnes.} \]
+L'entreprise peut produire, \textbf{au maximum, 11 tonnes} de croquettes.
+\begin{enumerate}
+\item Montrer que le coût moyen pour $x \neq 0$ tonnes correspond à 
+\[ c_M(x) = \frac{c_T(x)}{x} = \frac12 x^2 - 4x + 20 + \frac{72}{x}. \]
+\item Montrer que $c'_M(x) = \dfrac{(x-6)(x^2+2x+12)}{x^2}$.
+\item En déduire le tableau de variation de $c_M(x)$ et le coût moyen minimal.
+\item L'entreprise vend ses croquettes 37,5 k\euro~la tonne. 
+On note $B(x)$ le bénfice réalisé pour une production de $x$ tonnes. 
+Montrer que 
+\[ B(x) = -\frac12 x^3+4x^2 +17,5 x -72. \]
+\item Montrer que $B'(x) = -\frac12(x-7)(3x+5)$.
+\item En déduire le tableau de variation du bénéfice et déterminer le bénéfice maximal.
+\end{enumerate}
+}{exe:11}{
 
 }
 

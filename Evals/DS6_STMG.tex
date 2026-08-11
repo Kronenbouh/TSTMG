@@ -88,7 +88,7 @@ table[x=x,y=y, col sep=comma] {data_DS6a1.csv};
 	& = \bar{y} .
 	\end{align*}
 	Donc la droite $(\Delta)$ passe par $G(\bar{x}, \bar{y})$.
-	\item Pour $x = 150$ on trouve $y \approx 74$.
+	\item Pour $x = 150$ on trouve $y \approx 75$.
 	\item Le chiffre d'affaire est donné par $CA(x) = x \times y \approx x(ax+b)$ avec $a \approx -1,5$ et $b \approx 299,8$.
 	On veut donc maximiser la fonction $CA(x) = -1,5x^2 + 299,8 x$ sur $[0, \infty[$. \\
 	On dérive : $CA'(x) = -3x + 299,8$, la dérivée s'annule pour $x \approx 100$, on peut maintenant dresser le tableau :
@@ -312,25 +312,25 @@ table[x=x,y=y, col sep=comma] {data_DS6b1.csv};
 	& = \bar{y} .
 	\end{align*}
 	Donc la droite $(\Delta)$ passe par $G(\bar{x}, \bar{y})$.
-	\item Pour $x = 140$ on trouve $y \approx 49$.
+	\item Pour $x = 140$ on trouve $y \approx 47$.
 	\item Le chiffre d'affaire est donné par $CA(x) = x \times y \approx x(ax+b)$ avec $a \approx -2,5$ et $b \approx 397,3$.
 	On veut donc maximiser la fonction $CA(x) = -2,5x^2 + 397,3 x$ sur $[0, \infty[$. \\
 	On dérive : $CA'(x) = -5x + 397,3$, la dérivée s'annule pour $x \approx 50$, on peut maintenant dresser le tableau :
 
 	\begin{center}
 		\begin{tikzpicture}
-		   \tkzTabInit{$x$ / 1 , $CA'(x)$ / 1, $CA(x)$ / 1.5}{$0$, $50$, $\infty$}
+		   \tkzTabInit{$x$ / 1 , $CA'(x)$ / 1, $CA(x)$ / 1.5}{$0$, $80$, $\infty$}
 		   \tkzTabLine{, +, z, -,}
 		   \tkzTabVar{-/ , +/, -/ }
 		\end{tikzpicture}
 	\end{center}
 	
-	La fonction atteint donc un maximum pour $x \approx 50$ ce qui correspond à un chiffre d'affaire :
+	La fonction atteint donc un maximum pour $x \approx 80$ ce qui correspond à un chiffre d'affaire :
 	\begin{align*}
-	CA(50) & \approx -2.5 \times (50)^2 + 397,3 \times 50  \\
+	CA(50) & \approx -2.5 \times (80)^2 + 397,3 \times 80  \\
 	& \approx 13~615 \\
 	\end{align*}
-	Soit 13~615 \euro~pour un prix unitaire de 50 \euro.
+	Soit 15~784 \euro~pour un prix unitaire de 80 \euro.
  \end{enumerate}
 }
 
@@ -373,7 +373,7 @@ Le nuage de points correspondant est donné ci-dessous :
         samples=100,
     ]
 \addplot[teal, only marks] 
-table[x=x,y=y, col sep=comma] {data_DS6a2.csv};
+table[x=x,y=y, col sep=comma] {data_DS6b2.csv};
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -386,7 +386,7 @@ Compléter le tableau ci-dessous en arrondissant $x_i$ à $10^{-1}$ près.
 	 \hline
 	 \textbf{$x_i = \log(v_i)$} & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
 	 \hline
-	 \textbf{Efficacité : $y_i$} 40 & 50 & 60 & 70 & 80 & 85 & 90 & 95 \\
+	 \textbf{Efficacité : $y_i$} & 40 & 50 & 60 & 70 & 80 & 85 & 90 & 95 \\
 	 \hline
 	\end{tabular}
  \end{center}

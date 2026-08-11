@@ -1,0 +1,165 @@
+\input{preamble.tex}
+\usepackage{graphicx}
+
+\begin{document}
+
+\reversemarginpar
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°8a : variables aléatoires}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est autorisée.
+	\item 
+	L'exercice \ref{exe:2a} peut être fait partiellement sur la feuille.
+	\item 
+	Toute trace de recherche est prise en compte.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+\includegraphics{code}
+	On lance un dé équilibré à 6 faces. Si le résultat est 1 ou 2, on perd 8 euros. Si le résultat est 3, on gagne 2 euros. 
+	Sinon, on gagne 5 euros. 
+	Posons $X$ la variable aléatoire correspondant au gain du joueur.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$ ?
+		\item
+		Déterminer la loi de $X$.
+		\item
+		Calculer $E(X)$. Le jeu est-il équitable ? Justifier
+	\end{enumerate}
+}{exe:1a}{
+
+}
+
+\exe{8}{
+Compléter le triangle de Pascal donné ci-dessous.
+
+\begin{center}
+\begin{tabular}{>{$}l<{$}|*{8}{c}}
+\multicolumn{1}{l}{$n$} &&&&&&&&\\\cline{1-1} 
+0 &\dots&&&&&&\\
+1 &\dots&\dots&&&&&\\
+2 &\dots&\dots&\dots&&&&\\
+3 &\dots&\dots&\dots&\dots&&&\\
+4 &\dots&\dots&\dots&\dots&\dots&&& \\ 
+5 & \dots & \dots & \dots & \dots & \dots & \dots && \\
+6 & \dots & \dots & \dots & \dots & \dots & \dots & \dots& \\ 
+7 & \dots & \dots & \dots & \dots & \dots & \dots & \dots& \dots \\ \hline
+\multicolumn{1}{l}{} &0&1&2&3&4&5&6&7\\\cline{2-9}
+\multicolumn{1}{l}{} &\multicolumn{8}{c}{$k$}
+\end{tabular}
+\end{center}
+
+Expliquer avec vos mots ou avec des formules pourquoi on observe des symétries dans les lignes de ce triangle.
+
+}{exe:2a}{
+
+}
+
+\exe{6}{
+On considère une variable aléatoire $X$ suivant une loi binomiale de paramètres $\left ( 5 ; 2/5 \right)$. Donner :
+\begin{enumerate}
+\item les valeurs possibles pour $X$ ;
+\item la probabilité associée à chacune de ces valeurs ;
+\item l'espérance de $X$.
+\end{enumerate}
+}{exe:3a}{
+
+}
+
+%%%%%%%%%%%%% SUJET B %%%%%%%%%%%%%%
+\setcounter{Exercise}{0}
+
+\newpage
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{DS n°8b : variables aléatoires}}
+\fancyhead[R]{\today}
+
+\null\vspace{-30pt}
+Nom / Prénom : \\
+
+Consignes particulières : 
+\begin{itemize}[label=$\bullet$]
+	\item 
+	La calculatrice est autorisée.
+	\item 
+	L'exercice \ref{exe:2a} peut être fait partiellement sur la feuille.
+	\item 
+	Toute trace de recherche est prise en compte.
+\end{itemize}
+
+\hrule
+
+\exe{6}{
+	On lance un dé équilibré à 6 faces. Si le résultat est 1 ou 2, on perd 8 euros. Si le résultat est 3, on gagne 1 euros. 
+	Sinon, on gagne 6 euros. 
+	Posons $X$ la variable aléatoire correspondant au gain du joueur.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$ ?
+		\item
+		Déterminer la loi de $X$.
+		\item
+		Calculer $E(X)$. Le jeu est-il équitable ? Justifier
+	\end{enumerate}
+}{exe:1b}{
+
+}
+
+\exe{8}{
+Compléter le triangle de Pascal donné ci-dessous.
+
+\begin{center}
+\begin{tabular}{>{$}l<{$}|*{8}{c}}
+\multicolumn{1}{l}{$n$} &&&&&&&&\\\cline{1-1} 
+0 &\dots&&&&&&\\
+1 &\dots&\dots&&&&&\\
+2 &\dots&\dots&\dots&&&&\\
+3 &\dots&\dots&\dots&\dots&&&\\
+4 &\dots&\dots&\dots&\dots&\dots&&& \\ 
+5 & \dots & \dots & \dots & \dots & \dots & \dots && \\
+6 & \dots & \dots & \dots & \dots & \dots & \dots & \dots& \\ 
+7 & \dots & \dots & \dots & \dots & \dots & \dots & \dots& \dots \\ \hline
+\multicolumn{1}{l}{} &0&1&2&3&4&5&6&7\\\cline{2-9}
+\multicolumn{1}{l}{} &\multicolumn{8}{c}{$k$}
+\end{tabular}
+\end{center}
+
+Expliquer avec vos mots ou avec des formules pourquoi on observe des symétries dans les lignes de ce triangle.
+
+}{exe:2b}{
+
+}
+
+\exe{6}{
+On considère une variable aléatoire $X$ suivant une loi binomiale de paramètres $\left ( 5 ; 2/3 \right)$. Donner :
+\begin{enumerate}
+\item les valeurs possibles pour $X$ ;
+\item la probabilité associée à chacune de ces valeurs ;
+\item l'espérance de $X$.
+\end{enumerate}
+}{exe:3b}{
+
+}
+
+%%%%%%%%%%%%%
+
+%\newpage
+%\fancyhead[C]{\textbf{Solutions}}
+%\shipoutAnswer
+
+
+\end{document}

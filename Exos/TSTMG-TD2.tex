@@ -25,7 +25,12 @@ Expliquer, à l'aide du cours, pourquoi les égalités ci-dessous sont vraies :
 \end{enumerate}
 \end{multicols}
 }{exe:1}{
-
+\begin{enumerate}[label=(\alph*)]
+\item $\log(24)= \log(2^3 \times 3) =  3\log(2) + \log(3)$ selon les propriétés (i) et (ii).
+\item $\log(5) = \log(\frac{35}{7}) = \log(35) - \log(7)$ selon la propriété (iii).
+\item $\log(1024) = \log(2^{10}) = 10 \log(2)$ selon la propriété (ii).
+\item $\log(25) = \log(\frac{500}{20}) = \log(5) - \log(20) + 2\log(10)$ selon les propriétés (i), (ii) et (iii).
+\end{enumerate}
 }
 
 \exe{, difficulty=0}{
@@ -41,7 +46,14 @@ Résoudre les équations et inéquations suivantes :
 \end{enumerate}
 \end{multicols}
 }{exe:2}{
-
+\begin{enumerate}[label=(\alph*)]
+\item $8^x = 123 \equi x = \frac{\log(123)}{\log(8)}$.
+\item $x^{63} = 4~812 \equi x = 4~812^{1/63}$.
+\item $5^x \times 7^x = 28 \equi x = \frac{\log(28)}{\log(5)+\log(7)} = \frac{\log(28)}{\log(35)}$
+\item $12^x < 854 \equi x < \frac{\log(854)}{\log(12)}$ car $\log(12)>0$.
+\item $x^{25} > 28~412 \equi x >28~412^{1/25}$.
+\item $25 < 9^x \leq 89 \equi \frac{\log(25)}{\log(9)} < x \leq \frac{\log(89)}{\log(9)}$ car $\log(9)>0$.
+\end{enumerate}
 }
 
 \exe{, difficulty=1}{ 
@@ -58,7 +70,27 @@ On voudrait représenter les points $(n, u_n)$ dans un repère orthonormé.
 \end{enumerate}
 \textit{Le logarithme ``transforme les multiplications en additions'', il transforme donc les évolutions exponentielles en évolutions linéaires.}
 }{exe:3}{
-
+\begin{enumerate}
+\item $u_0=1, u_1=10, u_2=100, \dots$ la suite croît exponentiellement, on ne pourra pas la représenter sur une feuille de papier ordinaire.
+\item
+\begin{enumerate}
+\item $\log(1)=0, \log(10)=1$ et $\log(10^n)=n$ pour $n \in \N$.
+\item Voir ci-dessous.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  ymode=log,
+  xlabel=n,
+  ylabel=$u_n$,]
+\addplot[blue, very thick, dashed, domain =0:5, samples=6] {10^x} ;
+\addplot table [y=un, x=n]{data2.dat};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item 
+La représentation des points $(n,u_n)$ dans ce repère est linéaire.
+\end{enumerate}
+\end{enumerate}
 }
 
 \exe{, difficulty=2}{ 
@@ -70,7 +102,21 @@ Le cluster de départ est de 9 individus.
 \item Donner le nombre de semaines nécessaires à la contamination de la planète entière (i.e. 7 milliards d'individus).
 \end{enumerate}
 }{exe:4}{
-
+\begin{enumerate}
+\item Une suite géométrique $(u_n)$ de premier terme $u_0=9$ et de raison $q=2,7$.
+\item On cherche $n \in \N$ tel que $u_n \geq 7 \cdot 10^9$. On résoud :
+\begin{align*}
+u_n \geq & 7 \cdot 10^9 \\
+9 \cdot (2,7)^n \geq & 7 \cdot 10^9 \\
+\log(9 \cdot (2,7)^n) \geq & \log(7 \cdot 10^9) \\
+\log(9) + n \log(2,7) \geq & \log(7 \cdot 10^9) \\
+n \log(2,7) \geq & \log(7 \cdot 10^9) - \log(9) \\
+n \geq & \dfrac{\frac{\log(7 \cdot 10^9)}{9}}{\log(2,7)}
+\end{align*}
+On trouve finalement :
+\[ \dfrac{\frac{\log(7 \cdot 10^9)}{9}}{\log(2,7)} \approx 20,6 \]
+Il faut donc environ 21 semaines pour contaminer la planète entière.
+\end{enumerate}
 }
 
 \exe{, difficulty=2}{ 
@@ -84,8 +130,7 @@ En d'autres termes, l'ordre de grandeur d'un nombre donne sa valeur approchée e
 \item Mêmes questions avec le nombre $11^{75}$.
 \end{enumerate}
 }{exe:5}{
-
-
+Exercice de recherche.
 }
 
 \exe{, difficulty=3}{ 
@@ -102,11 +147,11 @@ Sans effectuer de calculs, donner la valeur de $a$ pour laquelle les deux équat
 Pour quelles valeurs de $a$ les solutions de l'équation (1) sont strictement supérieures à celles de l'équation (2) ? Justifier.
 \end{enumerate}
 }{exe:6}{
-
+Exercice de recherche.
 }
 
-%\newpage
-%\fancyhead[C]{\textbf{Solutions}}
-%\shipoutAnswer
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
 
 \end{document}

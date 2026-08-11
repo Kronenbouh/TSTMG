@@ -62,7 +62,39 @@ table[x=x,y=y, col sep=comma] {data_TD5.csv};
  \end{enumerate}
  
 }{exe:1}{
+\begin{enumerate}
+  \item $G(\bar{x}, \bar{y})$ soit $G(69 ; 111,6)$.
+  \item \begin{enumerate}
+	 \item Les points présentent une tendance linéaire.
+	 \item On trouve $a \approx -2,0$ et $b \approx 250,1$.
+	\end{enumerate}
+	\item Par définition, $b = \bar{y} - a \bar{x}$ donc, pour $x = \bar{x}$, l'ordonnée correspondante est 
+	\begin{align*}
+	y & = a \bar{x} + b \\
+	& = a \bar{x} + \bar{y} - a \bar{x} \\
+	& = \bar{y} .
+	\end{align*}
+	Donc la droite $(\Delta)$ passe par $G(\bar{x}, \bar{y})$.
+	\item Pour $x = 70$ on trouve $y \approx 110$.
+	\item Le chiffre d'affaire est donné par $CA(x) = x \times y \approx x(ax+b)$ avec $a \approx -2,0$ et $b \approx 250,1$.
+	On veut donc maximiser la fonction $CA(x) = -2x^2 + 250,1 x$ sur $[0, \infty[$. \\
+	On dérive : $CA'(x) = -4x + 250,1$, la dérivée s'annule pour $x \approx 62,50$, on peut maintenant dresser le tableau :
 
+	\begin{center}
+		\begin{tikzpicture}
+		   \tkzTabInit{$x$ / 1 , $CA'(x)$ / 1, $CA(x)$ / 1.5}{$0$, $62.50$, $\infty$}
+		   \tkzTabLine{, +, z, -,}
+		   \tkzTabVar{-/ , +/, -/ }
+		\end{tikzpicture}
+	\end{center}
+	
+	La fonction atteint donc un maximum pour $x \approx 62,50$ ce qui correspond à un chiffre d'affaire :
+	\begin{align*}
+	CA(62,50) & \approx -2 \times (62,50)^2 + 250 \times 62,50  \\
+	& \approx 7812,5 \\
+	\end{align*}
+	Soit 7812,5 \euro~pour un prix unitaire de 62,50 \euro.
+ \end{enumerate}
 }
 
 \newpage
@@ -134,13 +166,58 @@ sous la forme $y=ax+b$. On arrondira les paramètres à $10^{-2}$ près. Tracer 
 sonore atteinte lors de ce concert (au décibel près).
 \end{enumerate}
 }{exe:2}{
+\begin{enumerate}
+\item Non, les points ne présentent pas de tendance linéaire.
+\item ~\\
+ \begin{center}
+  \begin{tabular}{|l|*8{c|}}
+	 \hline
+	 \textbf{$x_i = \log(p_i)$} & -0,30 & 0 & 0,48 & 0,70 & 0,85 & 1 & 1,11 & 1,20 \\
+	 \hline
+	 \textbf{Intensité : $y_i$} & 88 & 94 & 103 & 108 & 111 & 114 & 116 & 117 \\
+	 \hline
+	\end{tabular}
+ \end{center}
+\item 
 
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}
+    [
+        grid=major,  
+        x=70mm,
+        y=2mm,
+        xtick={-0.1,0,...,1.2},   
+        xmin=-0.4,
+        xmax=1.3,
+        xlabel={\small $x$},
+        axis x line=middle,
+        ytick={80,85,...,120},
+        tick label style={font=\small},
+        ymin=80,
+        ymax=120,
+        ylabel={\small $y$},
+        axis y line=middle,
+        no markers,
+        samples=100,
+    ]
+\addplot[teal, only marks] 
+table[x=x,y=y, col sep=comma] {data_TD5_2_correc.csv};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\item $G(0,63 ; 106,38)$.
+\item On trouve $a \approx 19,83$ et $b \approx 93,96$.
+\item Pour $p_9 = 130$, on a $x_9 = \log(p_9) \approx 2,11$ et en utilisant $y_9 \approx a x_9 + b$ on trouve une intensité sonore de 
+135 décibels.
+\end{enumerate}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\newpage
-%\fancyhead[C]{\textbf{Solutions}}
-%\shipoutAnswer
+\newpage
+\fancyhead[C]{\textbf{Solutions - TD5}}
+\shipoutAnswer
 
 \end{document}

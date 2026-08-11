@@ -1,0 +1,217 @@
+\input{preamble}
+\usepackage{eurosym}
+
+
+\newcommand{\tableaucroise}[4]{
+\begin{tabular}{|c|c|c|c|}
+	\cline{2-4}
+	\multicolumn{1}{c|}{} & #1 \\ \hline
+	#2 \\ \hline
+	#3  \\ \hline
+	#4  \\ \hline
+\end{tabular}
+}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{Terminale STMG}
+\fancyhead[C]{\textbf{TD n°7 : variables aléatoires}}
+\fancyhead[R]{\today}
+
+\exe{}{
+On considère une variable aléatoire $X$ dont la loi de probabilité est donnée dans le tableau ci-dessous :
+\begin{center}
+\begin{tabular}{ | c || c | c | c | c | c |}
+\cline{1-6}
+$x_i$ & 1 & 2 & 3 & 4 & 5 \\ \hline
+$P(X=x_i)$ & 0,1 & 0,2 & 0,4 & 0,25 & 0,05 \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item Calculer $P(X=1) + P(X=2) + P(X=3) + P(X=4) + P(X=5)$.
+\item Est-il possible que $X=6$ ? Expliquer.
+\item Calculer $P(X \leq 3)$.
+\item Calculer l'espérance de la variable aléatoire $X$.
+\end{enumerate}
+}{exe:base}{
+\begin{enumerate}
+\item $P(X=1) + P(X=2) + P(X=3) + P(X=4) + P(X=5) = 1$.
+\item Non car alors, $P(X=6)=0$.
+\item $P(X \leq 3) = P(X=1)+P(X=2)+P(X=3) = 0,7$.
+\item Selon la formule du cours :
+\begin{align*} 
+E(X) & = 1 \times P(X=1) + 2 \times P(X=2) + 3 \times P(X=3) + 4 \times P(X=4) + 5 \times P(X=5) \\
+& = 0,1 + 0,4 + 1,2 + 1 + 0,25 = 2,95
+\end{align*}
+\end{enumerate}
+}
+
+%Volé au Mattuuuuh
+\exe{}{
+	On lance un dé équilibré. Si le résultat est 1, 2 ou 3, on perd 5 euros. Si le résultat est 4 ou 5, on gagne 2 euros. Sinon, on gagne 10 euros. 
+	Posons $X$ la variable aléatoire correspondant au gain	du joueur.
+	\begin{enumerate}
+		\item
+		Quelles sont les valeurs prises par $X$ ?
+		\item
+		Déterminer la loi de $X$.
+		\item
+		Calculer $E(X)$. Le jeu est-il équitable ?
+	\end{enumerate}
+}{exe:rv1}{
+	\begin{enumerate}
+		\item
+		$X \in \set{-5; 2; 10}$.
+		\item
+		\begin{center}
+		\begin{tabular}{ | c || c | c | c |}
+		\cline{1-4}
+		$x_i$ & -5 & 2 & 10 \\ \hline
+		$P(X=x_i)$ & 3/6 & 2/6 & 1/6 \\ \hline
+		\end{tabular}
+		\end{center}
+		\item
+		$E(X) = -5 \times \dfrac36 + 2 \times \dfrac26 + 10 \times \dfrac16 = -\dfrac16$, le jeu n'est pas équitable.
+	\end{enumerate}
+}
+
+\exe{}{
+Un ami vous propose de jouer à pile ou face, seulement vous savez que sa pièce est déséquilibrée : 
+la probabilité d'obtenir pile est égale à $\dfrac49$. \\
+Les régles fixées sont les suivantes : si la pièce tombe sur pile votre ami vous donne 12 \euro{} sinon vous lui donnez 10 \euro.
+On note $X$ la variable aléatoire représentant le montant de votre gain sur un lancer.
+\begin{enumerate}
+\item Quelles valeurs peut prendre la variable aléatoire $X$ ?
+\item Calculer l'espérance de $X$.
+\item Est-ce intéressant pour vous de jouer ? Justifier.
+\end{enumerate}
+}{exe:bernou}{
+	\begin{enumerate}
+		\item
+		$X \in \set{-10 ; 12}$.
+		\item
+		$E(X) = -10 \times \dfrac59 + 12 \times \dfrac49 = -\dfrac29$.
+		\item
+		Le jeu n'est pas équitable.
+	\end{enumerate}
+}
+
+%Manuel 
+\exe{}{
+Deux amis, Jean-Siméon L'angosiet et Sophia, s'entraînent au football. Sophia tire quatre fois de suite.
+On estime qu'elle marque un but avec une probabilité égale à 0,7 et que ses tirs sont indépendants les uns des autres.
+On note $X$ la variable aléatoire comptant le nombre de buts marqués par Sophia.
+\begin{enumerate}
+\item Donner la loi suivie par la variable $X$ ainsi que ses paramètres.
+\item Donner la probabilité d'un chemin conduisant à l'évènement $\set{X = 2}$.
+\item Combien y-a-t-il de tels chemins ?
+\item Calculer $P(X=2)$.
+\end{enumerate}
+}{exe:binom1}{
+\begin{enumerate}
+\item $X \approx \text{Binom}(4;0,7)$.
+\item La probabilité d'un chemin est $0,7^2 \times 0,3^2 \approx 0,0441$.
+\item Il y en a $\binom{4}{2}$ soit 6.
+\item $P(X=2) = \binom{4}{2} 0,7^2 \times 0,3^2 \approx 6 \times 0,0441 \approx 0,2646$.
+\end{enumerate}
+}
+
+\newpage
+
+\exe{}{
+Le triangle de Pascal est un outil permettant de calculer facilement les coefficients binomiaux $\binom{n}{k}$ 
+en s'appuyant sur les propriétés (vue en cours) :
+\[ (i)~:~\binom{n}{0} = \binom{n}{n} = 1 \et (ii)~:~\binom{n}{k} = \binom{n-1}{k-1}+\binom{n-1}{k} . \]
+On organise le triangle sous cette forme :
+\begin{center}
+\begin{tabular}{>{$}l<{$}|*{7}{c}}
+\multicolumn{1}{l}{$n$} &&&&&&&\\\cline{1-1} 
+0 &1&&&&&&\\
+1 &1&1&&&&&\\
+2 &1&2&1&&&&\\
+3 &1&3&3&1&&&\\
+4 &1&3+1&3+3&3+1&1&& \\ 
+5 & \dots & \dots & \dots & \dots & \dots & \dots & \\
+6 & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ \hline
+\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
+\multicolumn{1}{l}{} &\multicolumn{7}{c}{$k$}
+\end{tabular}
+\end{center}
+
+Pour obtenir une nouvelle ligne, on complète les deux colonnes aux extrémités par des 1 (c'est ce que dit la propriété (i)), 
+puis on complète la colonne n°$k$ en sommant les valeurs des colonnes $k$ et $k-1$ de la ligne précédente 
+(c'est ce que dit la propriété (ii)). \\
+
+\begin{enumerate}
+\item En vous appuyant sur cette procédure, compléter les lignes 5 et 6 du triangle de Pascal.
+\item Sans faire plus de calcul, donner $\binom{6}{4}$.
+\item Remarquez-vous des symétries dans les lignes de ce triangle ? Comment les expliquer ?
+\end{enumerate}
+}{exe:pascal}{
+
+\begin{enumerate}
+\item
+\begin{center}
+\begin{tabular}{>{$}l<{$}|*{7}{c}}
+\multicolumn{1}{l}{$n$} &&&&&&&\\\cline{1-1} 
+0 &1&&&&&&\\
+1 &1&1&&&&&\\
+2 &1&2&1&&&&\\
+3 &1&3&3&1&&&\\
+4 &1&4&6&4&1&& \\ 
+5 & 1 & 5 & 10 & 10 & 5 & 1 & \\
+6 & 1 & 6 & 15 & 20 & 15 & 6 & 1 \\ \hline
+\multicolumn{1}{l}{} &0&1&2&3&4&5&6\\\cline{2-8}
+\multicolumn{1}{l}{} &\multicolumn{7}{c}{$k$}
+\end{tabular}
+\end{center}
+\item On lit dans le tableau $\binom{6}{4} = 15$.
+\item Oui des symétries par rapport au coefficients centerales qui sont dues à la formule :
+\[ \binom{n}{k} = \dfrac{n!}{k!(n-k)!} = \dfrac{n!}{(n-k)!k!} = \binom{n}{n-k} . \] 
+\end{enumerate}
+}
+
+\exe{}{
+On considère une variable aléatoire $X$ suivant une loi binomiale de paramètres $\left ( 6 ; 3/5 \right)$. Donner :
+\begin{enumerate}
+\item les valeurs possibles pour $X$ ;
+\item la probabilité associée à chacune de ces valeurs ;
+\item l'espérance de $X$.
+\end{enumerate}
+}{exe:binom2}{
+\begin{enumerate}
+\item $X$ prend les valeurs de 0 à 6.
+\item On a 
+\begin{align*}
+P(X=0) & = \binom{6}{0} \left ( \dfrac35 \right)^0 \left ( \dfrac25 \right)^6 \approx 0,0041 \\
+P(X=1) & = \binom{6}{1} \left ( \dfrac35 \right)^1 \left ( \dfrac25 \right)^5 \approx 0,037 \\
+P(X=2) & = \binom{6}{2} \left ( \dfrac35 \right)^2 \left ( \dfrac25 \right)^4 \approx 0,14 \\
+\dots \\
+P(X=6) & = \binom{6}{6} \left ( \dfrac35 \right)^6 \left ( \dfrac25 \right)^0 \approx 0,047
+\end{align*}
+\item On calcul :
+\[ E(X) = 0 \times P(X=0) + 1 \times P(X=1) + 2 \times P(X=2) + 3 \times P(X=3) + 4 \times P(X=4) + 5 \times P(X=5) + 6 \times P(X=6) \]
+on trouve : $\dfrac{18}5 \approx 3,6$.
+\end{enumerate}
+}
+
+% volé au même gars
+\exe{}{
+	On pose un pion sur la case inférieure gauche d'un échiquier $4\times4$.
+	On déplace le pion de case en case afin d'atteindre la case supérieure droite.
+	Le pion peut soit se déplacer d'une case vers le haut, soit d'une case vers la droite. Il est donc impossible de faire une boucle.
+	En combien de façons différentes peut-il atteindre la case supérieure droite ?
+	
+}{exe:binom3}{
+Un tel chemin comprend 4 mouvements vers la droite et 4 mouvements vers le haut. 
+Il y a donc 8 mouvements au total et, parmi ces mouvements 4 vers le droite, soit $\binom{8}{4} = 70$ chemins possibles.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\fancyhead[C]{\textbf{Solutions - TD5}}
+\shipoutAnswer
+
+\end{document}

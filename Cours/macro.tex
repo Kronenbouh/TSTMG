@@ -24,8 +24,14 @@
 \newcommand{\bigpar}[1]{\bigl( #1 \bigr)}
 \newcommand{\Bigpar}[1]{\Bigl( #1 \Bigr)}
 
+% Lois
+\newcommand{\Bern}{\text{Bern}}
+\newcommand{\Binom}{\text{Binom}}
+
 %Flemme
 \newcommand{\et}{\quad \text{et} \quad}
+\newcommand{\sct}{\text{ sachant }}
+\newcommand{\tq}{\text{ tel que }}
 
 %Normes
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -39,4 +45,15 @@
 	\begin{Answer}[ref=#3]
 		#4
 	\end{Answer}
+}
+
+% tableau croisé : piquée chez Mathuuuuh
+\newcommand{\tableaucroise}[4]{
+\begin{tabular}{|c|c|c|c|}
+	\cline{2-4}
+	\multicolumn{1}{c|}{} & #1 \\ \hline
+	#2 \\ \hline
+	#3  \\ \hline
+	#4  \\ \hline
+\end{tabular}
 }

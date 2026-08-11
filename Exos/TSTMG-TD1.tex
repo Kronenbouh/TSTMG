@@ -3,6 +3,7 @@
 \usepackage{eurosym}
 \usepackage{varwidth}
 \graphicspath{ {./images/} }
+\usetikzlibrary {datavisualization.formats.functions}
 
 \begin{document}
 
@@ -20,12 +21,23 @@ On considère une suite définie par $u_0=0$ et $u_{n+1}=u_n+2$.
 \item Calculer quelques termes de la suite $(u_n)$, que remarquez-vous ?
 \item Même question en remplaçant la valeur de $u_0$ par 1.
 \end{enumerate}
-}{exe:exo1}
+}{exe:exo1}{
+\begin{enumerate}
+\item Par définition, c'est une suite géométrique (la relation de récurrence est de la forme $u_{n+1}=u_n + r$.
+\item $u_1=2, u_2=4, \dots$ c'est la suite des entiers pairs.
+\item En remplaçant $u_0$ par 1 on obtient la suite des entiers impairs.
+\end{enumerate}
+}
 
 \exe{, difficulty=0}{ 
 On désire découper une tarte en 16 parts égales. Quel est nombre minimal de découpe que l'on doit effectuer ? \\
 Même question si on souhaite découper la tarte en 7 parts égales.
-}{exe:exo2}
+}{exe:exo2}{
+Pour découper la tarte en 16 parts égales, en réorganisant les parts obtenues après chaque découpe, il suffit de quatre découpes.
+Le nombre de parts est une suite géométrique de raison 2. \\
+
+En revanche, pour découper la tarte en 7 parts égales, il faudra 7 découpes. Ou alors, on coupe la tarte en 8 parts égales (avec 3 découpes) et on jette une des parts.
+}
 
 \exe{,difficulty=0}{
 On étudie la suite géométrique de premier terme $u_0=1$ et de raison $q=-1$.
@@ -34,7 +46,12 @@ On étudie la suite géométrique de premier terme $u_0=1$ et de raison $q=-1$.
 \item Donner une règle générale pour calculer $u_n$ (autre que $u_n = u_0 \cdot q^n$).
 \end{enumerate}
 \textit{Une telle suite (qui oscille entre positif et négatif) est dite \textbf{alternée}.}
-}{exe:exo3}
+}{exe:exo3}{
+\begin{enumerate}
+\item $u_1 = -1, u_2 = 1, u_3 = -1, u_4=1 \dots$ la suite alterne entre les valeurs 1 et -1.
+\item $u_n = 1$ si $n$ pair et $u_n=-1$ si $n$ impair.
+\end{enumerate}
+}
 
 \exe{, difficulty=1}{
 On souhaite construire un château de carte selon le modèle ci-dessous.
@@ -60,7 +77,36 @@ On souhaite construire un château de carte selon le modèle ci-dessous.
 \item Calculer le nombre de cartes nécessaire pour construire un château de 10 étages.
 \item On dispose de 1000 cartes. Combien d'étages peut-on construire ?
 \end{enumerate}
-}{exe:exo4}
+}{exe:exo4}{
+\begin{enumerate}
+\item Pour un étage, on utilise deux cartes. Pour 3 étages, on utilise 15 cartes.
+\item
+	\begin{enumerate}
+	\item On place 0 carte à l'horizontal pour construire un seul étage.
+	\item Une carte entre l'étage du haut et celui du milieu. Deux cartes entre celui du milieu et celui du bas.
+	\item Le nombre de cartes placées à l'horizontal suit une suite arithmétique de premier terme $u_0 = 0$ et de raison $r=1$.
+	\end{enumerate}
+\item
+	\begin{enumerate}
+	\item 2 cartes verticales au premier étage, 4 au deuxième et 6 au troisième.
+	\item Le nombre de cartes placées à la verticale suit une suite arithmétique de premier terme $v_0 = 2$ et de raison $r=2$.
+	\end{enumerate}
+\item On note $(u_n)$ la suite donnant le nombre de cartes placées entre l'étage $n$ et l'étage $n+1$. On a $u_n = n$. \\
+On note $(v_n)$ la suite donnant le nombre de cartes placées (verticalement) à l'étage $n+1$ (attention, $v_0$ donne le nombre de cartes placées à l'étage 1). On a $v_n = 2 + 2n = 2(n+1)$. \\
+
+Le nombre total de carte placées à l'horizontal est donné par :
+\[ u_0 + u_1 + \dots + u_9 = \dfrac{10}2 (u_0 + u_9) = \dfrac{10}2 \times 9 = 45. \] 
+Le nombre total de carte placées à la verticale est donné par :
+\[ v_0 + v_1 + \dots + v_9 = \dfrac{11}2 (v_0 + v_9) = \dfrac{11}2 \times 20 = 110. \]
+On utilise donc 155 cartes pour construire 10 étages. 
+\item Le nombre total de cartes pour construire $n$ étages est donné par :
+\[ \sum_{k=0}^{n-1} (u_k + v_k) = \sum_{k=0}^{n-1} u_k + \sum_{k=0}^{n-1} v_k, \]
+soit la somme des $n$ premiers termes de deux suites arithmétiques. En remplaçant par les formules on trouve :
+\[ \dfrac{n}2 (u_0 + u_{n-1} + v_0 + v_{n-1}) = \dfrac{n}2 (n-1 + 2 + 2n) = \dfrac{n(3n+1)}2 . \]
+En simulant numériquement, on trouve qu'il faut 950 cartes pour une tour de 25 étages et 1027 cartes pour une tour de 26 étages. 
+La réponse est donc : \textbf{25 étages au maximum.}
+\end{enumerate}
+}
 
 \exe{, difficulty=0}{ 
 Pour chaque affirmation ci-dessous, dire si elle est vraie ou fausse. Justifier.
@@ -70,7 +116,14 @@ Pour chaque affirmation ci-dessous, dire si elle est vraie ou fausse. Justifier.
 \item Si $(u_n)$ est une suite arithmétique de raison $5$ et de premier terme $u_0 \in \R$ alors $u_{n+10} - u_n = 50$. 
 \item Si $(u_n)$ est une suite arithmétique de raison $10^{-3}$ et de premier terme $u_0=0$, alors pour tout $n \in \N, u_n < 1$.
 \end{enumerate}
-}{exe:exo5}
+}{exe:exo5}{
+\begin{enumerate}
+\item Vraie. $u_0 = 4$ et $u_{n+1} - u_n = 3$ pour tout $n \in \N$, donc, par définition, la suite est bien une suite arithmétique. 
+\item Vraie, c'est bien une suite arithmétique (par définition), son premier terme est simplement $u_1$.
+\item Vraie. En utilisant la prorpiété du cours : $u_{n+10} = u_0 + 5(n+10)$ et $u_n = u_0 + 5n$ donc $u_{n+10}-u_n = 50$. 
+\item Faux, en utilisant la propriété du cours $u_n = 10^{-3} \times n$, pour $n = 10^4$ par exemple, on aura $u_n = 10$.
+\end{enumerate}
+}
 
 \exe{, difficulty=1}{
 \begin{enumerate} 
@@ -79,13 +132,26 @@ Pour chaque affirmation ci-dessous, dire si elle est vraie ou fausse. Justifier.
 	\item La suite $(u_n)$ telle que $u_0=2$ et $u_{50}=27$.
 	\item La suite $(v_n)$ telle que $v_0=20$ et $v_{10}=4$.
 	\end{enumerate}
-\item Même question mais le suites sont maintenant \textbf{géométriques}.
+\item Même question mais les suites sont maintenant \textbf{géométriques}.
 	\begin{enumerate}
 	\item La suite $(u_n)$ telle que $u_5=24$ et $u_6=\dfrac{144}5$.
 	\item La suite $(v_n)$ telle que $v_0=\dfrac73$ et $v_{100}=\dfrac73$.
 	\end{enumerate}
 \end{enumerate}
-}{exe:exo6}
+}{exe:exo6}{
+\begin{enumerate}
+\item
+	\begin{enumerate}
+	\item Comme $u_{50} = u_0 + 50r$ on doit résoudre $27 = 2 + 50r$ soit $r=\dfrac12$.
+	\item Comme $v_{10}=v_0 + 10r$ on doit résoudre $4=20 + 10r$ soit $r=-\dfrac{-16}{10} = -\dfrac85$
+	\end{enumerate}.
+\item 
+	\begin{enumerate}
+	\item Comme $u_{n+1}=u_n \cdot q$ on doit calculer $q=\dfrac{u_6}{u_5} = \dfrac{144}{120} = \dfrac65$.
+	\item Comme $v_{n} = v_0 \cdot q^n$ et qu'ici $v_{100}=v_0$ on en déduit que $q^{100} = 1$ soit $q=\pm 1$.
+	\end{enumerate}
+\end{enumerate}
+}
 
 \exe{, difficulty=2}{
 Milon de Crotone était un athléte de la Grèce antique (né aux alentours de 550 avant Jésus Christ). Un mythe à son propos explique que, pour son entraînement, il décida de soulever un jeune veau tous les jours. Le veau grandissant, la charge soulevée par Milon augmentait progressivement. Lorsque le veau devint adulte, Milon pouvait toujours le soulever, par son entraînement il avait acquis, petit à petit, une force Herculéenne.
@@ -94,7 +160,13 @@ Milon de Crotone était un athléte de la Grèce antique (né aux alentours de 5
 \item Milon s'entraîne ainsi durant une année entière. Quel charge est-il capable de soulever à l'issue de son entraînement ?
 \item Quelle charge cumulée (i.e. la somme des charges journalières) Milon a-t-il soulevé durant cette année d'entraînement ?
 \end{enumerate}
-}{exe:exo7}
+}{exe:exo7}{
+\begin{enumerate}
+\item La croissance du veau peut être modélisée par une suite arithmétique car la bête a un poids initial (le premier terme) et une croissance régulière et additive (1 kg par jour).
+\item Si on note $u_0 = 40$ le poids à la naissance du veau, on a $u_{365} = u_0 + 365 = 405 \text{ kg}$ le poids soulevé par Milon après un an.
+\item Il faut calculer $u_0 + u_1 + \dots + u_{365} = \dfrac{366}2 ( u_0 + u_365) = \dfrac{366}2(40+405) = 81~435 \text{ kg}$.
+\end{enumerate}
+}
 
 \exe{, difficulty=2}{
 Le taux de reproduction du premier variant du SARS-COV-2 était d'environ 3, ce qui signifie qu'une personne contaminée infectait en moyenne 3 nouvelles personnes. On suppose que le cluster souche (l'ensemble des premiers infectés) contenait dix individus.
@@ -103,7 +175,13 @@ Le taux de reproduction du premier variant du SARS-COV-2 était d'environ 3, ce 
 \item On supposera qu'un individu contaminé infecte 3 nouveaux individus en un jour. Proposer une estimation du nombre de contaminés après 100 jours.
 \item On estime la population française à 70 millions d'habitant. En reprenant les hypothèses de la question précédente, estimer le nombre de jours nécessaire à la transmission du virus à l'intégralité de la population.
 \end{enumerate}
-}{exe:exo8}
+}{exe:exo8}{
+\begin{enumerate}
+\item La propagation du virus peut être modélisée par une suite géométrique, en notant $v_n$ le nombre de personnes infectées après $n$ cyles de transmission (les cycles peuvent être des jours), on a $v_{n+1}=3v_n$, car une personne infectée infecte 3 nouvelles personnes et $v_0=10$ (la taille du cluster souche).
+\item On a $v_n = v_0 \cdot q^n = 10 \cdot 3^n$ selon la formule du cours. Ainsi, $v_{100} \approx 5,7 \cdot 10^{47}$, l'univers entier est déjà infecté...
+\item On cherche $n$ tel que $v_n \geq 7 \cdot 10^7$, en simulant numériquement, on trouve $v_15 \approx 14,3 \cdot 10^7 \geq 10^7$. Avec les hypothèses prises dans cet exercice, il suffit de 15 jours pour que la France soit complètement infectée ! Bien sûr, les hypothèses sont assez pessimistes (elles ne tiennent pas compte du temps d'incubation et des mesures barrières par exemple).
+\end{enumerate}
+}
 
 \exe{, difficulty=1}{
 Lors de votre entretien d'embauche, une entreprise vous propose un salaire de départ de 35 000 \euro~ avec deux choix d'évolutions possibles pour ce salaire
@@ -121,7 +199,29 @@ Lors de votre entretien d'embauche, une entreprise vous propose un salaire de d�
 \item Quel choix est, selon vous, le plus avantageux ? Expliquer.
 \item Selon les statistiques de l'OCDE, les français restent en moyenne 11 ans dans une même entreprise. En tenant compte de cette information, quel choix est probablement le plus avantageux ?
 \end{enumerate}
-}{exe:exo9}{}
+}{exe:exo9}{
+\begin{enumerate}
+\item Le choix 1 peut être simulé par une suite géométrique de premier terme $u_0=35~000$ et de raison $q=1,02$, ainsi, à la 20ème année 
+\[ u_20 = 35~000 \cdot (1,02)^20 \approx 52~008 . \]
+Le choix 2 peut être simulé par une suite arithmétique de premier terme $v_0=35~000$ et de raison $r=700$, ainsi, à la 20ème année 
+\[ v_20 = 35~000 + 700 \times 20 = 49~000. \]
+\item Sur le temps long, il semble que le choix 1 soit plus intéressant, cf. graphique ci-dessous :
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  xlabel=années,
+  ylabel=Salaire]
+\addplot table [y=y, x=x]{data1.dat};
+\addlegendentry{Choix 1}
+\addplot table [y=z, x=x]{data1.dat};
+\addlegendentry{Choix 2}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\item Par lecture graphique, le choix 1 est clairement le plus aventageux.
+\end{enumerate}
+}
 
 \exe{, difficulty=3}{
 Supposons qu'une opportunité financière permette de rémunérer un placement de capital à hauteur de $x \%$ (avec $x$ un réel positif).
@@ -166,6 +266,8 @@ On reconnait la somme des $n+1$ premiers termes d'une suite géométrique de pre
 \end{enumerate}
 }
 
-
+\newpage
+\fancyhead[C]{\textbf{Solutions}}
+\shipoutAnswer
 
 \end{document}

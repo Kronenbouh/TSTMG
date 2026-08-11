@@ -1,0 +1,346 @@
+\documentclass[frenchb]{report}
+
+\input{preamble}
+
+\begin{document}
+
+\chapter{Suites numériques}
+
+\section{Définition générale}
+
+Considérons un ensemble $E$ dont on ne précise pas la nature et qui contient un nombre éventuellement infini de points. Si on imagine que cet ensemble est une urne dans laquelle on tire successivement, avec remise, $N$ points, on peut alors construire une famille de points :
+\[ \{x_1, x_2, \dots, x_N \}, \]
+où le point $x_1$ est le premier point tiré, $x_2$ le deuxième, etc., j'usqu'au point $x_N$ (avec $N \geq 1$, éventuellement infini). On dit alors que les points sont \textbf{indexés} par les nombres entiers. \\
+Comme le tirage a été effectué avec remise, il est possible que, pour deux rangs différents $i \neq j$, on ait $x_i = x_j$, c'est-à-dire que le même point soit indexé par deux entiers distincts. \\
+
+\begin{center}
+
+ \begin{tikzpicture}[scale=1.2]
+ 
+ % domaine
+\coordinate (B) at (0,1);
+\coordinate (C) at (.1,.9);
+	
+\node[dot=red, label=above:$3$] at (C){};
+	    	
+\node[ellipse, draw, label=above:$\N$, minimum height=110pt, minimum width=80pt] at (B){};
+	
+% codomaine
+\coordinate (D) at (4,.7);
+\node[dot=red, label=below:$x_3$] at (D){};
+\node[ellipse, draw, label=above:$E$, minimum height=110pt, minimum width=80pt] at (4,1){};
+	
+%maps	
+\draw[thick, ->] (C) -- (3.9,.72);
+\draw[thick, ->] (.6,1.5) -- (4,1.32);
+\draw[thick, ->] (.2,-.1) -- (4,1.18);
+	    	
+% morepoints  	
+%left ones
+\node[dot=black] at (0, 2){};		    	
+\node[dot=black] at (.2,-.1){};
+\node[dot=black] at (.6,1.5){};
+\node[dot=black] at (.75,.75){};
+\node[dot=black] at (-.3,1.4){};
+\node[dot=black] at (-.5,.2){};
+	    
+%rightones
+\node[dot=black] at (4,2){};
+\node[dot=black] at (4.65,.75){};
+\node[dot=black] at (4.1,1.25){};
+\node[dot=black] at (4.6,1.35){};
+\node[dot=black]  at (3.45,.45){};
+\node[dot=black]  at (3.3,1.15){};
+\node[dot=black]  at (4,-0.2){};
+
+\end{tikzpicture}
+
+\textit{Une illustration de l'indexation des éléments de E}
+
+\end{center}
+
+Si, pour l'ensemble $E$, on choisit l'ensemble des nombres réels $\R$ et que l'on applique ce même processus d'indexation, alors on aura définit une suite numérique $(x_n)$ dont l'étude est tout l'objet de ce chapitre.
+
+\begin{defn}
+On appelle \textbf{suite numérique} toute application de $D \subset \N$ dans $\R$, c'est à dire une application de la forme :
+\[ \begin{array}{c c c c}
+u : & \N & \to & \R \\
+& n & \mapsto & u_n
+\end{array} \]
+On notera cette suite $(u_n)_{n \in \N}$ ou parfois simplement $(u_n)$.
+\end{defn}
+
+\begin{nota}
+On fera attention à ne pas confondre l'objet $(u_n)_{n \in \N}$ qui est une application de $\N$ dans $\R$, (c'est-à-dire un objet qui ``transforme'' un index en un nombre réel), avec l'objet $u_n$, qui désigne le nombre réel associé à l'index $n$. \\
+On écrira donc $(u_n)_{n \in \N}$ ou simplement $(u_n)$ (toujours avec des parenthèses) pour désigner \textbf{la suite numérique} et on écrira $u_n$ pour désigner \textbf{le terme de rang $n$}.
+\end{nota} 
+
+\begin{rmq}
+On pourra rencontrer des suites dont le domaine de définition n'est pas $\N$ tout entier mais un sous ensemble de $\N$ (par exemple les entiers non nuls). Ce petit détail ne change néanmoins pas notre propos.
+Dans la suite de ce cours, on considèrera donc des suites dont le premier terme est $u_0$.
+\end{rmq}
+
+\section{Expression d'une suite}
+
+On sait maintenant ce qu'est une suite, mais cette connaissance est entièrement abstraite, \textbf{c'est une application sur $\N$, d'accord, mais que fait-elle exactement ?} Pour répondre à cette question, on doit s'intéresser aux modes de définition d'une suite.
+
+\begin{defn}[Définition explicite]
+On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie de façon explicite lorsque l'on dispose d'une expression fonctionnelle permettant de calculer, pour tout index $n$, le réel $u_n$. En notant $f$ cette expression, on a alors 
+\[ u_n = f(n) \text{ pour tout } n \in \N \]
+\end{defn}
+
+\begin{ex}
+La suite définie sur $\N$ par $u_n = 2n +1$ est définie de façon explicite. On remarquera que $u_0 = 1, u_1 = 3, u_2 = 5$ etc. Cette suite est en fait la suite des nombres impairs.
+\end{ex}
+
+\begin{defn}[Définition par récurrence]
+On dit qu'une suite numérique $(u_n)_{n \in \N}$ est définie par récurrence lorsque sont donnés son premier terme $u_0$ et une relation permettant de calculer le terme de rang $n+1$ à partir du terme de rang $n$. On a alors
+\[ u_0 = x \in \R \qquad u_{n+1} = f(u_n) \]
+\end{defn}
+
+\begin{ex}
+La suite définie sur $\N$ par $u_0=1$ et $u_{n+1} = u_n + 2$ est définie par récurrence. On remarquera que $u_1 = 3, u_2 = 5$ etc. C'est à nouveau la suite des nombres impairs !
+\end{ex}
+
+\section{Suite arithmétique}
+
+\begin{defn}
+On appelle suite arithmétique de raison $r \in \R$ et de premier terme $u_0 \in \R$, une suite définie par la relation de récurrence 
+\[ u_{n+1} = u_n + r .\]
+\end{defn}
+
+\begin{prop}
+Soit $(u_n)$ une suite arithmétique. Lorsqu'on représente les points $(n, u_n)$ pour $n \in \N$ dans un repère orthonormé, ils sont alignés.
+\end{prop}
+
+\begin{ex}
+On considère la suite arithmétique de premier terme $u_0=1$ et de raison $r=2$. La représentation graphique des points $(n, u_n)$ pour $n \in \{ 0, 1, 2, 3 \}$ est donnée ci-dessous :
+\begin{center}
+\begin{tikzpicture}[>=stealth, scale=1]
+	\begin{axis}[xmin = -1, xmax= 5, ymin=-1, ymax=8, axis x line=middle, axis y line=middle, axis line style=<->,
+	xlabel={}, ylabel={}, grid=both, grid style = {opacity=.5}]]
+	\addplot [only marks] table {
+	0 1
+	1 3
+	2 5
+	3 7
+	};
+	\addplot[black, thin, domain =0:3, samples=2] {2*x+1};
+	\end{axis}
+\end{tikzpicture}
+\end{center}
+\end{ex}
+
+\begin{prop}
+On considère une suite arithmétique $(u_n)$ de premier terme $u_0$ et de raison $r$. Alors, l'expression 
+\[ u_n = u_0 + n \cdot r \]
+est une définition explicite de la suite $(u_n)$.
+\end{prop}
+
+\begin{proof}
+On remarque que :
+\begin{align*}
+u_1 & = u_0 + r \\
+u_2 & = u_1 + r = u_0 + 2r  \\
+u_3 & = u_2 + r = u_0 + 2r + r = u_0 + 3r 
+\end{align*}
+Donc, on procédant comme ça, de proche en proche, on déduit que 
+\[ u_n = u_0 + n \cdot r . \]
+\end{proof}
+
+\begin{rmq} On peut donc calculer n'importe quel terme d'une suite arithmétique sans connaissance explicite des termes de rang inférieur (mis à part le premier). Cette proposition parait intuitive lorsqu'on observe la représentation graphique de quelques termes successifs d'une suite arithmétique, comme ils sont alignés, il suffit de connaître deux paramètres (la pente de la droite et sa position pour une abscisse donnée) pour connaître toute la droite. 
+\end{rmq}
+
+\begin{nota}
+On utilise le symbole $\sum$ pour désigner une somme de plusieurs éléments indexés. Par exemple, les termes d'une suite numérique $(u_n)$ sont des nombres réels indexés par $n$. On écrit alors :
+\[ u_0 + u_1 + u_2 + \dots + u_N = \sum_{n=0}^N u_n \]
+pour désigner la somme des termes de rang 0 à $N$ de la suite $(u_n)$.
+\end{nota}
+
+\begin{prop}
+Soit $(u_n)$ une suite arithmétique de raison $r$ et de premier terme $u_0$ et soit $N \in \N$. La somme des $N+1$ premiers termes de la suite $(u_n)_{n \in \N}$ est donnée par la formule 
+\[ S_N = \sum_{n=0}^N u_n = \frac{N+1}{2} \cdot (u_0 + u_N). \]
+\end{prop}
+
+\begin{rmq}
+Attention, on somme bien $N+1$ termes (et non pas $N$) car le premier terme est indexé par 0 !
+\end{rmq}
+
+\begin{proof}
+
+\end{proof}
+
+\section{Suite géométrique}
+
+\begin{defn}
+On appelle suite géométrique de raison $q \in \R$ et de premier terme $u_0 \in \R$, une suite définie par la relation de récurrence 
+\[ u_{n+1} = q \cdot u_n .\]
+\end{defn}
+
+\begin{prop}
+On considère une suite géomérique $(u_n)$ de premier terme $u_0$ et de raison $q$. Alors, l'expression 
+\[ u_n = u_0 \cdot q^n \]
+est une définition explicite de la suite $(u_n)$.
+\end{prop}
+
+\begin{rmq}
+Cette proposition est l'équivalent géométrique de la proposition déjà formulée pour les suites arithmétiques
+\end{rmq}
+
+\begin{prop}
+Soit $(u_n)$ une suite géométrique de raison $q$ et de premier terme $u_0$ et soit $N \in \N$. La somme des $N+1$ premiers termes de la suite $(u_n)_{n \in \N}$ est donnée par la formule 
+\[ S_N = \sum_{n=0}^N u_n = u_0 \cdot \frac{1-q^{n+1}}{1-q}. \]
+\end{prop}
+
+\chapter{Fonctions logarithmes}
+
+\section{Définition}
+
+\begin{defn}[Logarithme décimal]
+Soit $a$ un réel strictement positif. On appelle \textbf{logarithme décimal} de $a$ l'unique solution, dans $\R$, de l'équation 
+\[ 10^x = a . \]
+On note cette solution $\log(a)$.
+\end{defn}
+
+\begin{rmq}
+Autrement dit, $10^{\log(a)} = a$. De plus, la fonction $\log$ est \textbf{définie sur $]0, \infty[$ uniquement.}
+\end{rmq}
+
+\begin{ex}
+Le nombre réel $\log(2)$ est \textbf{le seul} nombre réel vérifiant $10^x = 2$.
+\end{ex}
+
+\begin{defn}[Fonction logarithme décimal]
+On définit la fonction logarithme décimal sur l'intervalle $]0, \infty[$ par :
+\[ \begin{array}{c c c c} \log : & ]0, \infty[ & \to & \R \\ & x & \mapsto & \log(x) \end{array} \]
+La fonction lograithme décimal est donc la fonction qui, a un réel strictement positif, associe le logarithme décimal de ce réel.
+\end{defn}
+
+\begin{rmq}
+Dans la suite de ce cours, on étudiera \textbf{la fonction} logarithme décimal plutôt que \textbf{la valeur} prise ponctuellement par cette fonction en un réel $a >0$ donné.
+\end{rmq}
+
+\begin{rmq}
+On remarque que $10^x = 1 \equi x = 0$ donc $\log(1) = 0$.
+\end{rmq}
+
+\begin{prop}[Continuité]
+La fonction $\log$ est continue sur $]0, \infty[$.
+\end{prop}
+
+\begin{rmq}
+Une conséquence de ce théorème est que la courbe représentative de la fonction $\log$ dans un repère orthonormée est ``lisse'', elle ne présente aucune discontinuité. Cette représentation est donnée ci-dessous :
+	\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=1]
+		\coordinate (OR) at (0.00, 0.00);
+		\coordinate (LX) at (-1.00, 0.00); % left x
+		\coordinate (RX) at (8.00, 0.00); % right x
+		\coordinate (BY) at (0.00, -5.00); % bottom y
+		\coordinate (TY) at (0.00, 3.00); % top y
+		%
+		% axa 0x
+		%
+		\draw[->][line width=1.00pt] (LX) -- (RX);
+		\node[blue] at (7.8,-0.4) {\textbf{\textit{x}}};
+		%
+		% axa 0y
+		%
+		\draw[->][line width=1.00pt] (BY) -- (TY);
+		\filldraw [red] (OR) circle(2pt);
+		\node[red] at (0.2,-0.3) {\textbf{\textit{0}}};
+		\node[right,blue] at (0.2, 2.8) {\textbf{\textit{ln x}}};
+		\draw[blue, line width=1.75pt, domain=0.005:7.00,samples=500] plot[smooth](\x, {ln(\x)});
+	\end{tikzpicture}
+	\end{center}
+\end{rmq}
+
+\section{Propriétés}
+
+\begin{prop}[Sens de variation]
+La fonction $\log$ est strictement croissante sur $]0, \infty[$.
+\end{prop}
+
+\begin{proof}
+Soient $a, b \in ]0, \infty[$ tels que $a< b$. Comme la fonction $x \mapsto 10^x$ est strictement croissante sur $\R$, 
+on a bien $\log(a) < \log(b)$.
+\end{proof}
+
+\begin{coro}
+Pour tous réels $a, b$ strictement positifs
+\begin{enumerate}[(i)]
+\item $\log(a) = \log(b)$ équivaut à $a=b$.
+\item $a < b$ équivaut à $\log(a) < \log(b)$. 
+\item En particulier $0 < a <1 \equi \log(a) < 0$ et $a>1\equi \log(a)>0$.
+\end{enumerate}
+\end{coro}
+
+\begin{prop}[Seuil]
+Soit $K$ un réel strictement positif, on a :
+\[ \log(a) < K \equi a < 10^K. \]
+\end{prop}
+
+\begin{prop}[Propriétés algébriques]
+Soient $a, b$ deux réels strictement positifs et soit $x \in \R$.
+\begin{enumerate}[(i)]
+\item $\log(a \times b) = \log(a) + \log(b)$.
+\item $\log(\frac1{b})= - \log(b)$
+\item $\log \left ( \frac{a}{b} \right ) = \log(a) - \log(b)$.
+\item $\log(a^x)=x \log(a)$
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}[(i)]
+\item On sait que $10^{a+b} = 10^{a} \times 10^b$, on en déduit le résultat.
+\item On sait que $10^{-b} = \dfrac1{10^b}$, on en déduit le résultat.
+\item Conséquence de (i) et (ii).
+\item On démontre le résultat pour $n \in \N$ : 
+\begin{align*}
+\log(a^2) & = \log(a \times a) & = \log(a) + \log(a) = 2 \log(a) \\
+\log(a^3) & = \log(a^2 \times a) & = 2 \log(a) + \log(a) \\
+\dots
+\end{align*}
+En utilisant le point (ii), on étend le résultat à $x \in \Q$. On admet le résultat pour le cas général, $x \in \R$.
+\end{enumerate}
+\end{proof}
+
+\section{Changement de base}
+
+\begin{defn}
+Soit $b$ un réel strictement positif et différent de 1 et $a$ un réel strictement positif. On appelle \textbf{logarithme en base $b$} de $a$ l'unique solution, dans $\R$, de l'équation 
+\[ b^x = a . \]
+On note cette solution $\log_b(a)$.
+\end{defn}
+
+\begin{rmq}
+Avec cette définition, on peut définir la \textbf{fonction} logarithme de base $b$.
+\end{rmq}
+
+\begin{defn}[Fonction logarithme décimal]
+Pour $b>0, b \neq 1$, on définit la fonction logarithme de base $b$ sur l'intervalle $]0, \infty[$ par :
+\[ \begin{array}{c c c c} \log_b : & ]0, \infty[ & \to & \R \\ & x & \mapsto & \log_b(x) \end{array} \]
+\end{defn}
+
+\begin{rmq}
+La fonction logarithme de base $b$ est toujours égale à 1 en sa base :
+\[ \forall b>0, b \neq 1, \log_b(b) = 1. \]
+\end{rmq}
+
+\begin{prop}
+Pour tout $b>0, b \neq 1$, les fonctions $\log$ et $\log_b$ sont proportionnelles. Précisément, on a :
+\[ \log_b(x) = \dfrac{\log(x)}{\log(b)}. \]
+\end{prop}
+
+\begin{coro}
+Pour tout $b>0, b \neq 1$, la fonction logarithme de base $b$ est continue. Elle est de plus :
+\begin{enumerate}[(i)]
+\item croissante si $b > 1$ ;
+\item décroissante si $0<b<1$.
+\end{enumerate}
+\end{coro}
+
+\begin{coro}
+La fonction logarithme de base $b$ vérifie les mêmes propriétés algébriques que la fonction logarithme décimale.
+\end{coro}
+
+\end{document}
